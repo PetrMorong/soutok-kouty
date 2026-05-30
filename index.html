@@ -6,6 +6,8 @@
   <title>Wellness Hotel Soutok Kouty — Designové apartmány v Jeseníkách</title>
   <meta name="description" content="Prémiový aparthotel v srdci Jeseníků. 23 designových apartmánů na prodej, 800 m od skiareálu Kouty. Výnos 6,7 % p.a." />
 
+  <link rel="icon" type="image/svg+xml" href="/images/logo/Soutok_Kouty_Symbol_Light.svg">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -336,8 +338,8 @@
       display: inline-block;
       font-size: .6rem; letter-spacing: .1em; text-transform: uppercase;
       padding: .2rem .6rem;
-      background: rgba(196,163,90,.12); color: var(--gold);
-      border: 1px solid var(--line);
+      background: rgba(74,124,89,.15); color: #4a7c59;
+      border: 1px solid rgba(74,124,89,.3);
     }
     .apt-reserved { opacity: .45; }
     .apt-reserved td { text-decoration: line-through; }
@@ -400,23 +402,33 @@
     .team-role { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-top: .2rem; }
     .team-bio { font-size: .85rem; color: var(--muted); margin-top: 1rem; line-height: 1.7; }
 
+    .team-video { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .team-video-text h3 { font-family: var(--f-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; color: var(--dark); margin: .5rem 0 .75rem; }
+    .team-video-text p { font-size: .88rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
+    .team-video-soon { font-size: .75rem; color: var(--gold); letter-spacing: .08em; text-transform: uppercase; }
+    .team-video-media { max-width: 480px; width: 100%; }
+    .team-video-embed { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+    @media (max-width: 768px) { .team-video { grid-template-columns: 1fr; gap: 2rem; } .team-video-media { max-width: 100%; } }
+
     /* ═══════════════════════════════════════════
        PARTNERS / LOGO BAR
     ═══════════════════════════════════════════ */
-    .partners { background: var(--warm); padding: clamp(2.5rem, 5vw, 4rem) var(--gap); }
+    .partners { background: var(--dark); padding: clamp(3.5rem, 7vw, 6rem) var(--gap); }
     .partners .section-tag { text-align: center; }
     .partners-label { text-align: center; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 2.5rem; }
     .logo-bar {
       display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; gap: 2.5rem 3.5rem;
+      flex-wrap: nowrap; gap: 3rem 5rem;
     }
-    .logo-bar a { display: block; opacity: .45; transition: opacity .2s; }
+    .logo-bar a { display: block; opacity: .6; transition: opacity .2s; }
     .logo-bar a:hover { opacity: 1; }
-    .logo-bar img { height: 28px; filter: grayscale(1); object-fit: contain; }
+    .logo-bar img { height: auto; max-height: 36px; width: auto; filter: brightness(0) invert(1); object-fit: contain; }
+    .logo-bar img[src*="dolenka"] { max-height: 28px; }
+    .logo-bar img[src*="vila_logo"] { width: 100px; }
 
     /* Projekt divider */
     .partners-divider {
-      width: 1px; height: 40px; background: var(--line);
+      width: 1px; height: 40px; background: rgba(255,255,255,.15);
     }
 
     /* ═══════════════════════════════════════════
@@ -611,7 +623,7 @@
     @media (max-width: 600px) {
       .hero-stats { display: grid; grid-template-columns: 1fr 1fr; }
       .partners-divider { display: none; }
-      .logo-bar { gap: 1.5rem 2rem; }
+      .logo-bar { gap: 1.5rem 2rem; flex-wrap: wrap; }
     }
 
     /* ═══════════════════════════════════════════
@@ -686,6 +698,15 @@
     @media (max-width: 900px) { .gallery-grid { columns: 2; } }
     @media (max-width: 540px) { .gallery-grid { columns: 1; } }
 
+    .about-video { margin-top: 10.5rem; display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+    .about-video-text .section-tag { margin-bottom: .5rem; }
+    .about-video-text h3 { font-family: var(--f-display); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; color: var(--dark); margin: 0 0 .75rem; }
+    .about-video-desc { font-size: .88rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .about-video-ig { font-size: .8rem; color: var(--gold); text-decoration: none; letter-spacing: .06em; border-bottom: 1px solid rgba(196,163,90,.3); transition: border-color .2s; }
+    .about-video-ig:hover { border-color: var(--gold); }
+    .about-video-embed { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+    @media (max-width: 768px) { .about-video { grid-template-columns: 1fr; gap: 2rem; } }
+
     /* ═══════════════════════════════════════════
        NORD MORAVIA RESORTS (index)
     ═══════════════════════════════════════════ */
@@ -746,7 +767,7 @@
     <p class="hero-desc">Prémiový aparthotel v srdci Jeseníků, 800 metrů od skiareálu Kouty. 23 designových jednotek s výnosem až&nbsp;6,7&nbsp;% p.a.</p>
     <div class="hero-actions">
       <a href="#cenik" class="btn-primary">Prohlédnout apartmány</a>
-      <a href="#investice" class="btn-ghost">Investiční model →</a>
+      <a href="/investice.html" class="btn-ghost">Investiční model →</a>
     </div>
     <div class="hero-stats">
       <div>
@@ -777,7 +798,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-images reveal">
-        <img src="/images/uploads/exterier_1_.webp" alt="Exteriér s řekou" />
+        <img src="/images/uploads/AP_06_KOUTY.jpg" alt="Interiér apartmánu" />
         <img src="/images/uploads/AP_01_KOUTY.webp" alt="Ložnice apartmánu" />
         <img src="/images/uploads/AP_03_KOUTY.webp" alt="Bistro" />
       </div>
@@ -789,6 +810,24 @@
         <div style="margin-top:2rem;" class="reveal">
           <a href="#kontakt" class="btn-primary">Domluvit schůzku</a>
         </div>
+      </div>
+    </div>
+
+    <div class="about-video reveal">
+      <div class="about-video-text">
+        <p class="section-tag">/ Stav projektu</p>
+        <h3>Odkud vycházíme</h3>
+        <p class="about-video-desc">Záběry objektu před zahájením rekonstrukce. Projekt je reálný — sledujte jak vzniká.</p>
+        <a href="https://www.instagram.com/soutok_kouty" class="about-video-ig" target="_blank" rel="noopener">@soutok_kouty na Instagramu →</a>
+      </div>
+      <div class="about-video-media">
+        <iframe
+          class="about-video-embed"
+          src="https://www.youtube.com/embed/8PYiSpjmZ3E?rel=0&modestbranding=1"
+          title="Soutok Kouty — stav před rekonstrukcí"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
   </div>
@@ -840,7 +879,7 @@
         <strong>3 440 000 Kč</strong>
       </div>
       <div class="inv-total-note">kupní cena + dokončení interiéru + nábytek a vybavení</div>
-      <a href="/docs/investicni-analyza-kouty.pdf" class="btn-primary" download>Stáhnout analýzu PDF</a>
+      <a href="/investice.html" class="btn-primary">Zobrazit detailní analýzu →</a>
     </div>
 
     <p class="inv-footnote reveal">Kalkulace pro 1+kk ~20 m², cena za noc 2 500 Kč, správa 20 %, provize rezervačních kanálů 11,7 %. Jeseníky mají silnou zimní i letní sezónu. Vlastní wellness podporuje celoroční obsazenost i mimo sezónu. Výnosy jsou odhadem na základě aktuálních tržních dat a nepředstavují záruku budoucího výkonu.</p>
@@ -1039,10 +1078,11 @@
       </ul>
       <div class="loc-map reveal reveal-delay-2">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2571.9!2d17.073!3d50.074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47124e2f2f2f2f2f%3A0x0!2sLou%C4%8Dn%C3%A1+nad+Desnou!5e0!3m2!1scs!2scz!4v1"
-          allowfullscreen=""
+          src="https://maps.google.com/maps?q=Rejhotice+131,+Lou%C4%8Dn%C3%A1+nad+Desnou,+788+11&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="100%" frameborder="0" style="border:0"
+          allowfullscreen
           loading="lazy"
-          title="Mapa — Soutok Kouty">
+          title="Mapa — Soutok Kouty, Rejhotice 131">
         </iframe>
       </div>
     </div>
@@ -1074,6 +1114,24 @@
         </div>
       </div>
     </div>
+
+    <div class="team-video reveal">
+      <div class="team-video-text">
+        <p class="section-tag">/ O projektu vlastními slovy</p>
+        <h3>Poslechněte si nás</h3>
+        <p>Petr Morong a František Petrouš o projektu, investičním modelu a plánech do budoucna.</p>
+        <span class="team-video-soon">Brzy k dispozici</span>
+      </div>
+      <div class="team-video-media">
+        <iframe
+          class="team-video-embed"
+          src="https://www.youtube.com/embed/8PYiSpjmZ3E?rel=0&modestbranding=1"
+          title="Petr Morong a František Petrouš o projektu Soutok Kouty"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1084,32 +1142,23 @@
     <div class="logo-bar reveal">
       <!-- Petrovy projekty -->
       <a href="https://www.mori-reality.cz/" target="_blank" rel="noopener" title="Mori Reality">
-        <img src="https://www.mori-reality.cz/images/logo.svg" alt="Mori Reality" />
+        <img src="/images/logoProjekty/logoMR.svg" alt="Mori Reality" />
       </a>
       <a href="https://www.vila-republika.cz/" target="_blank" rel="noopener" title="Vila Republika">
-        <img src="https://www.mori-reality.cz/images/logo.svg" alt="Vila Republika" style="opacity:.6" />
-        <!-- nahradit vlastním logem Vila Republika -->
+        <img src="/images/logoProjekty/vila_logo_color_SVG.svg" alt="Vila Republika" />
       </a>
       <a href="https://www.resortcervenydvur.cz/cs/" target="_blank" rel="noopener" title="Resort Červený Dvůr">
-        <img src="https://www.mori-reality.cz/images/logo.svg" alt="Resort Červený Dvůr" style="opacity:.6" />
+        <img src="/images/logoProjekty/resort-logo.png" alt="Resort Červený Dvůr" />
       </a>
 
       <div class="partners-divider"></div>
 
       <!-- Frantovy projekty -->
-      <a href="https://www.investujbezstarosti.cz/" target="_blank" rel="noopener" title="Investuj Bez Starostí">
-        <img src="https://www.mori-reality.cz/images/logo.svg" alt="Investuj Bez Starostí" style="opacity:.6" />
-      </a>
+      <a href="https://www.investujbezstarosti.cz/" target="_blank" rel="noopener" style="font-family: var(--f-body); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(245,240,232,0.5)'">Investuj bez starostí</a>
       <a href="https://dolenka-jilemnice.netlify.app/" target="_blank" rel="noopener" title="Dolenka Jilemnice">
-        <img src="https://www.mori-reality.cz/images/logo.svg" alt="Dolenka Jilemnice" style="opacity:.6" />
-      </a>
-      <a href="https://dolenka-jilemnice.netlify.app/" target="_blank" rel="noopener" title="Dolenka Jilemnice 2">
-        <img src="https://www.mori-reality.cz/images/logo.svg" alt="Dolenka Jilemnice 2" style="opacity:.6" />
+        <img src="/images/logoProjekty/logo dolenka.svg" alt="Dolenka Jilemnice" />
       </a>
     </div>
-    <p style="text-align:center;font-size:.65rem;color:var(--muted);margin-top:1.5rem;letter-spacing:.08em;">
-      Leva část: Petrovy projekty &nbsp;·&nbsp; Pravá část: Frantovy projekty &nbsp;—&nbsp; nahradit skutečnými logy
-    </p>
   </div>
 </section>
 
@@ -1338,16 +1387,16 @@
 <script>
   /* ── Data ── */
   const apartments = [
-    { number:"131/7",  floor:"2NP", layout:"1+kk", size:"15,93", terasa:null,  parking:1, price:null, reserved:false },
-    { number:"131/8",  floor:"2NP", layout:"1+kk", size:"17,83", terasa:null,  parking:1, price:null, reserved:false },
-    { number:"131/9",  floor:"2NP", layout:"1+kk", size:"17,86", terasa:null,  parking:1, price:null, reserved:false },
-    { number:"131/10", floor:"2NP", layout:"1+kk", size:"31,03", terasa:"8,96",parking:1, price:null, reserved:false },
-    { number:"131/11", floor:"2NP", layout:"1+kk", size:"31,76", terasa:"7,05",parking:1, price:null, reserved:false },
-    { number:"131/12", floor:"2NP", layout:"1+kk", size:"28,10", terasa:"7,90",parking:1, price:null, reserved:false },
-    { number:"131/13", floor:"2NP", layout:"1+kk", size:"24,03", terasa:"7,90",parking:1, price:null, reserved:false },
-    { number:"131/14", floor:"2NP", layout:"2+kk", size:"39,56", terasa:"12,74",parking:1,price:null, reserved:false },
-    { number:"131/15", floor:"2NP", layout:"1+kk", size:"27,79", terasa:"9,79",parking:1, price:null, reserved:false },
-    { number:"131/16", floor:"2NP", layout:"2+kk", size:"39,56", terasa:"12,74",parking:1,price:null, reserved:false },
+    { number:"131/7",  floor:"2NP", layout:"1+kk", size:"15,93", terasa:null,   parking:1, price:2590000, reserved:false },
+    { number:"131/8",  floor:"2NP", layout:"1+kk", size:"17,83", terasa:null,   parking:1, price:2790000, reserved:false },
+    { number:"131/9",  floor:"2NP", layout:"1+kk", size:"17,86", terasa:null,   parking:1, price:2790000, reserved:false },
+    { number:"131/10", floor:"2NP", layout:"1+kk", size:"31,03", terasa:"8,96", parking:1, price:3990000, reserved:false },
+    { number:"131/11", floor:"2NP", layout:"1+kk", size:"31,76", terasa:"7,05", parking:1, price:3990000, reserved:false },
+    { number:"131/12", floor:"2NP", layout:"1+kk", size:"28,10", terasa:"7,90", parking:1, price:3590000, reserved:false },
+    { number:"131/13", floor:"2NP", layout:"1+kk", size:"24,03", terasa:"7,90", parking:1, price:3190000, reserved:false },
+    { number:"131/14", floor:"2NP", layout:"2+kk", size:"39,56", terasa:"12,74",parking:1, price:5490000, reserved:false },
+    { number:"131/15", floor:"2NP", layout:"1+kk", size:"27,79", terasa:"9,79", parking:1, price:3590000, reserved:false },
+    { number:"131/16", floor:"2NP", layout:"2+kk", size:"39,56", terasa:"12,74",parking:1, price:4490000, reserved:false },
   ];
 
   /* ── Render table ── */
