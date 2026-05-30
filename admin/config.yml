@@ -1,0 +1,209 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Netlify Identity — použijte Netlify Identity pro přihlášení
+# Po nasazení: Site Settings → Identity → Enable → Git Gateway → Enable
+
+collections:
+
+  # ─── HLAVNÍ NASTAVENÍ PROJEKTU ───────────────────────────
+  - name: "settings"
+    label: "⚙️ Nastavení projektu"
+    files:
+      - name: "project"
+        label: "Projekt — základní info"
+        file: "_data/project.json"
+        fields:
+          - { label: "Status", name: "status", widget: "select",
+              options: ["Předprodej", "V prodeji", "Vyprodáno"] }
+          - { label: "Název projektu", name: "title", widget: "string" }
+          - { label: "Perex (krátký popis pod hero)", name: "perex", widget: "text" }
+          - { label: "Výnos p.a. (zobrazený v hero)", name: "yield_pct", widget: "string",
+              hint: "Např. 6,7 %" }
+          - { label: "Termín dokončení", name: "completion", widget: "string",
+              hint: "Např. Leden 2028" }
+          - { label: "Počet jednotek", name: "units", widget: "number" }
+          - { label: "Timeline — % dokončení (0–100)", name: "timeline_fill", widget: "number",
+              value_type: "int", min: 0, max: 100 }
+          - label: "Mode webu"
+            name: "mode"
+            widget: "select"
+            options:
+              - { label: "Hotel v přípravě (předprodej)", value: "hotel_sale" }
+              - { label: "Ubytovací web (po otevření)", value: "booking" }
+            hint: "Přepnutím na 'booking' se CTA změní z 'Zjistit ceny' na 'Rezervovat pobyt'"
+
+  # ─── INVESTIČNÍ MODEL ────────────────────────────────────
+  - name: "investment"
+    label: "💰 Investiční model"
+    files:
+      - name: "scenarios"
+        label: "Výnosové scénáře"
+        file: "_data/investment.json"
+        fields:
+          - label: "Celková investice (text)"
+            name: "total_investment"
+            widget: "string"
+            hint: "Např. 3 440 000 Kč"
+          - label: "Poznámka k investici"
+            name: "total_note"
+            widget: "string"
+          - label: "Konzervativní scénář"
+            name: "conservative"
+            widget: "object"
+            fields:
+              - { label: "Obsazenost", name: "occupancy", widget: "string" }
+              - { label: "Výnos p.a.", name: "yield", widget: "string" }
+              - { label: "Čistý výnos / rok", name: "net", widget: "string" }
+              - { label: "Počet nocí", name: "nights", widget: "number" }
+          - label: "Realistický scénář"
+            name: "realistic"
+            widget: "object"
+            fields:
+              - { label: "Obsazenost", name: "occupancy", widget: "string" }
+              - { label: "Výnos p.a.", name: "yield", widget: "string" }
+              - { label: "Čistý výnos / rok", name: "net", widget: "string" }
+              - { label: "Počet nocí", name: "nights", widget: "number" }
+          - label: "Optimistický scénář"
+            name: "optimistic"
+            widget: "object"
+            fields:
+              - { label: "Obsazenost", name: "occupancy", widget: "string" }
+              - { label: "Výnos p.a.", name: "yield", widget: "string" }
+              - { label: "Čistý výnos / rok", name: "net", widget: "string" }
+              - { label: "Počet nocí", name: "nights", widget: "number" }
+          - label: "Poznámka pod tabulkou"
+            name: "footnote"
+            widget: "text"
+
+  # ─── CENÍK / APARTMÁNY ───────────────────────────────────
+  - name: "apartments"
+    label: "🏠 Apartmány — Ceník"
+    label_singular: "Apartmán"
+    folder: "_data/apartments"
+    create: true
+    slug: "{{fields.number}}"
+    identifier_field: "number"
+    fields:
+      - { label: "Číslo jednotky", name: "number", widget: "string", hint: "Např. 131/7" }
+      - label: "Podlaží"
+        name: "floor"
+        widget: "select"
+        options: ["1NP", "2NP"]
+      - label: "Dispozice"
+        name: "layout"
+        widget: "select"
+        options: ["1+kk", "2+kk", "3+kk"]
+      - { label: "Plocha (m²)", name: "size", widget: "string", hint: "Např. 15,93" }
+      - { label: "Terasa (m²)", name: "terasa", widget: "string", required: false,
+          hint: "Ponechat prázdné pokud není terasa" }
+      - { label: "Parkování (počet míst)", name: "parking", widget: "number", default: 1 }
+      - { label: "Cena (Kč bez mezer)", name: "price", widget: "string", required: false,
+          hint: "Ponechat prázdné = 'Projekt v přípravě'. Formát: 2990000" }
+      - label: "Stav"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Dostupný", value: "available" }
+          - { label: "Rezervovaný", value: "reserved" }
+          - { label: "Prodaný", value: "sold" }
+        default: "available"
+      - label: "Zobrazit pouze na /investice"
+        name: "hidden_on_hotel"
+        widget: "boolean"
+        default: false
+        hint: "Byty v 1NP — zobrazit jen na stránce Investice/Apartmány"
+
+  # ─── TÝM ─────────────────────────────────────────────────
+  - name: "team"
+    label: "👥 Tým"
+    label_singular: "Člen týmu"
+    folder: "_data/team"
+    create: true
+    slug: "{{fields.slug}}"
+    fields:
+      - { label: "Slug (bez mezer)", name: "slug", widget: "string", hint: "Např. petr-morong" }
+      - { label: "Jméno", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text" }
+      - { label: "Foto", name: "photo", widget: "image" }
+      - { label: "Pořadí zobrazení", name: "order", widget: "number", default: 1 }
+
+  # ─── LOGA PARTNERŮ ───────────────────────────────────────
+  - name: "partners"
+    label: "🏢 Partneři — Loga"
+    label_singular: "Partner"
+    folder: "_data/partners"
+    create: true
+    slug: "{{fields.name}}"
+    fields:
+      - { label: "Název", name: "name", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image" }
+      - { label: "URL webu", name: "url", widget: "string" }
+      - label: "Skupina"
+        name: "group"
+        widget: "select"
+        options:
+          - { label: "Petrův projekt", value: "petr" }
+          - { label: "Frantův projekt", value: "franta" }
+      - { label: "Pořadí", name: "order", widget: "number", default: 1 }
+
+  # ─── TEXTY SEKCÍ ─────────────────────────────────────────
+  - name: "content"
+    label: "📝 Texty sekcí"
+    files:
+      - name: "hero"
+        label: "Hero sekce"
+        file: "_data/hero.json"
+        fields:
+          - { label: "Nadpis řádek 1", name: "line1", widget: "string" }
+          - { label: "Nadpis řádek 2", name: "line2", widget: "string" }
+          - { label: "Nadpis řádek 3 (zlatý, kurzíva)", name: "line3", widget: "string" }
+          - { label: "Popis pod nadpisem", name: "desc", widget: "text" }
+
+      - name: "wellness"
+        label: "Wellness sekce"
+        file: "_data/wellness.json"
+        fields:
+          - { label: "Nadpis", name: "title", widget: "string" }
+          - { label: "Popis", name: "desc", widget: "text" }
+          - label: "Prvky wellness"
+            name: "features"
+            widget: "list"
+            fields:
+              - { label: "Emoji ikona", name: "icon", widget: "string" }
+              - { label: "Název", name: "title", widget: "string" }
+              - { label: "Popis", name: "desc", widget: "string" }
+
+      - name: "financing"
+        label: "Financování sekce"
+        file: "_data/financing.json"
+        fields:
+          - { label: "Nadpis", name: "title", widget: "string" }
+          - { label: "Popis", name: "desc", widget: "text" }
+          - label: "Body výhod"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Emoji ikona", name: "icon", widget: "string" }
+              - { label: "Nadpis", name: "title", widget: "string" }
+              - { label: "Text", name: "desc", widget: "text" }
+
+  # ─── GALERIE ─────────────────────────────────────────────
+  - name: "gallery"
+    label: "🖼️ Galerie"
+    files:
+      - name: "slider"
+        label: "Hero slider fotky"
+        file: "_data/gallery.json"
+        fields:
+          - label: "Fotky"
+            name: "images"
+            widget: "list"
+            fields:
+              - { label: "Fotka", name: "image", widget: "image" }
+              - { label: "Alt popis", name: "alt", widget: "string" }

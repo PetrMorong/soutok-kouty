@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx sharp-cli *)",
+      "Bash(Remove-Item \"images/uploads/AP_01_KOUTY.webp\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"images\\\\uploads\\\\original\")",
+      "Bash(Out-Null)",
+      "Bash(Write-Host \"Ready\")",
+      "PowerShell(Remove-Item *)"
+    ]
+  }
+}

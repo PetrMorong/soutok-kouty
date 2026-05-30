@@ -1,0 +1,61 @@
+[build]
+  publish = "."
+  command = ""
+
+# ─── Redirects ─────────────────────────────────────────────
+[[redirects]]
+  from = "/investice"
+  to = "/investice.html"
+  status = 200
+
+[[redirects]]
+  from = "/apartmany"
+  to = "/apartmany.html"
+  status = 200
+
+# SPA fallback — pouze pokud přidáte JS router
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
+
+# ─── Netlify Identity ──────────────────────────────────────
+# Po nasazení: Site Settings → Identity → Enable
+# Poté: Site Settings → Identity → Services → Git Gateway → Enable
+# Přidat uživatele: Identity tab → Invite users
+
+# ─── Netlify Forms ─────────────────────────────────────────
+# Formulář je detekován automaticky z HTML atributu data-netlify="true"
+# Odpovědi najdete: Netlify Dashboard → Forms → kouty-poptavka
+# Notifikace: Forms → kouty-poptavka → Form notifications → Add notification
+
+# ─── Headers ───────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "frame-ancestors 'self'"
+
+# ─── Cache static assets ──────────────────────────────────
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investice — Wellness Hotel Soutok Kouty</title>
+  <meta name="description" content="Kompletní průvodce investicí do apartmánu v Soutok Kouty — výnos, správa, financování, právní forma a FAQ." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #F5F0E8;
+      --warm:      #EDE6D6;
+      --gold:      #C4A35A;
+      --gold-dim:  #A8893F;
+      --dark:      #1A1714;
+      --mid:       #3D3730;
+      --muted:     #7A7068;
+      --line:      rgba(196,163,90,.25);
+      --f-display: 'Cormorant Garamond', Georgia, serif;
+      --f-body:    'DM Sans', sans-serif;
+      --max:       1160px;
+      --gap:       clamp(1.5rem, 4vw, 3rem);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--f-body); background: var(--cream); color: var(--dark); overflow-x: hidden; font-size: 16px; line-height: 1.6; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem var(--gap); transition: background .4s, backdrop-filter .4s; }
+    nav.scrolled { background: rgba(245,240,232,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-logo img { display: block; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--dark); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; padding: .65rem 1.4rem; border: none; cursor: pointer; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--gold-dim); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--dark); transition: .3s; }
+
+    /* ── COMMONS ── */
+    section { padding: clamp(4rem, 10vw, 8rem) var(--gap); }
+    .container { max-width: var(--max); margin: 0 auto; }
+    .section-tag { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .section-h2 { font-family: var(--f-display); font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 300; line-height: 1.1; color: var(--dark); }
+    .section-h2 em { font-style: italic; }
+    .section-h2.light { color: var(--cream); }
+    .section-lead { font-size: 1rem; color: var(--muted); max-width: 580px; margin-top: 1.25rem; line-height: 1.75; }
+    .section-lead.light { color: rgba(245,240,232,.6); max-width: 640px; }
+    .btn-primary { background: var(--gold); color: var(--dark); font-family: var(--f-body); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; padding: .9rem 2rem; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background .2s; }
+    .btn-primary:hover { background: var(--gold-dim); }
+    .btn-ghost-light { color: var(--cream); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; padding: .9rem 0; border-bottom: 1px solid rgba(245,240,232,.3); transition: border-color .2s, color .2s; display: inline-block; }
+    .btn-ghost-light:hover { border-color: var(--gold); color: var(--gold); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+
+    /* ── PAGE HERO ── */
+    .page-hero { background: var(--dark); padding: 9rem var(--gap) 5rem; }
+    .page-hero-breadcrumb { font-size: .72rem; color: rgba(245,240,232,.4); letter-spacing: .06em; margin-bottom: 2.5rem; }
+    .page-hero-breadcrumb a { color: var(--gold); text-decoration: none; }
+    .page-hero-breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── VÝHODY ── */
+    .benefits { background: var(--warm); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 3rem; }
+    .benefit-card { background: var(--warm); padding: 2rem 1.5rem; }
+    .benefit-icon { margin-bottom: 1.25rem; }
+    .benefit-val { font-family: var(--f-display); font-size: 2.2rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: .4rem; }
+    .benefit-label { font-size: .85rem; font-weight: 500; color: var(--dark); margin-bottom: .5rem; }
+    .benefit-desc { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── NORD MORAVIA RESORTS ── */
+    .nord { background: var(--dark); }
+    .nord .section-h2 { color: var(--cream); }
+    .nord-stats { display: flex; margin-top: 3rem; border: 1px solid var(--line); }
+    .nord-stat { flex: 1; padding: 1.75rem 1.5rem; border-right: 1px solid var(--line); }
+    .nord-stat:last-child { border-right: none; }
+    .nord-stat-val { font-family: var(--f-display); font-size: 2rem; font-weight: 300; color: var(--cream); line-height: 1; margin-bottom: .3rem; }
+    .nord-stat-lbl { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+    .nord-highlight { border: 1px solid var(--gold); padding: 1.5rem; margin-top: 2.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .nord-highlight-icon { flex-shrink: 0; margin-top: .1rem; }
+    .nord-highlight-title { font-weight: 600; color: var(--gold); font-size: .95rem; margin-bottom: .35rem; }
+    .nord-highlight-text { font-size: .85rem; color: rgba(245,240,232,.65); line-height: 1.6; }
+    .nord-resorts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2.5rem; }
+    .nord-resort { background: var(--dark); padding: 1.75rem 1.5rem; }
+    .nord-badge { display: inline-block; background: rgba(196,163,90,.12); border: 1px solid rgba(196,163,90,.3); color: var(--gold); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; padding: .28rem .7rem; margin-bottom: .75rem; }
+    .nord-resort-name { font-family: var(--f-display); font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: .25rem; }
+    .nord-resort-loc { font-size: .75rem; color: var(--muted); letter-spacing: .05em; margin-bottom: .9rem; }
+    .nord-resort-link { font-size: .75rem; color: var(--gold); text-decoration: none; letter-spacing: .06em; border-bottom: 1px solid rgba(196,163,90,.3); transition: border-color .2s; }
+    .nord-resort-link:hover { border-color: var(--gold); }
+    .nord-actions { margin-top: 2.5rem; }
+
+    /* ── LOKALITA & TRH ── */
+    .lokalita { background: var(--warm); }
+    .lokalita-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2.5rem; margin-bottom: 3rem; }
+    .lok-stat { background: var(--warm); padding: 1.75rem 1.5rem; }
+    .lok-stat-val { font-family: var(--f-display); font-size: 1.8rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: .3rem; }
+    .lok-stat-lbl { font-size: .72rem; color: var(--muted); line-height: 1.4; }
+    .lokalita-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .lok-list { list-style: none; }
+    .lok-list li { padding: .75rem 0; border-bottom: 1px solid var(--line); font-size: .9rem; color: var(--mid); display: flex; gap: .75rem; align-items: baseline; }
+    .lok-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .lok-note { background: var(--dark); padding: 2rem 2rem 2rem; }
+    .lok-note-quote { font-family: var(--f-display); font-size: 1.3rem; font-weight: 300; font-style: italic; line-height: 1.55; color: var(--cream); margin-bottom: 1.25rem; }
+    .lok-note-source { font-size: .7rem; color: var(--muted); letter-spacing: .06em; }
+
+    /* ── JAK PROBÍHÁ KOUPĚ ── */
+    .purchase { background: var(--dark); }
+    .purchase .section-h2 { color: var(--cream); }
+    .purchase-steps { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 3.5rem; position: relative; }
+    .purchase-steps::before { content: ''; position: absolute; top: 2rem; left: 2.5rem; right: 2.5rem; height: 1px; background: var(--line); z-index: 0; }
+    .purchase-step { padding: 0 1rem; position: relative; z-index: 1; }
+    .purchase-step-num { width: 4rem; height: 4rem; border-radius: 50%; background: var(--dark); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-size: 1.3rem; color: var(--gold); margin-bottom: 1.25rem; }
+    .purchase-step.active .purchase-step-num { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+    .purchase-step-title { font-size: .88rem; font-weight: 500; color: var(--cream); margin-bottom: .5rem; line-height: 1.35; }
+    .purchase-step-desc { font-size: .78rem; color: rgba(245,240,232,.5); line-height: 1.65; }
+
+    /* ── SPRÁVA & PROVOZ ── */
+    .management { background: var(--cream); }
+    .management-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+    .mgmt-list { list-style: none; }
+    .mgmt-list li { padding: .85rem 0; border-bottom: 1px solid rgba(196,163,90,.2); font-size: .9rem; color: var(--mid); display: flex; gap: .75rem; align-items: baseline; }
+    .mgmt-list li::before { content: '→'; color: var(--gold); flex-shrink: 0; font-size: .82rem; }
+    .mgmt-box { background: var(--warm); border: 1px solid var(--line); padding: 2rem; }
+    .mgmt-box-title { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .mgmt-box-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .75rem 0; border-bottom: 1px solid var(--line); font-size: .88rem; }
+    .mgmt-box-row:last-child { border-bottom: none; }
+    .mgmt-box-key { color: var(--muted); }
+    .mgmt-box-val { color: var(--dark); font-weight: 500; text-align: right; }
+
+    /* ── VLASTNICTVÍ & PRÁVNÍ ── */
+    .legal { background: var(--warm); }
+    .legal-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 3rem; }
+    .legal-card { background: var(--warm); padding: 2rem 1.75rem; }
+    .legal-card-icon { margin-bottom: 1rem; }
+    .legal-card-title { font-size: .88rem; font-weight: 600; color: var(--dark); margin-bottom: .75rem; }
+    .legal-card-text { font-size: .82rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--dark); }
+    .faq .section-h2 { color: var(--cream); }
+    .faq-list { margin-top: 3rem; border-top: 1px solid var(--line); max-width: 780px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q { width: 100%; background: none; border: none; cursor: pointer; padding: 1.4rem 0; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+    .faq-q-text { font-size: .95rem; font-weight: 500; color: var(--gold); line-height: 1.4; }
+    .faq-arrow { color: var(--gold); font-size: 1rem; transition: transform .3s ease; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(90deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-a-inner { padding-bottom: 1.4rem; font-size: .88rem; color: rgba(245,240,232,.65); line-height: 1.75; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); border-top: 1px solid var(--line); }
+    .footer-inner { max-width: var(--max); margin: 0 auto; padding: 3rem var(--gap); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { line-height: 0; }
+    .footer-logo img { display: block; }
+    .footer-links { display: flex; gap: 1.75rem; list-style: none; }
+    .footer-links a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .2s; letter-spacing: .06em; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: .72rem; color: rgba(245,240,232,.25); letter-spacing: .04em; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .purchase-steps { grid-template-columns: repeat(3, 1fr); row-gap: 2.5rem; }
+      .purchase-steps::before { display: none; }
+    }
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+      .lokalita-stats { grid-template-columns: 1fr 1fr; }
+      .lokalita-cols { grid-template-columns: 1fr; }
+      .management-cols { grid-template-columns: 1fr; gap: 2rem; }
+      .legal-cards { grid-template-columns: 1fr; }
+      .nord-resorts { grid-template-columns: 1fr; }
+      .nord-stats { flex-direction: column; }
+      .nord-stat { border-right: none; border-bottom: 1px solid var(--line); }
+      .nord-stat:last-child { border-bottom: none; }
+    }
+    @media (max-width: 600px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .purchase-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html"><img src="/images/logo/Soutok_Kouty_Logo_Dark_Horizontal.svg" alt="Soutok Kouty" height="32"></a>
+  <ul class="nav-links">
+    <li><a href="#vyhody">Výhody</a></li>
+    <li><a href="#lokalita">Lokalita</a></li>
+    <li><a href="#koupe">Koupě</a></li>
+    <li><a href="#sprava">Správa</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="index.html#kontakt" class="nav-cta">Zjistit ceny</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ─── PAGE HERO ─────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-breadcrumb"><a href="index.html">Soutok Kouty</a> &nbsp;/&nbsp; Investice</div>
+    <p class="section-tag">/ Průvodce investicí</p>
+    <h2 class="section-h2 light">Vše, co potřebujete<br><em>vědět před koupí</em></h2>
+    <p class="section-lead light">Transparentní přehled výnosů, správy, právní formy a procesu koupě. Zodpovíme každou otázku — před i po podpisu.</p>
+  </div>
+</section>
+
+<!-- ─── VÝHODY PRO INVESTORY ──────────────────────────────── -->
+<section class="benefits" id="vyhody">
+  <div class="container">
+    <p class="section-tag reveal">/ Výhody pro investory</p>
+    <h2 class="section-h2 reveal reveal-delay-1">Proč investovat<br><em>do Soutok Kouty</em></h2>
+    <div class="benefits-grid reveal reveal-delay-2">
+
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <polyline points="4,24 11,16 17,19 26,8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="21,8 26,8 26,13" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="4" y1="27" x2="28" y2="27" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="benefit-val">6,7 %</div>
+        <div class="benefit-label">Výnos p.a.</div>
+        <div class="benefit-desc">Realistický scénář při 50% obsazenosti. Prémiová lokalita a vlastní wellness zajišťují nadprůměrnou obsazenost po celý rok.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="5" y="11" width="22" height="16" rx="1.5" stroke="var(--gold)" stroke-width="1.5"/>
+            <path d="M11 11V9a5 5 0 0 1 10 0v2" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="benefit-val">0</div>
+        <div class="benefit-label">Starostí</div>
+        <div class="benefit-desc">Kompletní správa včetně Booking, Airbnb, úklidu, self check-inu a měsíčního vyúčtování. Vy jen inkasujete výnos.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <polygon points="4,14 16,5 28,14" stroke="var(--gold)" stroke-width="1.5" stroke-linejoin="round"/>
+            <rect x="6" y="14" width="4" height="11" stroke="var(--gold)" stroke-width="1.5"/>
+            <rect x="14" y="14" width="4" height="11" stroke="var(--gold)" stroke-width="1.5"/>
+            <rect x="22" y="14" width="4" height="11" stroke="var(--gold)" stroke-width="1.5"/>
+            <line x1="3" y1="25" x2="29" y2="25" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="benefit-val">23</div>
+        <div class="benefit-label">Exkluzivních jednotek</div>
+        <div class="benefit-desc">Limitovaný počet. Fyzické aktivum zapsané v katastru nemovitostí na vaše jméno — žádné fondy, žádné podíly.</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="11" stroke="var(--gold)" stroke-width="1.5"/>
+            <polyline points="16,9 16,17 21,17" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="benefit-val">2028</div>
+        <div class="benefit-label">Dokončení</div>
+        <div class="benefit-desc">Zahájení provozu leden 2028. První výnosy v prvním kvartálu. Developer s dokončenými projekty v Jeseníkách.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── NORD MORAVIA RESORTS ──────────────────────────────── -->
+<section class="nord" id="sit-resortu">
+  <div class="container">
+    <p class="section-tag reveal">/ Síť resortů</p>
+    <h2 class="section-h2 reveal reveal-delay-1">Koupíte jeden apartmán.<br><em>Hory máte všude.</em></h2>
+    <p class="section-lead light reveal reveal-delay-2">Jako majitel jednotky v síti Nord Moravia Resorts můžete pobývat v libovolné dostupné jednotce napříč resorty — bez obav z obsazenosti svého apartmánu. Výnos plyne dál, vy si užíváte hory.</p>
+
+    <div class="nord-stats reveal reveal-delay-2">
+      <div class="nord-stat">
+        <div class="nord-stat-val">14 nocí</div>
+        <div class="nord-stat-lbl">Ročně pro vlastní pobyt</div>
+      </div>
+      <div class="nord-stat">
+        <div class="nord-stat-val">3 resorty</div>
+        <div class="nord-stat-lbl">V síti Nord Moravia Resorts</div>
+      </div>
+      <div class="nord-stat">
+        <div class="nord-stat-val">2028</div>
+        <div class="nord-stat-lbl">Soutok Kouty se připojuje</div>
+      </div>
+    </div>
+
+    <div class="nord-highlight reveal">
+      <div class="nord-highlight-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4 10l4 4 8-8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="nord-highlight-title">Váš apartmán nemusí být volný, abyste si odpočinuli.</div>
+        <div class="nord-highlight-text">Pobývejte v libovolné dostupné jednotce sítě — Červený dvůr, Vila Republika nebo Soutok Kouty.</div>
+      </div>
+    </div>
+
+    <div class="nord-resorts reveal">
+      <div class="nord-resort">
+        <div class="nord-resort-name">Resort Červený dvůr</div>
+        <div class="nord-resort-loc">Rapotín, Jeseníky</div>
+        <a class="nord-resort-link" href="https://www.resortcervenydvur.cz/cs/" target="_blank" rel="noopener">resortcervenydvur.cz ↗</a>
+      </div>
+      <div class="nord-resort">
+        <div class="nord-resort-name">Vila Republika</div>
+        <div class="nord-resort-loc">Velké Losiny, Jeseníky</div>
+        <a class="nord-resort-link" href="https://www.vila-republika.cz/" target="_blank" rel="noopener">vila-republika.cz ↗</a>
+      </div>
+      <div class="nord-resort">
+        <div class="nord-badge">Připravujeme · Otevření 2028</div>
+        <div class="nord-resort-name">Wellness Hotel Soutok Kouty</div>
+        <div class="nord-resort-loc">Kouty nad Desnou, Jeseníky</div>
+      </div>
+    </div>
+
+    <div class="nord-actions reveal">
+      <a class="btn-ghost-light" href="https://nordmoraviaresorts.cz/" target="_blank" rel="noopener">Více o síti resortů →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOKALITA & TRH ────────────────────────────────────── -->
+<section class="lokalita" id="lokalita">
+  <div class="container">
+    <p class="section-tag reveal">/ Lokalita &amp; trh</p>
+    <h2 class="section-h2 reveal reveal-delay-1">Proč <em>Jeseníky?</em></h2>
+
+    <div class="lokalita-stats reveal reveal-delay-2">
+      <div class="lok-stat">
+        <div class="lok-stat-val">2.</div>
+        <div class="lok-stat-lbl">nejnavštěvovanější horská oblast ČR</div>
+      </div>
+      <div class="lok-stat">
+        <div class="lok-stat-val">680 000+</div>
+        <div class="lok-stat-lbl">turistů ročně</div>
+      </div>
+      <div class="lok-stat">
+        <div class="lok-stat-val">120+</div>
+        <div class="lok-stat-lbl">dní lyžařská sezóna</div>
+      </div>
+      <div class="lok-stat">
+        <div class="lok-stat-val">15 km</div>
+        <div class="lok-stat-lbl">lázně Jeseník</div>
+      </div>
+    </div>
+
+    <div class="lokalita-cols reveal">
+      <div>
+        <ul class="lok-list">
+          <li>3. nejdelší sjezdovka v ČR — Kouty, 4,2 km</li>
+          <li>Lanovka na Praděd — nejvyšší hora Moravy</li>
+          <li>Priessnitzovy lázně Jeseník — 15 km</li>
+          <li>Rozsáhlé cyklotrasy a turistické stezky celoročně</li>
+          <li>Rostoucí ceny nemovitostí v celém regionu</li>
+        </ul>
+      </div>
+      <div>
+        <div class="lok-note">
+          <div class="lok-note-quote">"Jeseníky patří mezi nejrychleji rostoucí turistické destinace v Česku. Vlastní wellness podporuje obsazenost i mimo hlavní sezónu."</div>
+          <div class="lok-note-source">— Investiční analýza, Mori Reality</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── JAK PROBÍHÁ KOUPĚ ─────────────────────────────────── -->
+<section class="purchase" id="koupe">
+  <div class="container">
+    <p class="section-tag reveal">/ Proces</p>
+    <h2 class="section-h2 reveal reveal-delay-1">Krok <em>za krokem</em></h2>
+    <div class="purchase-steps reveal reveal-delay-2">
+
+      <div class="purchase-step">
+        <div class="purchase-step-num">1</div>
+        <div class="purchase-step-title">Rezervace jednotky</div>
+        <div class="purchase-step-desc">Výběr apartmánu a složení rezervační zálohy. Při financování přes smluvního partnera je záloha plně vratná.</div>
+      </div>
+
+      <div class="purchase-step">
+        <div class="purchase-step-num">2</div>
+        <div class="purchase-step-title">Podpis kupní smlouvy</div>
+        <div class="purchase-step-desc">Uzavření kupní smlouvy s developerem Rejhotice 131, s.r.o. a úhrada kupní ceny.</div>
+      </div>
+
+      <div class="purchase-step active">
+        <div class="purchase-step-num">3</div>
+        <div class="purchase-step-title">Financování</div>
+        <div class="purchase-step-desc">Pomůžeme zajistit investiční hypotéku přes smluvní partnery. Víme, které banky aparthotely správně posoudí.</div>
+      </div>
+
+      <div class="purchase-step">
+        <div class="purchase-step-num">4</div>
+        <div class="purchase-step-title">Dokončení interiéru</div>
+        <div class="purchase-step-desc">Realizace interiéru dle hotelového standardu. Vybavení a design zajistí developer — připraveno k provozu.</div>
+      </div>
+
+      <div class="purchase-step">
+        <div class="purchase-step-num">5</div>
+        <div class="purchase-step-title">Předání &amp; provoz</div>
+        <div class="purchase-step-desc">Slavnostní předání klíčů a zahájení plného hotelového provozu. Leden 2028.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SPRÁVA & PROVOZ ───────────────────────────────────── -->
+<section class="management" id="sprava">
+  <div class="container">
+    <p class="section-tag reveal">/ Správa &amp; provoz</p>
+    <h2 class="section-h2 reveal reveal-delay-1">Jak funguje <em>správa</em></h2>
+    <div class="management-cols reveal reveal-delay-2">
+      <div>
+        <ul class="mgmt-list">
+          <li>Prezentace na Booking.com, Airbnb a vlastním webu</li>
+          <li>Příjezd a odjezd hostů — self check-in systém</li>
+          <li>Profesionální úklid po každém pobytu</li>
+          <li>Drobná údržba a opravy v rámci správy</li>
+          <li>Měsíční vyúčtování s přehledem všech rezervací</li>
+          <li>Revenue management — dynamická optimalizace cen</li>
+        </ul>
+      </div>
+      <div>
+        <div class="mgmt-box">
+          <div class="mgmt-box-title">Podmínky správy</div>
+          <div class="mgmt-box-row">
+            <span class="mgmt-box-key">Správcovský poplatek</span>
+            <span class="mgmt-box-val">20 % z tržeb</span>
+          </div>
+          <div class="mgmt-box-row">
+            <span class="mgmt-box-key">Vyúčtování</span>
+            <span class="mgmt-box-val">Měsíčně</span>
+          </div>
+          <div class="mgmt-box-row">
+            <span class="mgmt-box-key">Vlastní pobyt</span>
+            <span class="mgmt-box-val">Kdykoliv za nákladovou cenu</span>
+          </div>
+          <div class="mgmt-box-row">
+            <span class="mgmt-box-key">Online přehled</span>
+            <span class="mgmt-box-val">Přístup k rezervacím 24/7</span>
+          </div>
+          <div class="mgmt-box-row">
+            <span class="mgmt-box-key">Výpovědní lhůta</span>
+            <span class="mgmt-box-val">3 měsíce</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VLASTNICTVÍ & PRÁVNÍ ──────────────────────────────── -->
+<section class="legal" id="pravni">
+  <div class="container">
+    <p class="section-tag reveal">/ Právní forma</p>
+    <h2 class="section-h2 reveal reveal-delay-1"><em>Vlastnictví</em> a právní aspekty</h2>
+    <div class="legal-cards reveal reveal-delay-2">
+
+      <div class="legal-card">
+        <div class="legal-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="5" y="4" width="22" height="24" rx="1.5" stroke="var(--gold)" stroke-width="1.5"/>
+            <line x1="10" y1="11" x2="22" y2="11" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="16" x2="22" y2="16" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="21" x2="16" y2="21" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="legal-card-title">Osobní vlastnictví</div>
+        <div class="legal-card-text">Jednotka je zapsána v katastru nemovitostí přímo na kupujícího. Plné vlastnické právo — možnost prodeje, darování nebo dědění bez omezení.</div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="4" y="9" width="24" height="15" rx="1.5" stroke="var(--gold)" stroke-width="1.5"/>
+            <path d="M4 14h24" stroke="var(--gold)" stroke-width="1.5"/>
+            <circle cx="9" cy="19" r="1.5" fill="var(--gold)"/>
+          </svg>
+        </div>
+        <div class="legal-card-title">DPH</div>
+        <div class="legal-card-text">Na nové stavby se uplatňuje snížená sazba DPH 12 %. Individuálně dle situace kupujícího — doporučujeme konzultaci s daňovým poradcem.</div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-card-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4L5 10v6c0 7 5 11 11 13 6-2 11-6 11-13v-6L16 4z" stroke="var(--gold)" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M11 16l3 3 7-7" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="legal-card-title">Pojištění</div>
+        <div class="legal-card-text">Celý objekt je pojištěn jako celek v rámci pojistné smlouvy developera. Obsah apartmánu a vybavení si majitel pojistí individuálně.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ───────────────────────────────────────────────── -->
+<section class="faq" id="faq">
+  <div class="container">
+    <p class="section-tag reveal">/ Časté otázky</p>
+    <h2 class="section-h2 reveal reveal-delay-1"><em>Odpovědi</em> na vaše otázky</h2>
+    <div class="faq-list reveal reveal-delay-2">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Mohu apartmán kdykoliv využít pro sebe?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ano, majitel má přednost. Stačí blokace v rezervačním systému. Cena za pobyt je nákladová — zahrnuje energie a úklid.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Jak vysoká je správcovská provize?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">20 % z hrubých tržeb. Zahrnuje veškerý provoz, marketing, úklid a drobnou údržbu.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Co se stane, pokud banka neschválí hypotéku?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Při financování přes našeho smluvního partnera (hypoodfrantiska.cz) je rezervační záloha plně vratná v případě neschválení úvěru.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Mohu jednotku prodat?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ano, jde o osobní vlastnictví. Prodej je kdykoli možný bez omezení — klasický převod nemovitosti v katastru.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Kdy dostanu první výnos?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Po zahájení provozu v lednu 2028. Vyúčtování probíhá měsíčně, výnos je převeden do 15. dne následujícího měsíce.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Jaká je minimální obsazenost garantována?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Výnosy nejsou garantovány, ale kalkulace vychází z reálných dat trhu. Vlastní wellness a aktivní revenue management maximalizují obsazenost po celý rok.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Kdo zajišťuje pojištění?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Celý objekt je pojištěn jako celek. Obsah apartmánu si majitel pojistí individuálně dle svého uvážení.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Jak funguje vyúčtování?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Každý měsíc obdržíte přehled rezervací, tržeb a nákladů. Výnos je automaticky převeden na váš účet do 15. dne následujícího měsíce.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="/images/logo/Soutok_Kouty_Logo_Light_Horizontal.svg" alt="Soutok Kouty" height="36"></div>
+    <ul class="footer-links">
+      <li><a href="index.html#projekt">O projektu</a></li>
+      <li><a href="index.html#cenik">Ceník</a></li>
+      <li><a href="index.html#wellness">Wellness</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Rejhotice 131, s.r.o.</span>
+  </div>
+</footer>
+
+<script>
+  /* Nav scroll */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+
+  /* Reveal */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item   = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item.open').forEach(open => {
+        open.classList.remove('open');
+        open.querySelector('.faq-a').style.maxHeight = '0';
+        open.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+</body>
+</html>
