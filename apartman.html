@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Apartmán — Wellness Hotel Soutok Kouty</title>
+  <meta name="description" id="pageDesc" content="Detailní informace o apartmánu v Wellness Hotelu Soutok Kouty, Jeseníky." />
+  <meta property="og:title"       id="ogTitle"  content="Apartmán — Soutok Kouty" />
+  <meta property="og:description" id="ogDesc"   content="Prémiový apartmán v Jeseníkách — výnos až 8,4 % p.a." />
+  <meta property="og:image"       id="ogImage"  content="/images/uploads/AP_01_KOUTY.webp" />
+  <meta property="og:type"        content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/images/logo/Soutok_Kouty_Symbol_Light.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══ RESET & TOKENS ══════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:    #F5F0E8;
+      --warm:     #EDE6D6;
+      --gold:     #C4A35A;
+      --gold-dim: #A8893F;
+      --dark:     #1A1714;
+      --mid:      #3D3730;
+      --muted:    #7A7068;
+      --line:     rgba(196,163,90,.25);
+      --line-dk:  rgba(255,255,255,.1);
+      --f-display: 'Cormorant Garamond', Georgia, serif;
+      --f-body:    'DM Sans', sans-serif;
+      --max: 1160px;
+      --gap: clamp(1.5rem, 4vw, 3rem);
+    }
+    html  { scroll-behavior: smooth; }
+    body  { font-family: var(--f-body); background: var(--cream); color: var(--dark); overflow-x: hidden; font-size: 16px; line-height: 1.6; }
+    img   { display: block; max-width: 100%; }
+    a     { color: inherit; }
+
+    /* ══ HELPERS ══════════════════════════════════════════ */
+    .container  { max-width: var(--max); margin: 0 auto; padding: 0 var(--gap); }
+    .section-tag{ font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: .85rem; }
+    .reveal     { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.vis { opacity: 1; transform: none; }
+
+    .btn-gold   { display: inline-block; background: var(--gold); color: var(--dark); font-family: var(--f-body); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; padding: .85rem 1.9rem; text-decoration: none; transition: background .2s, transform .15s; cursor: pointer; border: none; }
+    .btn-gold:hover { background: var(--gold-dim); transform: translateY(-1px); }
+    .btn-outline{ display: inline-block; background: transparent; color: var(--gold); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; padding: .82rem 1.9rem; text-decoration: none; border: 1px solid var(--gold); transition: background .2s, color .2s; }
+    .btn-outline:hover { background: var(--gold); color: var(--dark); }
+    .btn-ghost-lk { font-size: .75rem; color: var(--gold); text-decoration: none; letter-spacing: .06em; border-bottom: 1px solid rgba(196,163,90,.35); transition: border-color .2s; }
+    .btn-ghost-lk:hover { border-color: var(--gold); }
+
+    /* ══ TOP BAR ══════════════════════════════════════════ */
+    .topbar {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(245,240,232,.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .85rem var(--gap); gap: 1rem;
+    }
+    .topbar-logo { line-height: 0; text-decoration: none; flex-shrink: 0; }
+    .topbar-logo img { height: 26px; }
+    .topbar-back { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; white-space: nowrap; }
+    .topbar-back:hover { color: var(--gold); }
+    .topbar-back::before { content: '←  '; }
+    .topbar-cta { margin-left: auto; flex-shrink: 0; }
+    @media (max-width: 540px) {
+      .topbar-back { display: none; }
+    }
+
+    /* ══ HERO ══════════════════════════════════════════════ */
+    .apt-hero {
+      position: relative; min-height: 72vh;
+      background: var(--dark) center/cover no-repeat;
+      display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .apt-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,17,14,.88) 0%, rgba(20,17,14,.25) 55%, transparent 100%);
+    }
+    .apt-hero-inner {
+      position: relative; z-index: 2;
+      padding: 3.5rem var(--gap) 2.5rem;
+      max-width: calc(var(--max) + 2 * var(--gap)); margin: 0 auto; width: 100%;
+    }
+    .apt-breadcrumb {
+      font-size: .7rem; color: rgba(245,240,232,.45); letter-spacing: .06em;
+      margin-bottom: 1.25rem; display: flex; gap: .5rem; align-items: center;
+    }
+    .apt-breadcrumb a { color: rgba(245,240,232,.45); text-decoration: none; transition: color .2s; }
+    .apt-breadcrumb a:hover { color: var(--gold); }
+    .apt-breadcrumb span { color: rgba(245,240,232,.25); }
+
+    .apt-stav-badge {
+      display: inline-block; font-size: .6rem; letter-spacing: .14em; text-transform: uppercase;
+      padding: .28rem .8rem; margin-bottom: .85rem;
+    }
+    .apt-stav-badge.volny       { background: rgba(74,124,89,.28); color: #7cc490; border: 1px solid rgba(74,124,89,.45); }
+    .apt-stav-badge.rezervovany { background: rgba(196,163,90,.18); color: var(--gold); border: 1px solid var(--line); }
+    .apt-stav-badge.prodany     { background: rgba(122,112,104,.18); color: var(--muted); border: 1px solid rgba(122,112,104,.3); }
+
+    .apt-hero-title {
+      font-family: var(--f-display); font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+      font-weight: 300; line-height: 1.02; color: var(--cream); margin-bottom: .5rem;
+    }
+    .apt-hero-sub { font-size: 1rem; color: rgba(245,240,232,.5); }
+
+    /* ══ SPEC BAR ════════════════════════════════════════ */
+    .apt-specbar { background: var(--dark); border-bottom: 1px solid var(--line-dk); }
+    .apt-specbar-inner {
+      max-width: calc(var(--max) + 2 * var(--gap)); margin: 0 auto; padding: 0 var(--gap);
+      display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .apt-spec-tile {
+      flex: 0 0 auto; min-width: 120px; padding: 1.6rem 1.5rem;
+      border-right: 1px solid var(--line-dk);
+      display: flex; flex-direction: column; gap: .25rem;
+    }
+    .apt-spec-tile:last-child { border-right: none; }
+    .apt-spec-val  { font-family: var(--f-display); font-size: 1.5rem; font-weight: 300; color: var(--cream); line-height: 1; }
+    .apt-spec-val span { color: var(--gold); }
+    .apt-spec-lbl  { font-size: .6rem; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
+
+    /* ══ CONTENT AREA ════════════════════════════════════ */
+    .apt-content { background: var(--cream); padding: clamp(3rem, 7vw, 6rem) var(--gap); }
+    .apt-content .container { display: grid; grid-template-columns: 1fr 340px; gap: 5rem; align-items: start; }
+
+    /* ── Tabs ── */
+    .apt-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line); margin-bottom: 2.5rem; }
+    .apt-tab {
+      background: none; border: none; cursor: pointer; padding: .85rem 1.5rem .85rem 0;
+      font-family: var(--f-body); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: color .2s, border-color .2s;
+    }
+    .apt-tab.active { color: var(--dark); border-bottom-color: var(--gold); }
+    .apt-tab:hover:not(.active) { color: var(--dark); }
+
+    /* ── Popis text ── */
+    .apt-popis-text { font-size: .92rem; color: var(--mid); line-height: 1.8; margin-bottom: 2.5rem; }
+
+    /* ── Room table ── */
+    .apt-room-table { width: 100%; border-collapse: collapse; font-size: .84rem; margin-bottom: 3rem; }
+    .apt-room-table th { font-size: .6rem; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); font-weight: 400; padding: .6rem 1rem .6rem 0; text-align: left; border-bottom: 1px solid var(--line); }
+    .apt-room-table td { padding: .9rem 1rem .9rem 0; border-bottom: 1px solid var(--line); color: var(--dark); }
+    .apt-room-table tr:last-child td { border-bottom: none; }
+    .apt-room-table .room-plocha { color: var(--gold); font-weight: 500; }
+
+    /* ── Půdorys frame (paralax square) ── */
+    .apt-pudorys-frame { position: relative; display: inline-block; width: 100%; margin-top: .5rem; }
+    .apt-pudorys-frame::before {
+      content: ''; position: absolute;
+      top: -10px; left: -10px; right: 10px; bottom: 10px;
+      border: 1px solid var(--gold); z-index: 0; pointer-events: none;
+    }
+    .apt-pudorys-frame img { width: 100%; position: relative; z-index: 1; background: var(--warm); }
+    .apt-pudorys-placeholder {
+      width: 100%; aspect-ratio: 4/3; background: var(--warm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); position: relative; z-index: 1;
+    }
+
+    /* ── Standard tab ── */
+    .std-category { margin-bottom: 2rem; }
+    .std-category h4 { font-family: var(--f-display); font-size: 1.1rem; font-weight: 400; color: var(--dark); margin-bottom: .75rem; padding-bottom: .4rem; border-bottom: 1px solid var(--line); }
+    .std-list { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+    .std-list li { font-size: .85rem; color: var(--mid); padding-left: 1rem; position: relative; line-height: 1.55; }
+    .std-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: .7rem; top: .15rem; }
+
+    /* ── Sidebar (price + cta) ── */
+    .apt-sidebar { position: sticky; top: 5rem; }
+    .apt-price-box { border: 1px solid var(--line); padding: 2rem; background: var(--cream); }
+    .apt-price-label { font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+    .apt-price-val { font-family: var(--f-display); font-size: 2rem; font-weight: 300; color: var(--dark); line-height: 1; margin-bottom: 1.5rem; }
+    .apt-price-val.na-vyzadani { font-size: 1.2rem; color: var(--muted); }
+
+    .apt-scenarios { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); margin-bottom: 1.5rem; }
+    .apt-scenario { padding: .75rem 1rem; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+    .apt-scenario:last-child { border-bottom: none; }
+    .apt-scenario.featured { background: var(--dark); }
+    .apt-scen-name { font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+    .apt-scenario.featured .apt-scen-name { color: rgba(245,240,232,.5); }
+    .apt-scen-yield { font-family: var(--f-display); font-size: 1.25rem; font-weight: 300; color: var(--dark); }
+    .apt-scenario.featured .apt-scen-yield { color: var(--gold); }
+
+    .apt-sidebar-ctas { display: flex; flex-direction: column; gap: .75rem; }
+    .apt-sidebar-note { font-size: .67rem; color: var(--muted); line-height: 1.55; margin-top: 1rem; }
+    .apt-pdf-link { font-size: .72rem; color: var(--gold); text-decoration: none; letter-spacing: .06em; border-bottom: 1px solid rgba(196,163,90,.3); transition: border-color .2s; }
+    .apt-pdf-link:hover { border-color: var(--gold); }
+
+    /* ══ VÝHODY ══════════════════════════════════════════ */
+    .apt-vyhody-sec { background: var(--warm); padding: clamp(3rem, 7vw, 5.5rem) var(--gap); }
+    .apt-vyhody-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border: 1px solid var(--line); margin-top: 2rem; }
+    .apt-vyhoda { padding: 1.25rem 1.5rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; align-items: flex-start; gap: .85rem; }
+    .apt-vyhoda-icon { flex-shrink: 0; margin-top: .15rem; }
+    .apt-vyhoda-text { font-size: .84rem; color: var(--mid); line-height: 1.5; }
+
+    /* ══ VÝNOSOVÝ BOX (plný width) ════════════════════════ */
+    .apt-vynosbox { background: var(--dark); padding: clamp(3rem, 7vw, 5.5rem) var(--gap); }
+    .apt-vynosbox-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+    .apt-vynosbox-left .section-tag { color: var(--gold); }
+    .apt-vynosbox-h { font-family: var(--f-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 1rem; }
+    .apt-vynosbox-h em { font-style: italic; color: var(--gold); }
+    .apt-vynosbox-sub { font-size: .85rem; color: rgba(245,240,232,.4); line-height: 1.65; max-width: 400px; }
+    .apt-vynosbox-link { display: inline-block; margin-top: 1.5rem; font-size: .74rem; color: var(--gold); text-decoration: none; letter-spacing: .06em; border-bottom: 1px solid rgba(196,163,90,.35); transition: border-color .2s; }
+    .apt-vynosbox-link:hover { border-color: var(--gold); }
+
+    .apt-scenarios-full { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--line-dk); border: 1px solid var(--line-dk); }
+    .apt-scen-card { background: #231E1A; padding: 2rem 1.5rem; display: flex; flex-direction: column; gap: .4rem; }
+    .apt-scen-card.featured { background: #1A1714; border: 1px solid rgba(196,163,90,.35); margin: -1px; position: relative; z-index: 1; }
+    .apt-scen-tag { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .apt-scen-card.featured .apt-scen-tag { color: var(--gold); }
+    .apt-scen-pct { font-family: var(--f-display); font-size: 2.8rem; font-weight: 300; color: rgba(245,240,232,.35); line-height: 1; }
+    .apt-scen-card.featured .apt-scen-pct { color: var(--gold); }
+    .apt-scen-desc { font-size: .72rem; color: rgba(245,240,232,.3); }
+    .apt-scen-card.featured .apt-scen-desc { color: rgba(245,240,232,.55); }
+    .apt-scen-footnote { font-size: .66rem; color: rgba(245,240,232,.25); margin-top: 1.5rem; line-height: 1.55; }
+
+    /* ══ POPTÁVKA ════════════════════════════════════════ */
+    .apt-poptavka { background: var(--cream); padding: clamp(3rem, 7vw, 6rem) var(--gap); }
+    .apt-poptavka-inner { display: grid; grid-template-columns: 340px 1fr; gap: 5rem; align-items: start; }
+
+    .apt-agent-card { background: var(--warm); padding: 2rem; }
+    .apt-agent-photo { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem; }
+    .apt-agent-name { font-family: var(--f-display); font-size: 1.15rem; font-weight: 400; color: var(--dark); }
+    .apt-agent-role { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin: .25rem 0 .75rem; }
+    .apt-agent-quote { font-size: .82rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; font-style: italic; }
+    .apt-agent-contacts { display: flex; flex-direction: column; gap: .5rem; }
+    .apt-agent-contact { font-size: .84rem; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: .5rem; transition: color .2s; }
+    .apt-agent-contact:hover { color: var(--gold); }
+    .apt-agent-contact-icon { color: var(--gold); font-size: .9rem; }
+
+    .apt-form-title { font-family: var(--f-display); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; color: var(--dark); margin-bottom: .4rem; }
+    .apt-form-title em { font-style: italic; }
+    .apt-form-sub { font-size: .84rem; color: var(--muted); margin-bottom: 2rem; }
+    .apt-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.5rem; }
+    .form-field { display: flex; flex-direction: column; gap: .4rem; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .form-field input, .form-field select, .form-field textarea {
+      background: var(--warm); border: 1px solid var(--line); padding: .75rem 1rem;
+      font-family: var(--f-body); font-size: .88rem; color: var(--dark);
+      outline: none; width: 100%; transition: border-color .2s;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--gold); }
+    .form-field textarea { resize: vertical; min-height: 100px; }
+    .form-consent { grid-column: 1 / -1; font-size: .7rem; color: var(--muted); line-height: 1.6; }
+    .form-consent a { color: var(--gold); text-decoration: none; }
+    .form-submit { grid-column: 1 / -1; }
+    .form-success { grid-column: 1 / -1; display: none; background: rgba(74,124,89,.1); border: 1px solid rgba(74,124,89,.3); color: #4a7c59; padding: 1rem 1.25rem; font-size: .84rem; }
+
+    /* ══ OSTATNÍ APARTMÁNY ═══════════════════════════════ */
+    .apt-others { background: var(--warm); padding: clamp(3rem, 7vw, 5.5rem) var(--gap); }
+    .apt-others-h { font-family: var(--f-display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; color: var(--dark); margin-bottom: 2.5rem; }
+    .apt-others-h em { font-style: italic; }
+    .apt-others-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .apt-other-card { background: var(--warm); text-decoration: none; display: flex; flex-direction: column; transition: background .2s; }
+    .apt-other-card:hover { background: var(--cream); }
+    .apt-other-thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .apt-other-thumb.placeholder { background: var(--line); display: flex; align-items: center; justify-content: center; }
+    .apt-other-body { padding: 1.25rem 1.25rem 1.5rem; flex: 1; display: flex; flex-direction: column; gap: .25rem; }
+    .apt-other-num { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+    .apt-other-name { font-family: var(--f-display); font-size: 1.1rem; font-weight: 400; color: var(--dark); }
+    .apt-other-meta { font-size: .78rem; color: var(--muted); margin-top: .1rem; }
+    .apt-other-link { margin-top: auto; padding-top: 1rem; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
+
+    /* ══ PREV / NEXT ══════════════════════════════════════ */
+    .apt-prevnext { display: flex; background: var(--cream); border-top: 1px solid var(--line); }
+    .apt-pn-item { flex: 1; padding: 1.75rem var(--gap); text-decoration: none; display: flex; flex-direction: column; gap: .35rem; transition: background .2s; }
+    .apt-pn-item:hover { background: var(--warm); }
+    .apt-pn-item + .apt-pn-item { border-left: 1px solid var(--line); }
+    .apt-pn-item.right { text-align: right; align-items: flex-end; }
+    .apt-pn-dir  { font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .apt-pn-name { font-family: var(--f-display); font-size: 1rem; color: var(--dark); }
+
+    /* ══ FOOTER ══════════════════════════════════════════ */
+    footer { background: #0F0D0B; padding: 3rem var(--gap); border-top: 1px solid var(--line); }
+    .footer-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo img { display: block; }
+    .footer-links { display: flex; gap: 1.75rem; list-style: none; }
+    .footer-links a { font-size: .75rem; color: var(--muted); text-decoration: none; transition: color .2s; letter-spacing: .06em; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: .72rem; color: rgba(122,112,104,.6); width: 100%; }
+    .footer-copy a { color: var(--muted); text-decoration: none; }
+
+    /* ══ LIGHTBOX ════════════════════════════════════════ */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 900; background: rgba(20,17,14,.94); align-items: center; justify-content: center; cursor: pointer; }
+    .lightbox.open { display: flex; }
+    .lightbox-img { max-width: 92vw; max-height: 92vh; object-fit: contain; cursor: default; box-shadow: 0 2rem 6rem rgba(0,0,0,.55); }
+    .lightbox-close { position: absolute; top: 1.25rem; right: 1.25rem; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: none; border: 1px solid rgba(245,240,232,.22); color: var(--cream); font-size: 1.1rem; cursor: pointer; transition: border-color .2s, color .2s; }
+    .lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
+    .lightbox-counter { position: absolute; top: 1.5rem; right: 4.75rem; font-size: .7rem; letter-spacing: .12em; color: rgba(245,240,232,.45); pointer-events: none; }
+    .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: var(--cream); font-size: 1.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s; }
+    .lightbox-nav:hover { background: rgba(255,255,255,.22); }
+
+    /* ══ LOADING / NOT FOUND ══════════════════════════════ */
+    .apt-loading { min-height: 80vh; display: flex; align-items: center; justify-content: center; padding-top: 5rem; }
+    .apt-loading p { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .apt-notfound { min-height: 80vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1.5rem; text-align: center; padding: 8rem var(--gap); }
+    .apt-notfound h2 { font-family: var(--f-display); font-size: 2rem; font-weight: 300; }
+    .apt-notfound p { font-size: .88rem; color: var(--muted); }
+
+    /* ══ MOBILE ══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .apt-content .container { grid-template-columns: 1fr; gap: 3rem; }
+      .apt-sidebar { position: static; }
+      .apt-poptavka-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .apt-vynosbox-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 760px) {
+      .apt-scenarios-full { grid-template-columns: 1fr; gap: 0; }
+      .apt-scen-card.featured { margin: 0; }
+      .apt-form { grid-template-columns: 1fr; }
+      .apt-others-grid { grid-template-columns: 1fr 1fr; }
+      .apt-prevnext { flex-direction: column; }
+      .apt-pn-item + .apt-pn-item { border-left: none; border-top: 1px solid var(--line); }
+      .apt-pn-item.right { text-align: left; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .apt-others-grid { grid-template-columns: 1fr; }
+      .apt-hero { min-height: 60vh; }
+      .apt-specbar-inner { gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ TOP BAR ══════════════════════════════════════════ -->
+<header class="topbar">
+  <a class="topbar-logo" href="/"><img src="/images/logo/Soutok_Kouty_Logo_Dark_Horizontal.svg" alt="Soutok Kouty"></a>
+  <a class="topbar-back" href="/#cenik">Zpět na ceník</a>
+  <a class="topbar-cta btn-gold" href="#poptavka">Mám zájem</a>
+</header>
+
+<!-- ══ LOADING ══════════════════════════════════════════ -->
+<div id="aptLoading" class="apt-loading"><p>Načítám&hellip;</p></div>
+
+<!-- ══ NOT FOUND ════════════════════════════════════════ -->
+<div id="aptNotFound" class="apt-notfound" style="display:none">
+  <h2>Apartmán nenalezen</h2>
+  <p>Tento apartmán neexistuje nebo byl odstraněn ze systému.</p>
+  <a href="/#cenik" class="btn-gold">Zpět na ceník</a>
+</div>
+
+<!-- ══ OBSAH ════════════════════════════════════════════ -->
+<main id="aptMain" style="display:none">
+
+  <!-- HERO -->
+  <section class="apt-hero" id="aptHero">
+    <div class="apt-hero-inner">
+      <nav class="apt-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Domů</a><span>›</span>
+        <a href="/#cenik">Ceník</a><span>›</span>
+        <span id="bcCurrent" style="color:rgba(245,240,232,.65)">Apartmán</span>
+      </nav>
+      <span id="aptBadge" class="apt-stav-badge volny"></span>
+      <h1 class="apt-hero-title" id="aptTitle"></h1>
+      <p class="apt-hero-sub" id="aptSub"></p>
+    </div>
+  </section>
+
+  <!-- SPEC BAR -->
+  <div class="apt-specbar">
+    <div class="apt-specbar-inner" id="aptSpecBar"></div>
+  </div>
+
+  <!-- CONTENT + SIDEBAR -->
+  <section class="apt-content">
+    <div class="container">
+      <!-- Main column -->
+      <div class="apt-main-col">
+        <div class="apt-tabs" role="tablist">
+          <button class="apt-tab active" data-tab="dispozice" role="tab" aria-selected="true">Dispozice</button>
+          <button class="apt-tab" data-tab="standard" role="tab" aria-selected="false">Standard a vybavení</button>
+        </div>
+
+        <!-- Tab: Dispozice -->
+        <div id="tab-dispozice">
+          <p class="section-tag">/ Popis</p>
+          <p class="apt-popis-text" id="aptPopis"></p>
+
+          <p class="section-tag" id="roomsLabel" style="display:none">/ Místnosti</p>
+          <table class="apt-room-table" id="aptRoomsTable" style="display:none">
+            <thead><tr><th>Místnost</th><th>Povrch podlahy</th><th>Výměra</th></tr></thead>
+            <tbody id="aptRoomsTbody"></tbody>
+          </table>
+
+          <div id="aptPudorysSec">
+            <p class="section-tag">/ Půdorys</p>
+            <div class="apt-pudorys-frame" id="aptPudorysFrame"></div>
+          </div>
+        </div>
+
+        <!-- Tab: Standard -->
+        <div id="tab-standard" style="display:none">
+          <div class="std-category">
+            <h4>Podlahy a povrchy</h4>
+            <ul class="std-list">
+              <li>Vinylová podlaha v obytných místnostech</li>
+              <li>Keramická velkoformátová dlažba a obklady v koupelnách</li>
+              <li>Terasy s dlažbou na terčích (u vybraných jednotek)</li>
+            </ul>
+          </div>
+          <div class="std-category">
+            <h4>Vytápění a technologie</h4>
+            <ul class="std-list">
+              <li>Podlahové vytápění — rozdělovač/sběrač v každé jednotce</li>
+              <li>Centrální tepelné čerpadlo vzduch–voda</li>
+              <li>Lokální rekuperační jednotky, nucené větrání koupelen</li>
+            </ul>
+          </div>
+          <div class="std-category">
+            <h4>Okna a dveře</h4>
+            <ul class="std-list">
+              <li>Okna s trojsklem, systémové přerušení tepelných mostů</li>
+              <li>Difúzně otevřené a parotěsné fólie pro vzduchotěsnost</li>
+            </ul>
+          </div>
+          <div class="std-category">
+            <h4>Konstrukce a komfort</h4>
+            <ul class="std-list">
+              <li>Zateplení kontaktním systémem EPS, silikonové omítky</li>
+              <li>Rovinné SDK podhledy v celém patře (rozvody VZT a elektro)</li>
+              <li>Závěsná sanita, designové baterie, sprchové žlaby / kouty</li>
+            </ul>
+          </div>
+          <div class="std-category">
+            <h4>Společné prostory a služby</h4>
+            <ul class="std-list">
+              <li>Privátní wellness (sauna, whirlpool, zážitková sprcha) — vstup pro majitele za nákladovou cenu</li>
+              <li>Recepce a bistro v přízemí</li>
+              <li>Parkovací stání ke každé jednotce v ceně</li>
+              <li>Členství v síti Nord Moravia Resorts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="apt-sidebar">
+        <div class="apt-price-box reveal">
+          <p class="apt-price-label">Kupní cena</p>
+          <p class="apt-price-val" id="sidebarCena"></p>
+
+          <p class="section-tag" style="margin-bottom:.6rem">/ Výnosové scénáře p.a.</p>
+          <div class="apt-scenarios">
+            <div class="apt-scenario">
+              <span class="apt-scen-name">Konzervativní</span>
+              <span class="apt-scen-yield">4,9 %</span>
+            </div>
+            <div class="apt-scenario featured">
+              <span class="apt-scen-name">Realistický</span>
+              <span class="apt-scen-yield">6,7 %</span>
+            </div>
+            <div class="apt-scenario">
+              <span class="apt-scen-name">Optimistický</span>
+              <span class="apt-scen-yield">8,4 %</span>
+            </div>
+          </div>
+
+          <div class="apt-sidebar-ctas">
+            <a href="#poptavka" class="btn-gold">Mám zájem o tento apartmán</a>
+            <a href="/investice.html" class="btn-outline">Investiční analýza →</a>
+            <a id="sidebarPdf" href="#" class="apt-pdf-link" style="display:none">⬇ Stáhnout kartu apartmánu (PDF)</a>
+          </div>
+          <p class="apt-sidebar-note">Výnosy jsou odhad na základě tržních dat a nepředstavují záruku. Ceny orientační — upřesníme při setkání.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- VÝHODY -->
+  <section class="apt-vyhody-sec" id="aptVyhodySection" style="display:none">
+    <div class="container">
+      <p class="section-tag reveal">/ Výhody tohoto apartmánu</p>
+      <div class="apt-vyhody-grid reveal" id="aptVyhodyGrid"></div>
+    </div>
+  </section>
+
+  <!-- VÝNOSOVÝ BOX -->
+  <section class="apt-vynosbox">
+    <div class="container">
+      <div class="apt-vynosbox-inner">
+        <div class="apt-vynosbox-left reveal">
+          <p class="section-tag">/ Výnos z výnosového poolu</p>
+          <h2 class="apt-vynosbox-h">Sdílený výnos<br><em>celého hotelu</em></h2>
+          <p class="apt-vynosbox-sub" id="aptKoeficientInfo">Tato jednotka je součástí výnosového poolu — tržby z ubytování všech zapojených jednotek se sdílejí a rozdělují podle koeficientu každé jednotky.</p>
+          <p class="apt-vynosbox-sub" style="margin-top:.75rem;">Výnos se neodvíjí od obsazenosti jen tohoto apartmánu, ale od výsledku celého poolu, rozděleného podle koeficientů.</p>
+          <a href="/investice#pool" class="apt-vynosbox-link">Jak funguje výnosový pool →</a>
+        </div>
+        <div class="apt-scenarios-full reveal">
+          <div class="apt-scen-card">
+            <span class="apt-scen-tag">Konzervativní · 40 % obsazenost</span>
+            <span class="apt-scen-pct">4,9 %</span>
+            <span class="apt-scen-desc">169 220 Kč čistý výnos / rok</span>
+          </div>
+          <div class="apt-scen-card featured">
+            <span class="apt-scen-tag">Realistický · 50 % obsazenost</span>
+            <span class="apt-scen-pct">6,7 %</span>
+            <span class="apt-scen-desc">229 460 Kč čistý výnos / rok</span>
+          </div>
+          <div class="apt-scen-card">
+            <span class="apt-scen-tag">Optimistický · 60 % obsazenost</span>
+            <span class="apt-scen-pct">8,4 %</span>
+            <span class="apt-scen-desc">287 980 Kč čistý výnos / rok</span>
+          </div>
+          <p class="apt-scen-footnote" style="grid-column:1/-1;padding:1rem 1.5rem">* Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00), cena za noc 2 500 Kč. Výnos pochází z výnosového poolu a není garantován — závisí na obsazenosti celého poolu. První 1–2 sezóny mohou mít nižší obsazenost. Majitel může jednotku užívat až 14 nocí/rok za nákladovou cenu. Nájemní smlouva 5 let.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPTÁVKA -->
+  <section class="apt-poptavka" id="poptavka">
+    <div class="container">
+      <div class="apt-poptavka-inner">
+        <!-- Agent card -->
+        <div class="apt-agent-card reveal">
+          <img class="apt-agent-photo" src="/images/uploads/foto_marketa.webp" alt="Markéta Dvořáková">
+          <div class="apt-agent-name">Bc. Markéta Dvořáková, MBA</div>
+          <div class="apt-agent-role">Obchodní manažerka projektu</div>
+          <p class="apt-agent-quote">Ráda vám pošlu podklady, zodpovím dotazy a domluvím prohlídku přímo v resortu.</p>
+          <div class="apt-agent-contacts">
+            <a class="apt-agent-contact" href="tel:+420601502889">
+              <span class="apt-agent-contact-icon">📞</span>+420 601 502 889
+            </a>
+            <a class="apt-agent-contact" href="mailto:info@mori-reality.cz">
+              <span class="apt-agent-contact-icon">✉</span>info@mori-reality.cz
+            </a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="reveal">
+          <p class="section-tag">/ Nezávazná poptávka</p>
+          <h2 class="apt-form-title">Máte zájem?<br><em>Ozvěte se nám</em></h2>
+          <p class="apt-form-sub">Odpovíme do 24 hodin. Zašleme podklady nebo domluvíme osobní prezentaci.</p>
+
+          <form class="apt-form" name="poptavka-apartman" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="aptForm">
+            <input type="hidden" name="form-name" value="poptavka-apartman">
+            <input type="hidden" name="apartman" id="formApartman" value="">
+            <p style="display:none"><input name="bot-field"></p>
+
+            <div class="form-field">
+              <label for="fname">Jméno *</label>
+              <input type="text" id="fname" name="jmeno" required placeholder="Jan">
+            </div>
+            <div class="form-field">
+              <label for="lname">Příjmení *</label>
+              <input type="text" id="lname" name="prijmeni" required placeholder="Novák">
+            </div>
+            <div class="form-field">
+              <label for="femail">E-mail *</label>
+              <input type="email" id="femail" name="email" required placeholder="jan@example.cz">
+            </div>
+            <div class="form-field">
+              <label for="fphone">Telefon</label>
+              <input type="tel" id="fphone" name="telefon" placeholder="+420 600 000 000">
+            </div>
+            <div class="form-field full">
+              <label for="fkontakt">Preferovaný způsob kontaktu</label>
+              <select id="fkontakt" name="zpusob_kontaktu">
+                <option value="">— vyberte —</option>
+                <option>Telefon</option>
+                <option>E-mail</option>
+                <option>WhatsApp</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label for="fmsg">Zpráva</label>
+              <textarea id="fmsg" name="zprava" placeholder="Vaše dotazy, preference…"></textarea>
+            </div>
+            <p class="form-consent">Odesláním souhlasím se zpracováním osobních údajů za účelem odpovědi na poptávku. Údaje nebudou předány třetím stranám. <a href="#">Zásady ochrany údajů.</a></p>
+            <div class="form-submit">
+              <button type="submit" class="btn-gold">Odeslat poptávku</button>
+            </div>
+            <div class="form-success" id="aptFormSuccess">✓ Děkujeme! Ozveme se vám do 24 hodin.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OSTATNÍ DOSTUPNÉ APARTMÁNY -->
+  <section class="apt-others">
+    <div class="container">
+      <p class="section-tag reveal">/ Další nabídka</p>
+      <h2 class="apt-others-h reveal">Ostatní dostupné <em>apartmány</em></h2>
+      <div class="apt-others-grid" id="aptOthersGrid"></div>
+    </div>
+  </section>
+
+  <!-- PREV / NEXT -->
+  <div class="apt-prevnext" id="aptPrevNext"></div>
+
+</main><!-- /#aptMain -->
+
+<!-- ══ LIGHTBOX ══════════════════════════════════════════ -->
+<div class="lightbox" id="aptLightbox">
+  <button class="lightbox-close" id="aptLbClose">✕</button>
+  <span class="lightbox-counter" id="aptLbCounter"></span>
+  <button class="lightbox-nav" style="left:1rem" id="aptLbPrev">‹</button>
+  <img class="lightbox-img" id="aptLbImg" src="" alt="">
+  <button class="lightbox-nav" style="right:1rem" id="aptLbNext">›</button>
+</div>
+
+<!-- ══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="/images/logo/Soutok_Kouty_Logo_Light_Horizontal.svg" alt="Soutok Kouty" height="36"></div>
+    <ul class="footer-links">
+      <li><a href="/#projekt">O projektu</a></li>
+      <li><a href="/#investice">Investice</a></li>
+      <li><a href="/#cenik">Ceník</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
+      <li><a href="/admin/">CMS Admin</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Rejhotice 131, s.r.o. · <a href="#">Ochrana osobních údajů</a> · Web by <a href="https://www.mori-reality.cz/" target="_blank">Mori Reality</a></p>
+  </div>
+</footer>
+
+<script>
+/* ══ TABS ══════════════════════════════════════════════ */
+document.querySelectorAll('.apt-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.apt-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+    const target = btn.dataset.tab;
+    document.querySelectorAll('[id^="tab-"]').forEach(p => p.style.display = 'none');
+    document.getElementById('tab-' + target).style.display = '';
+  });
+});
+
+/* ══ LIGHTBOX ═══════════════════════════════════════════ */
+const lb    = document.getElementById('aptLightbox');
+const lbImg = document.getElementById('aptLbImg');
+const lbCnt = document.getElementById('aptLbCounter');
+let lbImgs  = [], lbCur = 0;
+function lbShow(i) { lbCur=(i+lbImgs.length)%lbImgs.length; lbImg.src=lbImgs[lbCur].src; lbImg.alt=lbImgs[lbCur].alt||''; lbCnt.textContent=(lbCur+1)+' / '+lbImgs.length; }
+function lbOpen(i) { lbShow(i); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+function lbClose()  { lb.classList.remove('open'); document.body.style.overflow=''; lbImg.src=''; }
+document.getElementById('aptLbClose').addEventListener('click', lbClose);
+document.getElementById('aptLbPrev').addEventListener('click', e => { e.stopPropagation(); lbShow(lbCur-1); });
+document.getElementById('aptLbNext').addEventListener('click', e => { e.stopPropagation(); lbShow(lbCur+1); });
+lb.addEventListener('click', e => { if (e.target===lb) lbClose(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key==='Escape') lbClose();
+  if (e.key==='ArrowLeft')  lbShow(lbCur-1);
+  if (e.key==='ArrowRight') lbShow(lbCur+1);
+});
+
+/* ══ REVEAL ══════════════════════════════════════════════ */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08 });
+
+/* ══ HELPERS ══════════════════════════════════════════════ */
+function stavClass(stav) {
+  if (stav==='Rezervovaný') return 'rezervovany';
+  if (stav==='Prodaný')     return 'prodany';
+  return 'volny';
+}
+function formatCena(c) {
+  if (!c) return 'Na vyžádání';
+  const n = parseInt(c.replace(/\D/g,''));
+  return isNaN(n) ? c : n.toLocaleString('cs')+' Kč';
+}
+function specTile(val, lbl) {
+  const d = document.createElement('div');
+  d.className = 'apt-spec-tile';
+  d.innerHTML = '<div class="apt-spec-val">'+val+'</div><div class="apt-spec-lbl">'+lbl+'</div>';
+  return d;
+}
+
+/* ══ MAIN LOAD ════════════════════════════════════════════ */
+const urlId = new URLSearchParams(window.location.search).get('id');
+
+fetch('/data/apartmany.json')
+  .then(r => r.json())
+  .then(({ apartmany }) => {
+    document.getElementById('aptLoading').style.display = 'none';
+    const idx = apartmany.findIndex(a => a.id === urlId);
+    if (!urlId || idx === -1) {
+      document.getElementById('aptNotFound').style.display = 'flex';
+      return;
+    }
+    const a = apartmany[idx];
+
+    /* ── Meta / OG ── */
+    const heroImg = a.galerie && a.galerie.length > 0 ? a.galerie[0] : '/images/uploads/AP_01_KOUTY.webp';
+    document.getElementById('pageTitle').textContent  = 'Apartmán '+a.cislo+' — Soutok Kouty';
+    document.getElementById('pageDesc').content        = a.popis || 'Apartmán č.'+a.cislo+', '+a.dispozice+', '+a.podlazi+' — Wellness Hotel Soutok Kouty, Jeseníky.';
+    document.getElementById('ogTitle').content         = 'Apartmán '+a.cislo+' — Soutok Kouty';
+    document.getElementById('ogDesc').content          = a.popis || 'Investiční apartmán v Jeseníkách s výnosem až 8,4 % p.a.';
+    document.getElementById('ogImage').content         = heroImg;
+
+    /* ── Hero ── */
+    document.getElementById('aptHero').style.backgroundImage = 'url('+heroImg+')';
+    document.getElementById('bcCurrent').textContent = 'Apartmán '+a.cislo;
+    const badge = document.getElementById('aptBadge');
+    badge.textContent = a.stav || 'Volný';
+    badge.className = 'apt-stav-badge '+stavClass(a.stav);
+    document.getElementById('aptTitle').textContent = 'Apartmán '+a.cislo;
+    document.getElementById('aptSub').textContent   = a.dispozice + (a.podlazi ? ' · '+a.podlazi : '');
+
+    /* ── Spec bar ── */
+    const bar = document.getElementById('aptSpecBar');
+    if (a.plocha > 0) bar.appendChild(specTile('<span>'+a.plocha+'</span> m²', 'Výměra'));
+    bar.appendChild(specTile(a.dispozice, 'Dispozice'));
+    bar.appendChild(specTile(a.podlazi,   'Podlaží'));
+    if (a.terasa && a.terasa > 0) bar.appendChild(specTile('<span>'+a.terasa+'</span> m²', 'Terasa'));
+    bar.appendChild(specTile(a.parking ? '✓' : '—', 'Parkování'));
+    if (a.vyhled)      bar.appendChild(specTile(a.vyhled,     'Výhled'));
+    if (a.orientace)   bar.appendChild(specTile(a.orientace,  'Orientace'));
+    bar.appendChild(specTile(formatCena(a.cena), 'Cena'));
+
+    /* ── Sidebar cena ── */
+    const sidebarCena = document.getElementById('sidebarCena');
+    sidebarCena.textContent = formatCena(a.cena);
+    if (!a.cena) sidebarCena.classList.add('na-vyzadani');
+
+    /* ── Sidebar PDF ── */
+    if (a.karta_pdf) {
+      const pdfLink = document.getElementById('sidebarPdf');
+      pdfLink.href = a.karta_pdf;
+      pdfLink.style.display = '';
+    }
+
+    /* ── Popis ── */
+    document.getElementById('aptPopis').textContent = a.popis || '';
+
+    /* ── Místnosti ── */
+    if (a.mistnosti && a.mistnosti.length > 0) {
+      document.getElementById('roomsLabel').style.display = '';
+      const tbl = document.getElementById('aptRoomsTable');
+      tbl.style.display = '';
+      const tbody = document.getElementById('aptRoomsTbody');
+      a.mistnosti.forEach(m => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = '<td>'+m.nazev+'</td><td>'+m.povrch+'</td><td class="room-plocha">'+m.plocha+' m²</td>';
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* ── Půdorys ── */
+    const pudFrame = document.getElementById('aptPudorysFrame');
+    if (a.pudorys) {
+      const img = document.createElement('img');
+      img.src = a.pudorys; img.alt = 'Půdorys apartmánu '+a.cislo;
+      pudFrame.appendChild(img);
+    } else {
+      pudFrame.innerHTML = '<div class="apt-pudorys-placeholder">Půdorys — bude doplněn</div>';
+    }
+
+    /* ── Galerie v pudorys sekci (lightbox) ── */
+    if (a.galerie && a.galerie.length > 1) {
+      const galGrid = document.createElement('div');
+      galGrid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:4px;margin-top:2rem';
+      a.galerie.forEach((src, i) => {
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = 'overflow:hidden;cursor:pointer;aspect-ratio:4/3';
+        const img = document.createElement('img');
+        img.src = src; img.alt = 'Foto '+a.cislo+' '+(i+1);
+        img.style.cssText = 'width:100%;height:100%;object-fit:cover;transition:transform .4s';
+        img.addEventListener('mouseover', () => img.style.transform='scale(1.05)');
+        img.addEventListener('mouseout',  () => img.style.transform='');
+        wrapper.appendChild(img);
+        galGrid.appendChild(wrapper);
+      });
+      document.getElementById('aptPudorysSec').appendChild(galGrid);
+      lbImgs = Array.from(galGrid.querySelectorAll('img'));
+      lbImgs.forEach((img, i) => img.addEventListener('click', () => lbOpen(i)));
+    }
+
+    /* ── Výhody ── */
+    if (a.vyhody && a.vyhody.length > 0) {
+      document.getElementById('aptVyhodySection').style.display = '';
+      const grid = document.getElementById('aptVyhodyGrid');
+      a.vyhody.forEach(v => {
+        const div = document.createElement('div');
+        div.className = 'apt-vyhoda';
+        div.innerHTML = '<svg class="apt-vyhoda-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="apt-vyhoda-text">'+v+'</span>';
+        grid.appendChild(div);
+      });
+    }
+
+    /* ── Koeficient v poolu ── */
+    const koefLabels = { 0.85: 'malý pokoj', 1.00: 'vzorová 1+kk', 1.20: 's terasou', 1.40: '2+kk', 1.60: 'mezonet/loft' };
+    const koefEl = document.getElementById('aptKoeficientInfo');
+    if (a.koeficient != null) {
+      const popis = koefLabels[a.koeficient] || '';
+      koefEl.textContent = 'Tato jednotka má v poolu koeficient ' + a.koeficient.toFixed(2).replace('.', ',') + (popis ? ' (' + popis + ')' : '') + '. Výnos se neodvíjí od obsazenosti jen tohoto apartmánu, ale od výsledku celého poolu, rozděleného podle koeficientů.';
+    }
+
+    /* ── Form: hidden apartman field ── */
+    document.getElementById('formApartman').value = 'Apartmán '+a.cislo+' ('+a.dispozice+')';
+
+    /* ── Ostatní apartmány ── */
+    const others = apartmany.filter(o => o.id !== a.id && o.stav !== 'Prodaný').slice(0, 4);
+    const othGrid = document.getElementById('aptOthersGrid');
+    others.forEach(o => {
+      const thumb = o.galerie && o.galerie.length > 0 ? o.galerie[0] : '/images/uploads/AP_01_KOUTY.webp';
+      const card = document.createElement('a');
+      card.className = 'apt-other-card';
+      card.href = '/apartman?id='+o.id;
+      card.innerHTML =
+        '<img class="apt-other-thumb" src="'+thumb+'" alt="Apartmán '+o.cislo+'" loading="lazy">'+
+        '<div class="apt-other-body">'+
+          '<div class="apt-other-num">Apartmán '+o.cislo+'</div>'+
+          '<div class="apt-other-name">'+o.dispozice+'</div>'+
+          '<div class="apt-other-meta">'+o.podlazi+(o.plocha>0?' · '+o.plocha+' m²':'')+'</div>'+
+          '<div class="apt-other-link">Zobrazit detail →</div>'+
+        '</div>';
+      othGrid.appendChild(card);
+    });
+
+    /* ── Prev / Next ── */
+    const pnWrap = document.getElementById('aptPrevNext');
+    const prev = idx > 0 ? apartmany[idx-1] : null;
+    const next = idx < apartmany.length-1 ? apartmany[idx+1] : null;
+    function pnItem(apt, dir, right) {
+      if (!apt) { const sp=document.createElement('div'); sp.className='apt-pn-item'+(right?' right':''); pnWrap.appendChild(sp); return; }
+      const a2 = document.createElement('a');
+      a2.className = 'apt-pn-item'+(right?' right':'');
+      a2.href = '/apartman?id='+apt.id;
+      a2.innerHTML = '<span class="apt-pn-dir">'+dir+'</span><span class="apt-pn-name">Apartmán '+apt.cislo+'</span>';
+      pnWrap.appendChild(a2);
+    }
+    pnItem(prev, '← Předchozí', false);
+    pnItem(next, 'Další →',     true);
+
+    /* ── Show + reveal ── */
+    document.getElementById('aptMain').style.display = '';
+    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+  })
+  .catch(() => {
+    document.getElementById('aptLoading').style.display = 'none';
+    document.getElementById('aptNotFound').style.display = 'flex';
+  });
+
+/* ══ FORM SUBMIT ══════════════════════════════════════════ */
+document.getElementById('aptForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  try {
+    await fetch('/', { method: 'POST', body: new FormData(e.target) });
+    document.getElementById('aptFormSuccess').style.display = 'block';
+    e.target.reset();
+  } catch {
+    alert('Nastala chyba. Zkuste to prosím znovu nebo nás kontaktujte telefonicky.');
+  }
+});
+</script>
+</body>
+</html>

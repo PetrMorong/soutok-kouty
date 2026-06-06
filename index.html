@@ -346,6 +346,13 @@
     .apt-reserved .apt-badge { background: rgba(122,112,104,.1); color: var(--muted); border-color: rgba(122,112,104,.2); }
     .apt-cta-row { margin-top: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
     .apt-note { font-size: .8rem; color: var(--muted); }
+    .apt-badge-reserved { background: rgba(196,163,90,.12); color: var(--gold); border: 1px solid var(--line); }
+    .apt-badge-sold { background: rgba(122,112,104,.1); color: var(--muted); border: 1px solid rgba(122,112,104,.2); }
+    .apt-detail-link { font-size: .72rem; color: var(--gold); text-decoration: none; letter-spacing: .06em; border-bottom: 1px solid rgba(196,163,90,.3); transition: border-color .2s; white-space: nowrap; }
+    .apt-detail-link:hover { border-color: var(--gold); }
+    tr.apt-row-sold { opacity: .4; }
+    tr.apt-row-sold td { text-decoration: line-through; }
+    tr.apt-row-clickable { cursor: pointer; }
 
     /* ═══════════════════════════════════════════
        LOKALITA
@@ -627,6 +634,19 @@
     }
 
     /* ═══════════════════════════════════════════
+       POOL STEPS (investment section)
+    ═══════════════════════════════════════════ */
+    .pool-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2.5rem; }
+    .pool-step { background: var(--mid); padding: 2rem 1.75rem; }
+    .pool-step-num { font-family: var(--f-display); font-size: 2rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 1rem; }
+    .pool-step h4 { font-size: .88rem; font-weight: 500; color: var(--cream); margin-bottom: .6rem; }
+    .pool-step p { font-size: .8rem; color: rgba(245,240,232,.55); line-height: 1.65; }
+    .pool-coefs { margin-top: 1.25rem; font-size: .78rem; color: rgba(245,240,232,.45); letter-spacing: .02em; border-left: 3px solid var(--gold); padding: .75rem 1.25rem; background: rgba(196,163,90,.06); }
+    .pool-coefs strong { color: var(--gold); }
+    .inv-scen-label { font-size: .75rem; color: rgba(245,240,232,.35); text-align: center; margin-top: 2.5rem; margin-bottom: .75rem; letter-spacing: .02em; }
+    @media (max-width: 700px) { .pool-steps { grid-template-columns: 1fr; } }
+
+    /* ═══════════════════════════════════════════
        GALLERY
     ═══════════════════════════════════════════ */
     .gallery { background: var(--dark); }
@@ -805,7 +825,7 @@
       <div>
         <p class="section-tag reveal">/ O projektu</p>
         <h2 class="section-h2 reveal reveal-delay-1">Designový horský<br><em>hotel nové generace</em></h2>
-        <p class="section-lead reveal reveal-delay-2">V srdci Jeseníků vzniká projekt, který spojuje horský design, prémiový komfort a investiční potenciál. Wellness hotel Soutok Kouty nabídne 23 designových jednotek — od útulných hotelových pokojů až po prostorné apartmány s terasou — vše ve čtyřhvězdičkovém standardu.</p>
+        <p class="section-lead reveal reveal-delay-2">V srdci Jeseníků vzniká projekt, který spojuje horský design, prémiový komfort a investiční potenciál. Wellness hotel Soutok Kouty nabídne 23 designových jednotek — od útulných hotelových pokojů až po prostorné apartmány s terasou — vše v prémiovém standardu.</p>
         <p class="section-lead reveal reveal-delay-3" style="margin-top:1rem;">Majitelům nabízíme kompletní správu, marketing i obsazenost po celý rok. Jeseníky jsou jednou z nejrychleji rostoucích turistických destinací v Česku.</p>
         <div style="margin-top:2rem;" class="reveal">
           <a href="#kontakt" class="btn-primary">Domluvit schůzku</a>
@@ -837,8 +857,32 @@
 <section class="investment" id="investice">
   <div class="container">
     <p class="section-tag reveal">/ Investiční model</p>
-    <h2 class="section-h2 reveal reveal-delay-1">Jasná čísla,<br><em>předvídatelný výnos</em></h2>
-    <p class="section-lead reveal reveal-delay-2">Realistický scénář při 50% obsazenosti generuje 6,7 % p.a. z celkové investice. Vlastní wellness a management rezervací podporuje celoroční obsazenost.</p>
+    <h2 class="section-h2 reveal reveal-delay-1">Jasná čísla,<br><em>sdílený výnos</em></h2>
+    <p class="section-lead reveal reveal-delay-2">Svůj apartmán nevyděláváte sám za sebe — je součástí výnosového poolu celého hotelu. Tržby z ubytování všech jednotek se sdílejí a rozdělují podle koeficientu vaší jednotky. Tím se vyrovnávají rozdíly v obsazenosti mezi jednotlivými apartmány a snižuje se riziko prázdných nocí.</p>
+
+    <!-- Jak funguje výnosový pool -->
+    <div class="pool-steps reveal">
+      <div class="pool-step">
+        <div class="pool-step-num">1</div>
+        <h4>Společný výnos</h4>
+        <p>Tržby z ubytování všech zapojených jednotek tvoří jeden pool. Nezáleží na tom, jestli je obsazený zrovna váš apartmán; výnos se sdílí.</p>
+      </div>
+      <div class="pool-step">
+        <div class="pool-step-num">2</div>
+        <h4>Jedna provize za celý provoz</h4>
+        <p>Z poolu se odečte správcovská provize pokrývající marketing, rezervace, provize portálů, úklid, prádlo i údržbu. Zbytek je čistý výnos k rozdělení.</p>
+      </div>
+      <div class="pool-step">
+        <div class="pool-step-num">3</div>
+        <h4>Spravedlivé rozdělení podle koeficientu</h4>
+        <p>Čistý výnos se dělí podle váhového klíče. Koeficient zohledňuje velikost a kvalitu jednotky (terasa, mezonet) a počet dní v poolu.</p>
+      </div>
+    </div>
+    <div class="pool-coefs reveal">
+      <strong>Koeficienty:</strong>&ensp;0,85 malý pokoj &middot; 1,00 vzorová 1+kk &middot; 1,20 s terasou &middot; 1,40 2+kk &middot; 1,60 mezonet/loft
+    </div>
+
+    <p class="inv-scen-label">Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00). Výnos není garantován.</p>
 
     <div class="inv-cards reveal">
       <div class="inv-card">
@@ -882,7 +926,7 @@
       <a href="/investice.html" class="btn-primary">Zobrazit detailní analýzu →</a>
     </div>
 
-    <p class="inv-footnote reveal">Kalkulace pro 1+kk ~20 m², cena za noc 2 500 Kč, správa 20 %, provize rezervačních kanálů 11,7 %. Jeseníky mají silnou zimní i letní sezónu. Vlastní wellness podporuje celoroční obsazenost i mimo sezónu. Výnosy jsou odhadem na základě aktuálních tržních dat a nepředstavují záruku budoucího výkonu.</p>
+    <p class="inv-footnote reveal">Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00), cena za noc 2 500 Kč. Výnos pochází z výnosového poolu po odečtení jedné správcovské provize pokrývající celý provoz včetně provizí portálů. Výnos není garantovaný a závisí na obsazenosti celého poolu. První 1–2 sezóny mohou mít nižší obsazenost. Majitel může jednotku sám užívat až 14 nocí ročně za nákladovou cenu. Nájemní smlouva na dobu určitou 5 let.</p>
   </div>
 </section>
 
@@ -1021,6 +1065,7 @@
             <th>Terasa</th>
             <th>Parking</th>
             <th>Cena</th>
+            <th>Stav</th>
             <th></th>
           </tr>
         </thead>
@@ -1078,7 +1123,7 @@
       </ul>
       <div class="loc-map reveal reveal-delay-2">
         <iframe
-          src="https://maps.google.com/maps?q=Rejhotice+131,+Lou%C4%8Dn%C3%A1+nad+Desnou,+788+11&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2571!2d17.0435!3d50.0742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zV2VsbG5lc3MgSG90ZWwgU291dG9rIEtvdXR5!5e0!3m2!1scs!2scz!4v1&markers=color:red%7Clabel:S%7C50.0742,17.0435"
           width="100%" height="100%" frameborder="0" style="border:0"
           allowfullscreen
           loading="lazy"
@@ -1385,41 +1430,55 @@
 </footer>
 
 <script>
-  /* ── Data ── */
-  const apartments = [
-    { number:"131/7",  floor:"2NP", layout:"1+kk", size:"15,93", terasa:null,   parking:1, price:2590000, reserved:false },
-    { number:"131/8",  floor:"2NP", layout:"1+kk", size:"17,83", terasa:null,   parking:1, price:2790000, reserved:false },
-    { number:"131/9",  floor:"2NP", layout:"1+kk", size:"17,86", terasa:null,   parking:1, price:2790000, reserved:false },
-    { number:"131/10", floor:"2NP", layout:"1+kk", size:"31,03", terasa:"8,96", parking:1, price:3990000, reserved:false },
-    { number:"131/11", floor:"2NP", layout:"1+kk", size:"31,76", terasa:"7,05", parking:1, price:3990000, reserved:false },
-    { number:"131/12", floor:"2NP", layout:"1+kk", size:"28,10", terasa:"7,90", parking:1, price:3590000, reserved:false },
-    { number:"131/13", floor:"2NP", layout:"1+kk", size:"24,03", terasa:"7,90", parking:1, price:3190000, reserved:false },
-    { number:"131/14", floor:"2NP", layout:"2+kk", size:"39,56", terasa:"12,74",parking:1, price:5490000, reserved:false },
-    { number:"131/15", floor:"2NP", layout:"1+kk", size:"27,79", terasa:"9,79", parking:1, price:3590000, reserved:false },
-    { number:"131/16", floor:"2NP", layout:"2+kk", size:"39,56", terasa:"12,74",parking:1, price:4490000, reserved:false },
-  ];
+  /* ── Apartmány z JSON ── */
+  fetch('/data/apartmany.json')
+    .then(r => r.json())
+    .then(({apartmany}) => {
+      const tbody = document.getElementById('aptTable');
+      apartmany.forEach(a => {
+        const sold     = a.stav === 'Prodaný';
+        const reserved = a.stav === 'Rezervovaný';
+        const tr = document.createElement('tr');
+        if (sold) tr.classList.add('apt-row-sold');
+        else if (reserved) tr.classList.add('apt-reserved');
+        if (!sold && a.id) tr.classList.add('apt-row-clickable');
 
-  /* ── Render table ── */
-  const tbody = document.getElementById('aptTable');
-  apartments.forEach(a => {
-    const tr = document.createElement('tr');
-    if (a.reserved) tr.classList.add('apt-reserved');
-    tr.innerHTML = `
-      <td class="apt-number">${a.number}</td>
-      <td>${a.floor}</td>
-      <td>${a.layout}</td>
-      <td>${a.size} m²</td>
-      <td class="apt-terasa">${a.terasa ? a.terasa+' m²' : '—'}</td>
-      <td>${a.parking}</td>
-      <td class="${a.price ? 'apt-price' : 'apt-price pending'}">
-        ${a.price ? a.price.toLocaleString('cs')+' Kč' : 'Projekt v přípravě'}
-      </td>
-      <td>
-        <span class="apt-badge">${a.reserved ? 'Rezervováno' : 'Dostupný'}</span>
-      </td>
-    `;
-    tbody.appendChild(tr);
-  });
+        const cena = a.cena
+          ? parseInt(a.cena.replace(/\D/g, '')).toLocaleString('cs') + ' Kč'
+          : 'Na vyžádání';
+
+        let badgeCls = 'apt-badge';
+        if (reserved) badgeCls += ' apt-badge-reserved';
+        if (sold)     badgeCls += ' apt-badge-sold';
+
+        const detail = (!sold && a.id)
+          ? `<a class="apt-detail-link" href="/apartman?id=${a.id}">Detail →</a>`
+          : '';
+
+        tr.innerHTML = `
+          <td class="apt-number">${a.cislo}</td>
+          <td>${a.podlazi}</td>
+          <td>${a.dispozice}</td>
+          <td>${a.plocha > 0 ? a.plocha + ' m²' : '—'}</td>
+          <td class="apt-terasa">${a.terasa ? a.terasa + ' m²' : '—'}</td>
+          <td>${a.parking ? '✓' : '—'}</td>
+          <td class="${a.cena ? 'apt-price' : 'apt-price pending'}">${cena}</td>
+          <td><span class="${badgeCls}">${a.stav || 'Volný'}</span></td>
+          <td>${detail}</td>
+        `;
+
+        if (!sold && a.id) {
+          tr.addEventListener('click', e => {
+            if (!e.target.closest('a')) window.location.href = '/apartman?id=' + a.id;
+          });
+        }
+        tbody.appendChild(tr);
+      });
+    })
+    .catch(() => {
+      const tbody = document.getElementById('aptTable');
+      tbody.innerHTML = '<tr><td colspan="9" style="color:var(--muted);text-align:center;padding:2rem">Tabulka se načítá…</td></tr>';
+    });
 
   /* ── Nav scroll ── */
   const nav = document.getElementById('nav');
@@ -1490,6 +1549,15 @@
       if (e.key === 'ArrowLeft')  show(current - 1);
       if (e.key === 'ArrowRight') show(current + 1);
     });
+  })();
+
+  /* ── Pre-fill form from ?unit= (proklik z apartman.html) ── */
+  (function() {
+    const unit = new URLSearchParams(window.location.search).get('unit');
+    if (!unit) return;
+    const msg = document.getElementById('message');
+    if (msg && !msg.value) msg.value = 'Mám zájem o apartmán č. ' + unit + '.\n';
+    setTimeout(() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' }), 300);
   })();
 
   /* ── Form submit ── */

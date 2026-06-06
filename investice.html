@@ -99,6 +99,30 @@
     .inv-warning { border-left: 3px solid var(--gold); background: rgba(196,163,90,.08); padding: 1.25rem; margin-top: 1.5rem; font-size: .85rem; color: var(--mid); line-height: 1.65; }
     @media (max-width: 700px) { .scen-grid { grid-template-columns: 1fr; } .scen-card.featured::before { display: none; } }
 
+    /* ── VÝNOSOVÝ POOL ── */
+    .pool-sec { background: var(--cream); }
+    .pool-lead { font-size: .9rem; color: var(--mid); max-width: 720px; margin-top: 1.25rem; line-height: 1.75; }
+    .pool-steps-inv { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2.5rem; }
+    .pool-step-inv { background: var(--warm); padding: 2rem 1.75rem; }
+    .pool-step-inv-num { font-family: var(--f-display); font-size: 2.2rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 1rem; }
+    .pool-step-inv h4 { font-size: .88rem; font-weight: 600; color: var(--dark); margin-bottom: .6rem; }
+    .pool-step-inv p { font-size: .82rem; color: var(--muted); line-height: 1.65; }
+    .pool-formula-box { margin-top: 2rem; border: 1px solid var(--line); background: var(--warm); padding: 1.5rem 2rem; }
+    .pool-formula-title { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .85rem; }
+    .pool-formula-text { font-size: .88rem; color: var(--mid); line-height: 1.7; }
+    .pool-formula-eq { font-family: var(--f-display); font-size: 1.05rem; font-weight: 400; color: var(--dark); margin: .75rem 0; letter-spacing: .01em; }
+    .pool-coef-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: .85rem; }
+    .pool-coef-table th { font-size: .65rem; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); font-weight: 400; padding: .6rem 1rem .6rem 0; text-align: left; border-bottom: 1px solid var(--line); }
+    .pool-coef-table td { padding: .85rem 1rem .85rem 0; border-bottom: 1px solid var(--line); color: var(--dark); }
+    .pool-coef-table td:last-child { font-family: var(--f-display); font-size: 1.1rem; font-weight: 300; color: var(--gold); }
+    .pool-info-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2.5rem; }
+    .pool-info-card { background: var(--warm); padding: 1.75rem 1.5rem; }
+    .pool-info-icon { font-size: 1.35rem; margin-bottom: .85rem; }
+    .pool-info-title { font-size: .85rem; font-weight: 600; color: var(--dark); margin-bottom: .45rem; }
+    .pool-info-text { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+    .scen-ilust-label { font-size: .75rem; color: var(--muted); text-align: center; margin-top: 2.5rem; margin-bottom: .75rem; }
+    @media (max-width: 800px) { .pool-steps-inv { grid-template-columns: 1fr; } .pool-info-grid { grid-template-columns: 1fr; } }
+
     /* ── NORD MORAVIA RESORTS ── */
     .nord { background: var(--dark); }
     .nord .section-h2 { color: var(--cream); }
@@ -218,6 +242,7 @@
   <a class="nav-logo" href="index.html"><img id="navLogo" src="/images/logo/Soutok_Kouty_Logo_Light_Horizontal.svg" alt="Soutok Kouty" height="32"></a>
   <ul class="nav-links">
     <li><a href="#vyhody">Výhody</a></li>
+    <li><a href="#pool">Pool</a></li>
     <li><a href="#lokalita">Lokalita</a></li>
     <li><a href="#koupe">Koupě</a></li>
     <li><a href="#sprava">Správa</a></li>
@@ -256,7 +281,7 @@
         </div>
         <div class="benefit-val">6,7 %</div>
         <div class="benefit-label">Výnos p.a.</div>
-        <div class="benefit-desc">Realistický scénář při 50% obsazenosti. Prémiová lokalita a vlastní wellness zajišťují nadprůměrnou obsazenost po celý rok.</div>
+        <div class="benefit-desc">Realistický scénář výnosového poolu při 50% obsazenosti. Prémiová lokalita a vlastní wellness podporují celoroční obsazenost celého hotelu.</div>
       </div>
 
       <div class="benefit-card">
@@ -300,6 +325,8 @@
 
     </div>
 
+    <p class="scen-ilust-label reveal">Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00). Výnos není garantován.</p>
+
     <div class="scen-grid reveal">
       <div class="scen-card">
         <div class="scen-label">Konzervativní scénář</div>
@@ -325,9 +352,78 @@
     </div>
 
     <div class="inv-warning reveal">
-      ⚠ <strong>Rozjezdové období:</strong> První 1–2 sezóny může být obsazenost nižší než uvádí realistický scénář. Hotel buduje základnu hostů, recenze a opakované rezervace. Doporučujeme v prvních letech počítat konzervativněji s 30–40 % obsazeností.
+      ⚠ <strong>Rozjezdové období:</strong> První 1–2 sezóny může být obsazenost poolu nižší, než uvádí realistický scénář. Hotel buduje základnu hostů, recenze a opakované rezervace. Doporučujeme v prvních letech počítat konzervativněji s 30–40 % obsazeností.
     </div>
 
+  </div>
+</section>
+
+<!-- ─── JAK FUNGUJE VÝNOSOVÝ POOL ─────────────────────────── -->
+<section class="pool-sec" id="pool">
+  <div class="container">
+    <p class="section-tag reveal">/ Výnosový pool</p>
+    <h2 class="section-h2 reveal reveal-delay-1">Jak funguje<br><em>sdílený výnos</em></h2>
+    <p class="pool-lead reveal reveal-delay-2">Váš apartmán není izolovaná investice — je součástí výnosového poolu celého hotelu. Tržby z ubytování všech zapojených jednotek se sčítají, odečte se jedna správcovská provize a zbytek se rozdělí mezi vlastníky podle koeficientu jejich jednotky.</p>
+
+    <div class="pool-steps-inv reveal">
+      <div class="pool-step-inv">
+        <div class="pool-step-inv-num">1</div>
+        <h4>Společný pool tržeb</h4>
+        <p>Tržby z ubytování (bez snídaně) všech zapojených jednotek se sčítají do jednoho poolu. Nezáleží na tom, jestli je obsazený zrovna váš apartmán — výnos se sdílí.</p>
+      </div>
+      <div class="pool-step-inv">
+        <div class="pool-step-inv-num">2</div>
+        <h4>Jedna provize za celý provoz</h4>
+        <p>Z poolu se odečte jediná správcovská provize pokrývající marketing, rezervační systém, provize portálů (Booking, Airbnb), úklid, prádlo a běžnou údržbu. Žádné skryté náklady.</p>
+      </div>
+      <div class="pool-step-inv">
+        <div class="pool-step-inv-num">3</div>
+        <h4>Rozdělení podle koeficientu</h4>
+        <p>Čistý výnos poolu se rozdělí mezi vlastníky podle váhového klíče. Váš podíl závisí na koeficientu vaší jednotky a počtu dní, po které je v poolu.</p>
+      </div>
+    </div>
+
+    <div class="pool-formula-box reveal">
+      <div class="pool-formula-title">Vzorec pro výpočet podílu</div>
+      <div class="pool-formula-eq">podíl = (koeficient jednotky × dny v poolu) ÷ (součet za všechny jednotky) × čistý výnos poolu</div>
+      <div class="pool-formula-text">Koeficient zohledňuje velikost a kvalitu jednotky. Výsledkem je spravedlivé rozdělení, které minimalizuje dopad prázdných nocí v jedné konkrétní jednotce na výnos jejího vlastníka.</div>
+    </div>
+
+    <table class="pool-coef-table reveal">
+      <thead>
+        <tr>
+          <th>Typ jednotky</th>
+          <th>Příklad</th>
+          <th>Koeficient</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Malý pokoj / investiční jednotka</td><td>ap-6, ap-7, ap-9, ap-10</td><td>0,85</td></tr>
+        <tr><td>Vzorová 1+kk</td><td>byt-1, byt-2, byt-3, ap-1</td><td>1,00</td></tr>
+        <tr><td>1+kk s terasou</td><td>ap-2, ap-3, ap-4, ap-5, ap-8, ap-11</td><td>1,20</td></tr>
+        <tr><td>2+kk</td><td>—</td><td>1,40</td></tr>
+        <tr><td>Mezonet / loft</td><td>podkroví (3.NP) — orientační</td><td>1,60</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.75rem; color:var(--muted); margin-top:.75rem;">Koeficienty jsou orientační a budou upřesněny v nájemní smlouvě. Hodnoty podkroví (3.NP) závisí na finální dispozici.</p>
+
+    <div class="pool-info-grid reveal">
+      <div class="pool-info-card">
+        <div class="pool-info-icon">📅</div>
+        <div class="pool-info-title">Měsíční vyúčtování</div>
+        <div class="pool-info-text">Každý měsíc obdržíte přehled tržeb poolu, vašeho koeficientu a výsledného výnosu. Transparentní přístup k výkazům 24/7.</div>
+      </div>
+      <div class="pool-info-card">
+        <div class="pool-info-icon">🏠</div>
+        <div class="pool-info-title">Vlastní užívání 14 nocí/rok</div>
+        <div class="pool-info-text">Jako majitel můžete jednotku sami užívat až 14 nocí ročně za nákladovou cenu (energie + úklid). Stačí blokace v rezervačním systému.</div>
+      </div>
+      <div class="pool-info-card">
+        <div class="pool-info-icon">📋</div>
+        <div class="pool-info-title">Smlouva na dobu určitou</div>
+        <div class="pool-info-text">Nájemní smlouva je uzavřena na dobu určitou 5 let. Výnos není garantován — závisí na obsazenosti celého poolu. Rozjezdová fáze: první 1–2 sezóny.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -495,24 +591,32 @@
         <div class="mgmt-box">
           <div class="mgmt-box-title">Podmínky správy</div>
           <div class="mgmt-box-row">
-            <span class="mgmt-box-key">Správcovský poplatek</span>
-            <span class="mgmt-box-val">20 % z tržeb</span>
+            <span class="mgmt-box-key">Model výnosu</span>
+            <span class="mgmt-box-val">Výnosový pool</span>
+          </div>
+          <div class="mgmt-box-row">
+            <span class="mgmt-box-key">Správcovská provize</span>
+            <span class="mgmt-box-val">Jedna — pokrývá celý provoz</span>
+          </div>
+          <div class="mgmt-box-row">
+            <span class="mgmt-box-key">Co zahrnuje provize</span>
+            <span class="mgmt-box-val">Marketing, rezervace, portály, úklid, prádlo, údržba</span>
           </div>
           <div class="mgmt-box-row">
             <span class="mgmt-box-key">Vyúčtování</span>
-            <span class="mgmt-box-val">Měsíčně</span>
+            <span class="mgmt-box-val">Měsíčně, transparentní výkazy</span>
           </div>
           <div class="mgmt-box-row">
             <span class="mgmt-box-key">Vlastní pobyt</span>
-            <span class="mgmt-box-val">Kdykoliv za nákladovou cenu</span>
+            <span class="mgmt-box-val">14 nocí/rok za nákladovou cenu</span>
           </div>
           <div class="mgmt-box-row">
             <span class="mgmt-box-key">Online přehled</span>
-            <span class="mgmt-box-val">Přístup k rezervacím 24/7</span>
+            <span class="mgmt-box-val">Přístup k výkazům poolu 24/7</span>
           </div>
           <div class="mgmt-box-row">
-            <span class="mgmt-box-key">Výpovědní lhůta</span>
-            <span class="mgmt-box-val">3 měsíce</span>
+            <span class="mgmt-box-key">Délka nájemní smlouvy</span>
+            <span class="mgmt-box-val">5 let (doba určitá)</span>
           </div>
         </div>
       </div>
@@ -578,10 +682,18 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-text">Mohu apartmán kdykoliv využít pro sebe?</span>
+          <span class="faq-q-text">Co je výnosový pool a jak funguje?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Ano, majitel má přednost. Stačí blokace v rezervačním systému. Cena za pobyt je nákladová — zahrnuje energie a úklid.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Tržby z ubytování všech zapojených jednotek se sčítají do společného poolu. Z poolu se odečte jedna správcovská provize pokrývající celý provoz (marketing, rezervační systém, provize portálů, úklid, prádlo, údržba). Zbytek — čistý výnos — se rozdělí mezi vlastníky podle váhového koeficientu jejich jednotky a počtu dní v poolu. Vzorec: podíl = (koeficient × dny v poolu) ÷ (součet za všechny) × čistý výnos poolu.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="faq-q-text">Mohu apartmán využít pro sebe?</span>
+          <span class="faq-arrow">›</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ano — každý majitel může svou jednotku sám užívat až 14 nocí ročně za nákladovou cenu (energie + úklid). Stačí blokace v rezervačním systému. Výnos z poolu plyne dál bez ohledu na vaše vlastní pobyty.</div></div>
       </div>
 
       <div class="faq-item">
@@ -589,7 +701,7 @@
           <span class="faq-q-text">Jak vysoká je správcovská provize?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">20 % z hrubých tržeb. Zahrnuje veškerý provoz, marketing, úklid a drobnou údržbu.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Existuje jedna správcovská provize pokrývající celý provoz: marketing, rezervační systém, provize portálů (Booking, Airbnb), úklid, prádlo i drobnou údržbu. Výše provize bude upřesněna v nájemní smlouvě — neplatíte zvlášť za každou položku.</div></div>
       </div>
 
       <div class="faq-item">
@@ -610,18 +722,18 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-text">Kdy dostanu první výnos?</span>
+          <span class="faq-q-text">Kdy dostanu první výnos z poolu?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Po zahájení provozu v lednu 2028. Vyúčtování probíhá měsíčně, výnos je převeden do 15. dne následujícího měsíce.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Po zahájení provozu v lednu 2028. Vyúčtování výnosového poolu probíhá měsíčně — váš podíl je převeden do 15. dne následujícího měsíce spolu s přehledem tržeb a koeficientů.</div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-text">Jaká je minimální obsazenost garantována?</span>
+          <span class="faq-q-text">Je výnos garantován?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Výnosy nejsou garantovány, ale kalkulace vychází z reálných dat trhu. Vlastní wellness a aktivní revenue management maximalizují obsazenost po celý rok.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Výnos není garantován — závisí na obsazenosti celého výnosového poolu. Prezentované scénáře (4,9 / 6,7 / 8,4 % p.a.) jsou ilustrativní propočty pro vzorovou jednotku 1+kk s koeficientem 1,00. Vlastní wellness a aktivní revenue management podporují celoroční poptávku, avšak tržní výsledky se mohou lišit. První 1–2 sezóny bývají rozjezdové.</div></div>
       </div>
 
       <div class="faq-item">
@@ -634,18 +746,18 @@
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-text">Jak vysoký bude výnos v prvním roce?</span>
+          <span class="faq-q-text">Jak vysoký bude výnos poolu v prvním roce?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Realisticky počítejte s tím, že první 1–2 sezóny bude obsazenost nižší, než se hotel plně rozjede — buduje se základna hostů, recenze a opakované rezervace. Kalkulace 50% obsazenosti platí pro stabilizovaný provoz. V prvním roce doporučujeme počítat konzervativněji s 30–40 %.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Realisticky počítejte s tím, že první 1–2 sezóny bude obsazenost celého poolu nižší — hotel buduje základnu hostů, recenze a opakované rezervace. Scénář 50% obsazenosti odpovídá stabilizovanému provozu. V prvních letech doporučujeme počítat konzervativněji s 30–40 % obsazeností poolu.</div></div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span class="faq-q-text">Jak funguje vyúčtování?</span>
+          <span class="faq-q-text">Jak funguje vyúčtování výnosového poolu?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Každý měsíc obdržíte přehled rezervací, tržeb a nákladů. Výnos je automaticky převeden na váš účet do 15. dne následujícího měsíce.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Každý měsíc obdržíte přehled celkových tržeb poolu, odečtené provize, výsledného čistého výnosu a vašeho podílu (koeficient × dny v poolu). Váš výnos je automaticky převeden na účet do 15. dne následujícího měsíce. Transparentní přístup k výkazům je k dispozici 24/7.</div></div>
       </div>
 
     </div>

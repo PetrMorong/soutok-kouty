@@ -13,6 +13,11 @@
   to = "/apartmany.html"
   status = 200
 
+[[redirects]]
+  from = "/apartman"
+  to = "/apartman.html"
+  status = 200
+
 # SPA fallback — pouze pokud přidáte JS router
 # [[redirects]]
 #   from = "/*"

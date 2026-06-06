@@ -193,6 +193,65 @@ collections:
               - { label: "Nadpis", name: "title", widget: "string" }
               - { label: "Text", name: "desc", widget: "text" }
 
+  # ─── APARTMÁNY — JEDNOTNÝ DATOVÝ SOUBOR ─────────────────
+  - name: "apartmany_json"
+    label: "🏠 Apartmány (detail stránky)"
+    files:
+      - name: "apartmany"
+        label: "Seznam všech apartmánů"
+        file: "data/apartmany.json"
+        fields:
+          - label: "Apartmány"
+            name: "apartmany"
+            widget: "list"
+            label_singular: "Apartmán"
+            summary: "{{fields.cislo}} — {{fields.dispozice}} ({{fields.stav}})"
+            fields:
+              - { label: "ID (URL slug)", name: "id", widget: "string", hint: "Unikátní, bez mezer a háčků, např. ap-1" }
+              - { label: "Číslo apartmánu", name: "cislo", widget: "string" }
+              - { label: "Dispozice", name: "dispozice", widget: "string", hint: "Např. 1+kk s terasou" }
+              - { label: "Podlaží", name: "podlazi", widget: "string", hint: "Např. 2.NP" }
+              - { label: "Plocha (m²)", name: "plocha", widget: "number", value_type: "float", min: 0 }
+              - { label: "Terasa (m²)", name: "terasa", widget: "number", value_type: "float", required: false, hint: "Vynechat pokud není terasa" }
+              - { label: "Parkování v ceně", name: "parking", widget: "boolean", default: true }
+              - { label: "Cena (Kč, jen číslice)", name: "cena", widget: "string", required: false, hint: "Prázdné = 'Cena na vyžádání'. Formát: 3440000" }
+              - label: "Stav"
+                name: "stav"
+                widget: "select"
+                options:
+                  - { label: "Volný", value: "Volný" }
+                  - { label: "Rezervovaný", value: "Rezervovaný" }
+                  - { label: "Prodaný", value: "Prodaný" }
+                default: "Volný"
+              - { label: "Koeficient v poolu", name: "koeficient", widget: "number", value_type: "float", required: false,
+                  hint: "0.85 malý pokoj · 1.00 vzorová 1+kk · 1.20 s terasou · 1.40 2+kk · 1.60 mezonet/loft" }
+              - { label: "Výhled", name: "vyhled", widget: "string", required: false, hint: "Např. Do přírody, Do zahrady" }
+              - { label: "Orientace", name: "orientace", widget: "string", required: false, hint: "Např. Jih, Západ" }
+              - { label: "Popis", name: "popis", widget: "text", required: false }
+              - { label: "Půdorys (obrázek)", name: "pudorys", widget: "image", required: false }
+              - { label: "Karta bytu (PDF)", name: "karta_pdf", widget: "file", required: false, hint: "Volitelné — PDF ke stažení" }
+              - label: "Galerie (obrázky)"
+                name: "galerie"
+                widget: "list"
+                required: false
+                field: { label: "Obrázek", name: "image", widget: "image" }
+              - label: "Místnosti"
+                name: "mistnosti"
+                widget: "list"
+                required: false
+                label_singular: "Místnost"
+                summary: "{{fields.nazev}} — {{fields.plocha}} m²"
+                fields:
+                  - { label: "Název místnosti", name: "nazev", widget: "string" }
+                  - { label: "Povrch podlahy", name: "povrch", widget: "string" }
+                  - { label: "Plocha (m²)", name: "plocha", widget: "number", value_type: "float" }
+              - label: "Výhody apartmánu"
+                name: "vyhody"
+                widget: "list"
+                required: false
+                hint: "Krátké odrážky — terasa, výhled, parkování…"
+                field: { label: "Výhoda", name: "vyhoda", widget: "string" }
+
   # ─── GALERIE ─────────────────────────────────────────────
   - name: "gallery"
     label: "🖼️ Galerie"
