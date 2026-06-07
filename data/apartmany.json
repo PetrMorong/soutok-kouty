@@ -1,115 +1,400 @@
 {
   "apartmany": [
     {
-      "id":"byt-1","cislo":"1","dispozice":"1+kk","podlazi":"1.NP","plocha":27.56,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":1.00,
-      "popis":"Byt 1+kk v přízemí — předsíň, koupelna, obytná kuchyně. Ideální jako investiční jednotka do hotelového pronájmu.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Předsíň","povrch":"Vinyl","plocha":3.63},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.84},{"nazev":"Obytná kuchyně","povrch":"Vinyl","plocha":20.09}],
-      "vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Recepce a bistro v přízemí","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-7",
+      "cislo": "7",
+      "dispozice": "1+kk s terasou",
+      "podlazi": "2.NP",
+      "plocha": 24.03,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "3 190 000 Kč",
+      "orientace": "",
+      "koeficient": 1.2,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 12.58
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 3.55
+        },
+        {
+          "nazev": "Terasa",
+          "povrch": "Dlažba do terčů",
+          "plocha": 7.9
+        }
+      ],
+      "vyhody": [
+        "Soukromá terasa 7,9 m²",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": "",
+      "terasa": 7.9
     },
     {
-      "id":"byt-2","cislo":"2","dispozice":"1+kk","podlazi":"1.NP","plocha":29.97,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":1.00,
-      "popis":"Byt 1+kk v přízemí. Prostorná obytná kuchyně, samostatná koupelna.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Předsíň","povrch":"Vinyl","plocha":4.16},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":4.74},{"nazev":"Obytná kuchyně","povrch":"Vinyl","plocha":21.07}],
-      "vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Recepce a bistro v přízemí","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-8",
+      "cislo": "8",
+      "dispozice": "1+kk s terasou",
+      "podlazi": "2.NP",
+      "plocha": 28.1,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "3 590 000 Kč",
+      "orientace": "",
+      "koeficient": 1.2,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 16.17
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 4.03
+        },
+        {
+          "nazev": "Terasa",
+          "povrch": "Dlažba do terčů",
+          "plocha": 7.9
+        }
+      ],
+      "vyhody": [
+        "Soukromá terasa 7,9 m²",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": "",
+      "terasa": 7.9
     },
     {
-      "id":"byt-3","cislo":"3","dispozice":"1+kk","podlazi":"1.NP","plocha":34.68,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":1.00,
-      "popis":"Největší byt 1+kk v přízemí. Nadstandardní obytná plocha, ideální pro páry nebo náročnější hosty.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Předsíň","povrch":"Vinyl","plocha":5.18},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":4.79},{"nazev":"Obytná kuchyně","povrch":"Vinyl","plocha":24.71}],
-      "vyhody":["Největší byt v přízemí (34,68 m²)","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Recepce a bistro v přízemí","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-9",
+      "cislo": "9",
+      "dispozice": "Investiční jednotka 1+kk",
+      "podlazi": "2.NP",
+      "plocha": 15.93,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "2 590 000 Kč",
+      "orientace": "",
+      "koeficient": 0.85,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 12.32
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 3.61
+        }
+      ],
+      "vyhody": [
+        "Nižší vstupní investice",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": ""
     },
     {
-      "id":"ap-1","cislo":"1 (ubytování)","dispozice":"Investiční jednotka","podlazi":"1.NP","plocha":22.73,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":1.00,
-      "popis":"Kompaktní investiční jednotka v přízemí — pokoj + koupelna. Navržena pro maximální obsazenost v hotelovém provozu.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":19.16},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.57}],
-      "vyhody":["Optimalizováno pro hotelový provoz","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-10",
+      "cislo": "10",
+      "dispozice": "Investiční jednotka 1+kk",
+      "podlazi": "2.NP",
+      "plocha": 15.94,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "2 590 000 Kč",
+      "orientace": "",
+      "koeficient": 0.85,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 12.39
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 3.55
+        }
+      ],
+      "vyhody": [
+        "Nižší vstupní investice",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": ""
     },
     {
-      "id":"ap-2","cislo":"2","dispozice":"1+kk s terasou","podlazi":"2.NP","plocha":27.79,"terasa":9.79,"parking":true,"stav":"Volný","vyhled":"Do přírody","cena":"","orientace":"Jih","koeficient":1.20,
-      "popis":"Apartmán s prostornou terasou s výhledem do přírody. Jižní orientace zajišťuje přirozené světlo po celý den.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":14.44},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.56},{"nazev":"Terasa","povrch":"Dlažba do terčů","plocha":9.79}],
-      "vyhody":["Soukromá terasa 9,79 m²","Výhled do přírody — jižní orientace","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-11",
+      "cislo": "11",
+      "dispozice": "1+kk s terasou",
+      "podlazi": "2.NP",
+      "plocha": 31.76,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "3 990 000 Kč",
+      "orientace": "",
+      "koeficient": 1.2,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 17.65
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 7.06
+        },
+        {
+          "nazev": "Terasa",
+          "povrch": "Dlažba do terčů",
+          "plocha": 7.05
+        }
+      ],
+      "vyhody": [
+        "Soukromá terasa 7,05 m²",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": "",
+      "terasa": 7.05
     },
     {
-      "id":"ap-3","cislo":"3","dispozice":"1+kk s terasou","podlazi":"2.NP","plocha":39.56,"terasa":12.74,"parking":true,"stav":"Volný","vyhled":"Do přírody","cena":"","orientace":"Jih","koeficient":1.20,
-      "popis":"Největší apartmán s terasou — prostorná obývací část, velkorysá terasa 12,74 m². Prémiová jednotka pro náročné investory.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":23.24},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.58},{"nazev":"Terasa","povrch":"Dlažba do terčů","plocha":12.74}],
-      "vyhody":["Největší apartmán s terasou (39,56 m²)","Terasa 12,74 m²","Výhled do přírody — jižní orientace","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-12",
+      "cislo": "12",
+      "dispozice": "Investiční jednotka 1+kk",
+      "podlazi": "2.NP",
+      "plocha": 17.83,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "2 790 000 Kč",
+      "orientace": "",
+      "koeficient": 0.85,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 14.27
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 3.56
+        }
+      ],
+      "vyhody": [
+        "Nižší vstupní investice",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": ""
     },
     {
-      "id":"ap-4","cislo":"4","dispozice":"1+kk s terasou","podlazi":"2.NP","plocha":24.03,"terasa":7.90,"parking":true,"stav":"Volný","vyhled":"Do zahrady","cena":"","orientace":"Západ","koeficient":1.20,
-      "popis":"Apartmán s terasou orientovaný na západ — ideální pro večerní odpočinek na terase.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":12.58},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.55},{"nazev":"Terasa","povrch":"Dlažba do terčů","plocha":7.90}],
-      "vyhody":["Soukromá terasa 7,90 m²","Výhled do zahrady","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-13",
+      "cislo": "13",
+      "dispozice": "Investiční jednotka 1+kk",
+      "podlazi": "2.NP",
+      "plocha": 17.86,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "2 790 000 Kč",
+      "orientace": "",
+      "koeficient": 0.85,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 14.22
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 3.64
+        }
+      ],
+      "vyhody": [
+        "Nižší vstupní investice",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": ""
     },
     {
-      "id":"ap-5","cislo":"5","dispozice":"1+kk s terasou","podlazi":"2.NP","plocha":28.10,"terasa":7.90,"parking":true,"stav":"Volný","vyhled":"Do přírody","cena":"","orientace":"Jih","koeficient":1.20,
-      "popis":"Apartmán s terasou a výhledem do přírody. Vyvážená plocha obytné části i terasy.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":16.17},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":4.03},{"nazev":"Terasa","povrch":"Dlažba do terčů","plocha":7.90}],
-      "vyhody":["Soukromá terasa 7,90 m²","Výhled do přírody","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-14",
+      "cislo": "14",
+      "dispozice": "1+kk s terasou",
+      "podlazi": "2.NP",
+      "plocha": 31.03,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "3 990 000 Kč",
+      "orientace": "",
+      "koeficient": 1.2,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 18.06
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 4.01
+        },
+        {
+          "nazev": "Terasa",
+          "povrch": "Dlažba do terčů",
+          "plocha": 8.96
+        }
+      ],
+      "vyhody": [
+        "Soukromá terasa 8,96 m²",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": "",
+      "terasa": 8.96
     },
     {
-      "id":"ap-6","cislo":"6","dispozice":"Investiční jednotka 1+kk","podlazi":"2.NP","plocha":15.93,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":0.85,
-      "popis":"Kompaktní investiční jednotka bez terasy. Nižší vstupní investice, stabilní výnos z hotelového provozu.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":12.32},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.61}],
-      "vyhody":["Nižší vstupní investice","Optimalizováno pro hotelový provoz","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
+      "id": "ap-15",
+      "cislo": "15",
+      "dispozice": "1+kk s terasou",
+      "podlazi": "2.NP",
+      "plocha": 27.79,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "3 590 000 Kč",
+      "orientace": "",
+      "koeficient": 1.2,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 14.44
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 3.56
+        },
+        {
+          "nazev": "Terasa",
+          "povrch": "Dlažba do terčů",
+          "plocha": 9.79
+        }
+      ],
+      "vyhody": [
+        "Soukromá terasa 9,79 m²",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": "",
+      "terasa": 9.79
     },
     {
-      "id":"ap-7","cislo":"7","dispozice":"Investiční jednotka 1+kk","podlazi":"2.NP","plocha":15.94,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":0.85,
-      "popis":"Kompaktní investiční jednotka bez terasy. Nižší vstupní investice, stabilní výnos z hotelového provozu.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":12.39},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.55}],
-      "vyhody":["Nižší vstupní investice","Optimalizováno pro hotelový provoz","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
-    },
-    {
-      "id":"ap-8","cislo":"8","dispozice":"1+kk s terasou","podlazi":"2.NP","plocha":31.76,"terasa":7.05,"parking":true,"stav":"Volný","vyhled":"Do přírody","cena":"","orientace":"Sever","koeficient":1.20,
-      "popis":"Apartmán s terasou — velkorysá koupelna, pohodlný pokoj. Příjemný výhled do přírody.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":17.65},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":7.06},{"nazev":"Terasa","povrch":"Dlažba do terčů","plocha":7.05}],
-      "vyhody":["Soukromá terasa 7,05 m²","Velkorysá koupelna 7,06 m²","Výhled do přírody","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
-    },
-    {
-      "id":"ap-9","cislo":"9","dispozice":"Investiční jednotka 1+kk","podlazi":"2.NP","plocha":17.83,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":0.85,
-      "popis":"Investiční jednotka bez terasy. Efektivní dispoziční řešení pro maximální výnos.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":14.27},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.56}],
-      "vyhody":["Optimalizováno pro hotelový provoz","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
-    },
-    {
-      "id":"ap-10","cislo":"10","dispozice":"Investiční jednotka 1+kk","podlazi":"2.NP","plocha":17.86,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":0.85,
-      "popis":"Investiční jednotka bez terasy. Efektivní dispoziční řešení pro maximální výnos.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":14.22},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":3.64}],
-      "vyhody":["Optimalizováno pro hotelový provoz","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
-    },
-    {
-      "id":"ap-11","cislo":"11","dispozice":"1+kk s terasou","podlazi":"2.NP","plocha":31.03,"terasa":8.96,"parking":true,"stav":"Volný","vyhled":"Do přírody","cena":"","orientace":"Jih","koeficient":1.20,
-      "popis":"Apartmán s terasou a výhledem do přírody. Pohodlná obývací část, terasa s výhledem na hory.","pudorys":"","galerie":[],
-      "mistnosti":[{"nazev":"Pokoj","povrch":"Vinyl","plocha":18.06},{"nazev":"Koupelna","povrch":"Keramická dlažba","plocha":4.01},{"nazev":"Terasa","povrch":"Dlažba do terčů","plocha":8.96}],
-      "vyhody":["Soukromá terasa 8,96 m²","Výhled do přírody — jižní orientace","Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts","Management pronájmu zajištěn"],"karta_pdf":""
-    },
-    {
-      "id":"ap-12","cislo":"12","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER — doplnit dle půdorysu podkroví.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
-    },
-    {
-      "id":"ap-13","cislo":"13","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
-    },
-    {
-      "id":"ap-14","cislo":"14","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
-    },
-    {
-      "id":"ap-15","cislo":"15","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
-    },
-    {
-      "id":"ap-16","cislo":"16","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
-    },
-    {
-      "id":"ap-17","cislo":"17","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
-    },
-    {
-      "id":"ap-18","cislo":"18","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
-    },
-    {
-      "id":"ap-19","cislo":"19","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
-    },
-    {
-      "id":"ap-20","cislo":"20","dispozice":"Doplnit","podlazi":"3.NP / podkroví","plocha":0,"parking":true,"stav":"Volný","vyhled":"","cena":"","orientace":"","koeficient":null,"popis":"PLACEHOLDER.","pudorys":"","galerie":[],"mistnosti":[],"vyhody":["Parkování v ceně","Vstup do wellness za nákladovou cenu","Členství v síti Nord Moravia Resorts"],"karta_pdf":""
+      "id": "ap-16",
+      "cislo": "16",
+      "dispozice": "2+kk s terasou",
+      "podlazi": "2.NP",
+      "plocha": 39.56,
+      "parking": true,
+      "stav": "Volný",
+      "vyhled": "Do přírody",
+      "cena": "4 990 000 Kč",
+      "orientace": "",
+      "koeficient": 1.2,
+      "popis": "",
+      "pudorys": "",
+      "galerie": [],
+      "mistnosti": [
+        {
+          "nazev": "Pokoj",
+          "povrch": "Vinyl",
+          "plocha": 23.24
+        },
+        {
+          "nazev": "Koupelna",
+          "povrch": "Keramická dlažba",
+          "plocha": 3.58
+        },
+        {
+          "nazev": "Terasa",
+          "povrch": "Dlažba do terčů",
+          "plocha": 12.74
+        }
+      ],
+      "vyhody": [
+        "Soukromá terasa 12,74 m²",
+        "Parkování v ceně",
+        "Vstup do wellness za nákladovou cenu",
+        "Členství v síti Nord Moravia Resorts",
+        "Management pronájmu zajištěn"
+      ],
+      "karta_pdf": "",
+      "terasa": 12.74
     }
   ]
 }

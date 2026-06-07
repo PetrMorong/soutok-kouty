@@ -1107,7 +1107,7 @@
         <li class="loc-point">
           <div class="loc-dist">15<small>km</small></div>
           <div>
-            <div class="loc-name">Lázně Jeseník<span>Priessnitzovy léčebné lázně</span></div>
+            <div class="loc-name">Lázně Jeseník a Velké Losiny<span>Léčebné i termální lázně v okolí</span></div>
           </div>
         </li>
         <li class="loc-point">
@@ -1437,6 +1437,7 @@
     .then(({apartmany}) => {
       const tbody = document.getElementById('aptTable');
       apartmany.forEach(a => {
+        if (a.podlazi && (a.podlazi.includes('1.NP') || a.podlazi.includes('3.NP'))) return;
         const sold     = a.stav === 'Prodaný';
         const reserved = a.stav === 'Rezervovaný';
         const tr = document.createElement('tr');

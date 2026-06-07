@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
@@ -176,14 +176,27 @@
     .apt-price-val { font-family: var(--f-display); font-size: 2rem; font-weight: 300; color: var(--dark); line-height: 1; margin-bottom: 1.5rem; }
     .apt-price-val.na-vyzadani { font-size: 1.2rem; color: var(--muted); }
 
-    .apt-scenarios { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); margin-bottom: 1.5rem; }
-    .apt-scenario { padding: .75rem 1rem; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+    .apt-scenarios { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); margin-bottom: 1rem; }
+
+    .apt-hypo-box { margin-bottom: 1.5rem; }
+    .apt-hypo-title { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+    .apt-hypo-rows { border: 1px solid var(--line); display: flex; flex-direction: column; }
+    .apt-hypo-row { display: flex; justify-content: space-between; align-items: center; padding: .6rem 1rem; border-bottom: 1px solid var(--line); }
+    .apt-hypo-row:last-child { border-bottom: none; }
+    .apt-hypo-row--accent { background: rgba(184,152,90,.06); border-left: 3px solid #B8985A; padding-left: calc(1rem - 3px); }
+    .apt-hypo-label { font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+    .apt-hypo-val { font-family: var(--f-display); font-size: 1.1rem; font-weight: 300; color: var(--dark); }
+    .apt-hypo-row--accent .apt-hypo-val { color: var(--gold); }
+    .apt-hypo-val--neg { color: #AA3333 !important; }
+    .apt-hypo-note { font-size: .6rem; color: var(--muted); margin-top: .45rem; line-height: 1.5; }
+    .apt-scenario { padding: .75rem 1rem; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; cursor: default; }
     .apt-scenario:last-child { border-bottom: none; }
-    .apt-scenario.featured { background: var(--dark); }
+    .apt-scenario.featured { background: rgba(184,152,90,.08); border-left: 3px solid #B8985A; padding-left: calc(1rem - 3px); }
     .apt-scen-name { font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
-    .apt-scenario.featured .apt-scen-name { color: rgba(245,240,232,.5); }
-    .apt-scen-yield { font-family: var(--f-display); font-size: 1.25rem; font-weight: 300; color: var(--dark); }
+    .apt-scen-right { display: flex; flex-direction: column; align-items: flex-end; gap: .1rem; }
+    .apt-scen-yield { font-family: var(--f-display); font-size: 1.25rem; font-weight: 300; color: var(--dark); line-height: 1; }
     .apt-scenario.featured .apt-scen-yield { color: var(--gold); }
+    .apt-scen-kc { font-size: .68rem; color: #6E665B; }
 
     .apt-sidebar-ctas { display: flex; flex-direction: column; gap: .75rem; }
     .apt-sidebar-note { font-size: .67rem; color: var(--muted); line-height: 1.55; margin-top: 1rem; }
@@ -448,16 +461,62 @@
           <div class="apt-scenarios">
             <div class="apt-scenario">
               <span class="apt-scen-name">Konzervativní</span>
-              <span class="apt-scen-yield">4,9 %</span>
+              <div class="apt-scen-right">
+                <span class="apt-scen-yield" id="aptScenKonz">—</span>
+                <span class="apt-scen-kc" id="aptScenKonzLbl"></span>
+              </div>
             </div>
             <div class="apt-scenario featured">
               <span class="apt-scen-name">Realistický</span>
-              <span class="apt-scen-yield">6,7 %</span>
+              <div class="apt-scen-right">
+                <span class="apt-scen-yield" id="aptScenReal">—</span>
+                <span class="apt-scen-kc" id="aptScenRealLbl"></span>
+              </div>
             </div>
             <div class="apt-scenario">
               <span class="apt-scen-name">Optimistický</span>
-              <span class="apt-scen-yield">8,4 %</span>
+              <div class="apt-scen-right">
+                <span class="apt-scen-yield" id="aptScenOpt">—</span>
+                <span class="apt-scen-kc" id="aptScenOptLbl"></span>
+              </div>
             </div>
+          </div>
+
+          <!-- FINANCOVÁNÍ HYPOTÉKOU -->
+          <div class="apt-hypo-box" id="aptHypoBox" style="display:none">
+            <p class="apt-hypo-title">/ Financování hypotékou (orientačně)</p>
+            <div class="apt-hypo-rows">
+              <div class="apt-hypo-row">
+                <span class="apt-hypo-label">Vlastní zdroje (30 %)</span>
+                <span class="apt-hypo-val" id="aptHypoVlastni">—</span>
+              </div>
+              <div class="apt-hypo-row">
+                <span class="apt-hypo-label">Výše úvěru (70 % LTV)</span>
+                <span class="apt-hypo-val" id="aptHypoUver">—</span>
+              </div>
+              <div class="apt-hypo-row apt-hypo-row--accent">
+                <span class="apt-hypo-label">Měsíční splátka</span>
+                <span class="apt-hypo-val" id="aptHypoSplatka">—</span>
+              </div>
+            </div>
+            <p class="apt-hypo-note">4,5 % p.a. / 30 let / ČNB LTV 70 %</p>
+
+            <p class="apt-hypo-title" style="margin-top:1rem">/ Čistý měsíční výnos (po splátce a SVJ)</p>
+            <div class="apt-hypo-rows">
+              <div class="apt-hypo-row">
+                <span class="apt-hypo-label">Konzervativní</span>
+                <span class="apt-hypo-val" id="aptHypoCfKonz">—</span>
+              </div>
+              <div class="apt-hypo-row apt-hypo-row--accent">
+                <span class="apt-hypo-label">Realistický</span>
+                <span class="apt-hypo-val" id="aptHypoCfReal">—</span>
+              </div>
+              <div class="apt-hypo-row">
+                <span class="apt-hypo-label">Optimistický</span>
+                <span class="apt-hypo-val" id="aptHypoCfOpt">—</span>
+              </div>
+            </div>
+            <p class="apt-hypo-note">SVJ / správa 1 500 Kč/měsíc. Záporné hodnoty = doplatek.</p>
           </div>
 
           <div class="apt-sidebar-ctas">
@@ -676,6 +735,11 @@ function specTile(val, lbl) {
 }
 
 /* ══ MAIN LOAD ════════════════════════════════════════════ */
+const LTV    = 0.70;
+const VLASTNI = 0.30;
+const SAZBA  = 0.045;
+const ROKY   = 30;
+const SVJ    = 1500;
 const urlId = new URLSearchParams(window.location.search).get('id');
 
 fetch('/data/apartmany.json')
@@ -793,6 +857,41 @@ fetch('/data/apartmany.json')
     if (a.koeficient != null) {
       const popis = koefLabels[a.koeficient] || '';
       koefEl.textContent = 'Tato jednotka má v poolu koeficient ' + a.koeficient.toFixed(2).replace('.', ',') + (popis ? ' (' + popis + ')' : '') + '. Výnos se neodvíjí od obsazenosti jen tohoto apartmánu, ale od výsledku celého poolu, rozděleného podle koeficientů.';
+    }
+
+    /* ── Výnosové scénáře — měsíční částka z ceny jednotky ── */
+    const cenaNum = parseInt(String(a.cena).replace(/\D/g, ''), 10);
+    if (!isNaN(cenaNum) && cenaNum > 0) {
+      const fmtMes = n => Math.round(n / 12).toLocaleString('cs-CZ') + ' Kč';
+      const mesKonz = Math.round(cenaNum * 0.049 / 12);
+      const mesReal = Math.round(cenaNum * 0.067 / 12);
+      const mesOpt  = Math.round(cenaNum * 0.084 / 12);
+      document.getElementById('aptScenKonz').textContent    = mesKonz.toLocaleString('cs-CZ') + ' Kč';
+      document.getElementById('aptScenReal').textContent    = mesReal.toLocaleString('cs-CZ') + ' Kč';
+      document.getElementById('aptScenOpt').textContent     = mesOpt.toLocaleString('cs-CZ') + ' Kč';
+      document.getElementById('aptScenKonzLbl').textContent = '/ měsíc';
+      document.getElementById('aptScenRealLbl').textContent = '/ měsíc';
+      document.getElementById('aptScenOptLbl').textContent  = '/ měsíc';
+
+      /* ── Financování hypotékou ── */
+      const vlastniZdroje = Math.round(cenaNum * VLASTNI);
+      const uver          = Math.round(cenaNum * LTV);
+      const rMes          = SAZBA / 12;
+      const n             = ROKY * 12;
+      const splatka       = Math.round(uver * rMes / (1 - Math.pow(1 + rMes, -n)));
+      const fmtKc = v => v.toLocaleString('cs-CZ') + ' Kč';
+      document.getElementById('aptHypoVlastni').textContent = fmtKc(vlastniZdroje);
+      document.getElementById('aptHypoUver').textContent    = fmtKc(uver);
+      document.getElementById('aptHypoSplatka').textContent = fmtKc(splatka);
+      const setCf = (id, val) => {
+        const el = document.getElementById(id);
+        el.textContent = fmtKc(val);
+        if (val < 0) el.classList.add('apt-hypo-val--neg');
+      };
+      setCf('aptHypoCfKonz', mesKonz - splatka - SVJ);
+      setCf('aptHypoCfReal', mesReal - splatka - SVJ);
+      setCf('aptHypoCfOpt',  mesOpt  - splatka - SVJ);
+      document.getElementById('aptHypoBox').style.display = '';
     }
 
     /* ── Form: hidden apartman field ── */
