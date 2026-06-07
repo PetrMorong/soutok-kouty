@@ -446,6 +446,51 @@
     }
 
     /* ═══════════════════════════════════════════
+       HISTORIE
+    ═══════════════════════════════════════════ */
+    .historie { position:relative; padding:5rem 0; background:#141117; overflow:hidden; }
+    .hist-corner { position:absolute; width:52px; height:52px; pointer-events:none; }
+    .hist-corner--tl { top:1.75rem; left:1.75rem; border-top:1px solid rgba(196,163,90,.35); border-left:1px solid rgba(196,163,90,.35); }
+    .hist-corner--tr { top:1.75rem; right:1.75rem; border-top:1px solid rgba(196,163,90,.35); border-right:1px solid rgba(196,163,90,.35); }
+    .hist-corner--bl { bottom:1.75rem; left:1.75rem; border-bottom:1px solid rgba(196,163,90,.35); border-left:1px solid rgba(196,163,90,.35); }
+    .hist-corner--br { bottom:1.75rem; right:1.75rem; border-bottom:1px solid rgba(196,163,90,.35); border-right:1px solid rgba(196,163,90,.35); }
+    .historie-head { max-width:780px; margin:0 auto 3rem; text-align:center; }
+    .historie-stitek { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; color:#B8985A; }
+    .historie-head h2 { font-family:'Cormorant Garamond',serif; color:#EDE7DA; font-size:2.4rem; margin:.5rem 0 1.5rem; }
+    .historie-head p { font-family:'DM Sans',sans-serif; color:#B7AE9C; line-height:1.7; margin-bottom:1rem; }
+    .historie-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1100px; margin:0 auto; padding:0 1rem; }
+    .historie-item { margin:0; cursor:pointer; }
+    .historie-item img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border-radius:2px; transition:transform .4s ease; }
+    .historie-item img:hover { transform:scale(1.03); }
+    .historie-item figcaption { font-family:'DM Sans',sans-serif; font-size:.78rem; letter-spacing:.4px; color:#8C8579; margin-top:.6rem; font-style:italic; }
+    @media (max-width:768px){ .historie-grid{ grid-template-columns:1fr; max-width:480px;} }
+
+    /* ═══════════════════════════════════════════
+       VÝSTAVBA
+    ═══════════════════════════════════════════ */
+    .vystavba { padding:5rem 0; background:#F6F2EA; }
+    .vystavba-head { max-width:720px; margin:0 auto 3rem; text-align:center; }
+    .vystavba-stitek { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; color:#B8985A; }
+    .vystavba-head h2 { font-family:'Cormorant Garamond',serif; color:#141117; font-size:2.4rem; margin:.5rem 0 1rem; }
+    .vystavba-head p { font-family:'DM Sans',sans-serif; color:#6E665B; line-height:1.6; }
+    .vystavba-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:1200px; margin:0 auto; padding:0 1rem; }
+    .vystavba-item { margin:0; overflow:hidden; border-radius:2px; cursor:pointer; }
+    .vystavba-item img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; transition:transform .4s ease; }
+    .vystavba-item img:hover { transform:scale(1.04); }
+    @media (max-width:768px){ .vystavba-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:480px){ .vystavba-grid{ grid-template-columns:1fr;} }
+
+    /* lightbox */
+    .lb-overlay { display:none; position:fixed; inset:0; background:rgba(20,17,23,.92); z-index:9999; align-items:center; justify-content:center; }
+    .lb-overlay.active { display:flex; }
+    .lb-overlay img { max-width:92vw; max-height:92vh; object-fit:contain; border-radius:2px; }
+    .lb-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(20,17,23,.4); border:none; color:#EDE7DA; font-size:2.5rem; line-height:1; width:54px; height:54px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:color .2s, background .2s; z-index:1; }
+    .lb-btn:hover { color:#B8985A; background:rgba(20,17,23,.6); }
+    .lb-prev { left:1.5rem; }
+    .lb-next { right:1.5rem; }
+    @media (max-width:600px) { .lb-btn { font-size:1.8rem; width:40px; height:40px; } .lb-prev { left:.5rem; } .lb-next { right:.5rem; } }
+
+    /* ═══════════════════════════════════════════
        TIMELINE
     ═══════════════════════════════════════════ */
     .timeline-sec { background: var(--dark); }
@@ -1219,6 +1264,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- ─── HISTORIE ─────────────────────────────────────── -->
+<section id="historie" class="historie">
+  <div class="hist-corner hist-corner--tl"></div>
+  <div class="hist-corner hist-corner--tr"></div>
+  <div class="hist-corner hist-corner--bl"></div>
+  <div class="hist-corner hist-corner--br"></div>
+  <div class="historie-head reveal">
+    <span class="historie-stitek">/ HISTORIE MÍSTA</span>
+    <h2>Návrat ke kořenům</h2>
+    <p>Dům na soutoku má více než stoletou historii. Na počátku 20. století sloužil jako letní penzion a hostinec „Rudolf Nagel's Gastwirtschaft" v tehdejším Winkelsdorfu — dnešních Koutech nad Desnou. V červnu 1921 zasáhla horní Podesní ničivá povodeň, která strhla okolní most a poškodila i samotnou budovu — část domu byla později dostavěna.</p>
+    <p>Na tuto vrstvenou historii navazuje i nový architektonický návrh. Původní a dostavěnou část budovy záměrně odlišuje tvarem oken — historie místa tak zůstává čitelná i v moderní podobě hotelu.</p>
+  </div>
+  <div class="historie-grid reveal">
+    <figure class="historie-item">
+      <picture>
+        <source srcset="/images/historie/historie-01.webp" type="image/webp">
+        <img src="/images/historie/historie-01.jpg" alt="Rudolf Nagel's Gastwirtschaft — Winkelsdorf, počátek 20. století" loading="lazy">
+      </picture>
+      <figcaption>Penzion Rudolf Nagel, Winkelsdorf · poč. 20. stol.</figcaption>
+    </figure>
+    <figure class="historie-item">
+      <picture>
+        <source srcset="/images/historie/historie-03.webp" type="image/webp">
+        <img src="/images/historie/historie-03.jpg" alt="Povodeň 1. 6. 1921 — zničený most u hostince Nagel, Winkelsdorf" loading="lazy">
+      </picture>
+      <figcaption>Povodeň 1. 6. 1921 · zničený most u domu Nagel</figcaption>
+    </figure>
+    <figure class="historie-item">
+      <picture>
+        <source srcset="/images/historie/historie-02.webp" type="image/webp">
+        <img src="/images/historie/historie-02.jpg" alt="Dobový pohled na obec s původním domem u řeky" loading="lazy">
+      </picture>
+      <figcaption>Pohled na obec · dobová fotografie</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ─── POSTUP VÝSTAVBY ──────────────────────────────── -->
+<section id="postup-vystavby" class="vystavba">
+  <div class="vystavba-head reveal">
+    <span class="vystavba-stitek">/ POSTUP VÝSTAVBY</span>
+    <h2>Jak to vypadá teď</h2>
+    <p>Rekonstrukce je v plném proudu — aktuální stav z června 2026.<br>Dokončení plánujeme na leden 2028.</p>
+  </div>
+  <div class="vystavba-grid reveal">
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-01.webp" type="image/webp"><img src="/images/fotoReko/vystavba-01.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-02.webp" type="image/webp"><img src="/images/fotoReko/vystavba-02.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-03.webp" type="image/webp"><img src="/images/fotoReko/vystavba-03.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-04.webp" type="image/webp"><img src="/images/fotoReko/vystavba-04.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-05.webp" type="image/webp"><img src="/images/fotoReko/vystavba-05.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-06.webp" type="image/webp"><img src="/images/fotoReko/vystavba-06.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-10.webp" type="image/webp"><img src="/images/fotoReko/vystavba-10.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-11.webp" type="image/webp"><img src="/images/fotoReko/vystavba-11.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-13.webp" type="image/webp"><img src="/images/fotoReko/vystavba-13.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-14.webp" type="image/webp"><img src="/images/fotoReko/vystavba-14.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-15.webp" type="image/webp"><img src="/images/fotoReko/vystavba-15.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-16.webp" type="image/webp"><img src="/images/fotoReko/vystavba-16.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-17.webp" type="image/webp"><img src="/images/fotoReko/vystavba-17.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-18.webp" type="image/webp"><img src="/images/fotoReko/vystavba-18.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+    <figure class="vystavba-item"><picture><source srcset="/images/fotoReko/vystavba-20.webp" type="image/webp"><img src="/images/fotoReko/vystavba-20.jpg" alt="Rekonstrukce Soutok Kouty — červen 2026" loading="lazy"></picture></figure>
+  </div>
+</section>
+
+<!-- lightbox výstavba -->
+<div class="lb-overlay" id="lbOverlay">
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Předchozí">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Další">&#8250;</button>
+</div>
+
 <!-- ─── TIMELINE ───────────────────────────────────────── -->
 <section class="timeline-sec" id="harmonogram">
   <div class="container">
@@ -1586,6 +1701,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       alert('Nastala chyba. Zkuste to prosím znovu nebo nás kontaktujte telefonicky.');
     }
   });
+
+  /* ── Lightbox (galerie výstavby + historie) ── */
+  (function() {
+    const overlay = document.getElementById('lbOverlay');
+    const lbImg   = document.getElementById('lbImg');
+    let gallery = [];
+    let current = 0;
+
+    function getSrc(item) {
+      const s = item.querySelector('source');
+      return s ? s.srcset : item.querySelector('img').src;
+    }
+    function showImage(idx) {
+      current = (idx + gallery.length) % gallery.length;
+      lbImg.src = getSrc(gallery[current]);
+    }
+    function open(items, idx) { gallery = items; showImage(idx); overlay.classList.add('active'); }
+    function close() { overlay.classList.remove('active'); lbImg.src = ''; }
+
+    function bindGallery(selector) {
+      const items = Array.from(document.querySelectorAll(selector));
+      items.forEach((item, i) => item.querySelector('img').addEventListener('click', () => open(items, i)));
+    }
+    bindGallery('.vystavba-item');
+    bindGallery('.historie-item');
+
+    document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); showImage(current - 1); });
+    document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); showImage(current + 1); });
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', e => {
+      if (!overlay.classList.contains('active')) return;
+      if (e.key === 'Escape')     close();
+      if (e.key === 'ArrowLeft')  showImage(current - 1);
+      if (e.key === 'ArrowRight') showImage(current + 1);
+    });
+  })();
 </script>
 </body>
 </html>
