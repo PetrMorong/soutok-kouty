@@ -384,7 +384,7 @@
       background: var(--mid);
       position: relative; overflow: hidden;
     }
-    .loc-map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) brightness(.7) sepia(.3); }
+    .lokalita-mapka { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; display: block; }
 
     /* ═══════════════════════════════════════════
        TEAM
@@ -748,6 +748,8 @@
     .nord-index-resort-link { font-size: .75rem; color: var(--gold); text-decoration: none; letter-spacing: .06em; border-bottom: 1px solid rgba(196,163,90,.3); transition: border-color .2s; }
     .nord-index-resort-link:hover { border-color: var(--gold); }
     .nord-index-actions { margin-top: 2rem; }
+    .nord-index-actions .btn-ghost { color: #141117; border-bottom-color: #141117; }
+    .nord-index-actions .btn-ghost:hover { color: #5c5650; border-bottom-color: #5c5650; }
     @media (max-width: 900px) { .nord-index-resorts { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -1122,13 +1124,12 @@
         </li>
       </ul>
       <div class="loc-map reveal reveal-delay-2">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2571!2d17.0435!3d50.0742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zV2VsbG5lc3MgSG90ZWwgU291dG9rIEtvdXR5!5e0!3m2!1scs!2scz!4v1&markers=color:red%7Clabel:S%7C50.0742,17.0435"
-          width="100%" height="100%" frameborder="0" style="border:0"
-          allowfullscreen
-          loading="lazy"
-          title="Mapa — Soutok Kouty, Rejhotice 131">
-        </iframe>
+        <picture>
+          <source srcset="/images/uploads/mapka.webp" type="image/webp">
+          <img src="/images/uploads/mapka.png"
+               alt="Letecký pohled na lokalitu — Hotel Soutok a Ski areál Kouty nad Desnou"
+               class="lokalita-mapka" loading="lazy">
+        </picture>
       </div>
     </div>
   </div>
