@@ -458,12 +458,13 @@
     .historie-stitek { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; color:#B8985A; }
     .historie-head h2 { font-family:'Cormorant Garamond',serif; color:#EDE7DA; font-size:2.4rem; margin:.5rem 0 1.5rem; }
     .historie-head p { font-family:'DM Sans',sans-serif; color:#B7AE9C; line-height:1.7; margin-bottom:1rem; }
-    .historie-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1100px; margin:0 auto; padding:0 1rem; }
+    .historie-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
     .historie-item { margin:0; cursor:pointer; }
     .historie-item img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border-radius:2px; transition:transform .4s ease; }
     .historie-item img:hover { transform:scale(1.03); }
     .historie-item figcaption { font-family:'DM Sans',sans-serif; font-size:.78rem; letter-spacing:.4px; color:#8C8579; margin-top:.6rem; font-style:italic; }
-    @media (max-width:768px){ .historie-grid{ grid-template-columns:1fr; max-width:480px;} }
+    @media (max-width:768px){ .historie-grid{ grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:480px){ .historie-grid{ grid-template-columns:1fr;} }
 
     /* ═══════════════════════════════════════════
        VÝSTAVBA
@@ -473,7 +474,7 @@
     .vystavba-stitek { font-family:'DM Sans',sans-serif; font-size:.8rem; letter-spacing:2px; text-transform:uppercase; color:#B8985A; }
     .vystavba-head h2 { font-family:'Cormorant Garamond',serif; color:#141117; font-size:2.4rem; margin:.5rem 0 1rem; }
     .vystavba-head p { font-family:'DM Sans',sans-serif; color:#6E665B; line-height:1.6; }
-    .vystavba-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:1200px; margin:0 auto; padding:0 1rem; }
+    .vystavba-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
     .vystavba-item { margin:0; overflow:hidden; border-radius:2px; cursor:pointer; }
     .vystavba-item img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; transition:transform .4s ease; }
     .vystavba-item img:hover { transform:scale(1.04); }
