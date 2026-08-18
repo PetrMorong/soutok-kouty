@@ -161,7 +161,7 @@
       top: -10px; left: -10px; right: 10px; bottom: 10px;
       border: 1px solid var(--gold); z-index: 0; pointer-events: none;
     }
-    .apt-pudorys-frame img { width: 100%; position: relative; z-index: 1; background: var(--warm); }
+    .apt-pudorys-frame img { display: block; width: 100%; height: auto; object-fit: contain; position: relative; z-index: 1; background: var(--warm); cursor: pointer; max-width: 100%; }
     .apt-pudorys-placeholder {
       width: 100%; aspect-ratio: 4/3; background: var(--warm);
       display: flex; align-items: center; justify-content: center;
@@ -278,8 +278,8 @@
     .apt-others-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
     .apt-other-card { background: var(--warm); text-decoration: none; display: flex; flex-direction: column; transition: background .2s; }
     .apt-other-card:hover { background: var(--cream); }
-    .apt-other-thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-    .apt-other-thumb.placeholder { background: var(--line); display: flex; align-items: center; justify-content: center; }
+    .apt-other-thumb { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: var(--warm); }
+    .apt-other-thumb.placeholder { background: var(--warm); display: flex; align-items: center; justify-content: center; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: center; padding: 0 .5rem; }
     .apt-other-body { padding: 1.25rem 1.25rem 1.5rem; flex: 1; display: flex; flex-direction: column; gap: .25rem; }
     .apt-other-num { font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
     .apt-other-name { font-family: var(--f-display); font-size: 1.1rem; font-weight: 400; color: var(--dark); }
@@ -498,11 +498,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="apt-hypo-title">/ Financování hypotékou (orientačně)</p>
             <div class="apt-hypo-rows">
               <div class="apt-hypo-row">
-                <span class="apt-hypo-label">Vlastní zdroje (30 %)</span>
+                <span class="apt-hypo-label">Vlastní zdroje (20 %)</span>
                 <span class="apt-hypo-val" id="aptHypoVlastni">—</span>
               </div>
               <div class="apt-hypo-row">
-                <span class="apt-hypo-label">Výše úvěru (70 % LTV)</span>
+                <span class="apt-hypo-label">Výše úvěru (80 % LTV)</span>
                 <span class="apt-hypo-val" id="aptHypoUver">—</span>
               </div>
               <div class="apt-hypo-row apt-hypo-row--accent">
@@ -510,7 +510,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="apt-hypo-val" id="aptHypoSplatka">—</span>
               </div>
             </div>
-            <p class="apt-hypo-note">4,5 % p.a. / 30 let / ČNB LTV 70 %</p>
+            <p class="apt-hypo-note">4,5 % p.a. / 30 let / LTV 80 %</p>
 
             <p class="apt-hypo-title" style="margin-top:1rem">/ Čistý měsíční výnos (po splátce a SVJ)</p>
             <div class="apt-hypo-rows">
@@ -588,8 +588,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="apt-poptavka-inner">
         <!-- Agent card -->
         <div class="apt-agent-card reveal">
-          <img class="apt-agent-photo" src="/images/uploads/foto_marketa.webp" alt="Markéta Dvořáková">
-          <div class="apt-agent-name">Bc. Markéta Dvořáková, MBA</div>
+          <img class="apt-agent-photo" src="/images/uploads/foto_marketa.webp" alt="Markéta Morong">
+          <div class="apt-agent-name">Bc. Markéta Morong, MBA</div>
           <div class="apt-agent-role">Obchodní manažerka projektu</div>
           <p class="apt-agent-quote">Ráda vám pošlu podklady, zodpovím dotazy a domluvím prohlídku přímo v resortu.</p>
           <div class="apt-agent-contacts">
@@ -746,8 +746,8 @@ function specTile(val, lbl) {
 }
 
 /* ══ MAIN LOAD ════════════════════════════════════════════ */
-const LTV    = 0.70;
-const VLASTNI = 0.30;
+const LTV    = 0.80;
+const VLASTNI = 0.20;
 const SAZBA  = 0.045;
 const ROKY   = 30;
 const SVJ    = 1500;
@@ -824,7 +824,8 @@ fetch('/data/apartmany.json')
     const pudFrame = document.getElementById('aptPudorysFrame');
     if (a.pudorys) {
       const img = document.createElement('img');
-      img.src = a.pudorys; img.alt = 'Půdorys apartmánu '+a.cislo;
+      img.src = a.pudorys; img.alt = 'Půdorys apartmánu '+a.cislo; img.loading = 'lazy';
+      img.addEventListener('click', () => { lbImgs = [img]; lbOpen(0); });
       pudFrame.appendChild(img);
     } else {
       pudFrame.innerHTML = '<div class="apt-pudorys-placeholder">Půdorys — bude doplněn</div>';
@@ -912,12 +913,14 @@ fetch('/data/apartmany.json')
     const others = apartmany.filter(o => o.id !== a.id && o.stav !== 'Prodaný').slice(0, 4);
     const othGrid = document.getElementById('aptOthersGrid');
     others.forEach(o => {
-      const thumb = o.galerie && o.galerie.length > 0 ? o.galerie[0] : '/images/uploads/AP_01_KOUTY.webp';
+      const thumbHtml = o.pudorys
+        ? '<img class="apt-other-thumb" src="'+o.pudorys+'" alt="Půdorys apartmánu '+o.cislo+'" loading="lazy">'
+        : '<div class="apt-other-thumb placeholder">Půdorys — bude doplněn</div>';
       const card = document.createElement('a');
       card.className = 'apt-other-card';
       card.href = '/apartman?id='+o.id;
       card.innerHTML =
-        '<img class="apt-other-thumb" src="'+thumb+'" alt="Apartmán '+o.cislo+'" loading="lazy">'+
+        thumbHtml+
         '<div class="apt-other-body">'+
           '<div class="apt-other-num">Apartmán '+o.cislo+'</div>'+
           '<div class="apt-other-name">'+o.dispozice+'</div>'+

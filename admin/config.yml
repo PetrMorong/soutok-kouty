@@ -25,7 +25,7 @@ collections:
           - { label: "Výnos p.a. (zobrazený v hero)", name: "yield_pct", widget: "string",
               hint: "Např. 6,7 %" }
           - { label: "Termín dokončení", name: "completion", widget: "string",
-              hint: "Např. Leden 2028" }
+              hint: "Např. Červen 2028" }
           - { label: "Počet jednotek", name: "units", widget: "number" }
           - { label: "Timeline — % dokončení (0–100)", name: "timeline_fill", widget: "number",
               value_type: "int", min: 0, max: 100 }
