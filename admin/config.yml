@@ -23,7 +23,7 @@ collections:
           - { label: "Název projektu", name: "title", widget: "string" }
           - { label: "Perex (krátký popis pod hero)", name: "perex", widget: "text" }
           - { label: "Výnos p.a. (zobrazený v hero)", name: "yield_pct", widget: "string",
-              hint: "Např. 6,7 %" }
+              hint: "Např. 4,9 %" }
           - { label: "Termín dokončení", name: "completion", widget: "string",
               hint: "Např. Červen 2028" }
           - { label: "Počet jednotek", name: "units", widget: "number" }
@@ -48,7 +48,7 @@ collections:
           - label: "Celková investice (text)"
             name: "total_investment"
             widget: "string"
-            hint: "Např. 3 440 000 Kč"
+            hint: "Např. 2 934 000 Kč"
           - label: "Poznámka k investici"
             name: "total_note"
             widget: "string"
@@ -214,7 +214,7 @@ collections:
               - { label: "Plocha (m²)", name: "plocha", widget: "number", value_type: "float", min: 0 }
               - { label: "Terasa (m²)", name: "terasa", widget: "number", value_type: "float", required: false, hint: "Vynechat pokud není terasa" }
               - { label: "Parkování v ceně", name: "parking", widget: "boolean", default: true }
-              - { label: "Cena (Kč, jen číslice)", name: "cena", widget: "string", required: false, hint: "Prázdné = 'Cena na vyžádání'. Formát: 3440000" }
+              - { label: "Cena (Kč, jen číslice)", name: "cena", widget: "string", required: false, hint: "Prázdné = 'Cena na vyžádání'. Formát: 2590000" }
               - label: "Stav"
                 name: "stav"
                 widget: "select"

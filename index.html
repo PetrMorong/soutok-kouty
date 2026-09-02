@@ -11,7 +11,7 @@
   <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wellness Hotel Soutok Kouty — Designové apartmány v Jeseníkách</title>
-  <meta name="description" content="Prémiový aparthotel v srdci Jeseníků. 23 designových apartmánů na prodej, 800 m od skiareálu Kouty. Výnos 6,7 % p.a." />
+  <meta name="description" content="Prémiový aparthotel v srdci Jeseníků. 23 designových apartmánů na prodej, 800 m od skiareálu Kouty. Výnos 4,9 % p.a." />
 
   <link rel="icon" type="image/svg+xml" href="/images/logo/Soutok_Kouty_Symbol_Light.svg">
 
@@ -843,7 +843,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-left">
     <p class="hero-tag">Předprodej 2026</p>
     <h1 class="hero-h1">Hory.<br>Wellness.<br><em>Váš apartmán.</em></h1>
-    <p class="hero-desc">Prémiový aparthotel v srdci Jeseníků, 800 metrů od skiareálu Kouty. 23 designových jednotek s výnosem až&nbsp;6,7&nbsp;% p.a.</p>
+    <p class="hero-desc">Prémiový aparthotel v srdci Jeseníků, 800 metrů od skiareálu Kouty. 23 designových jednotek s výnosem až&nbsp;<span id="heroMaxYield">6,1</span>&nbsp;% p.a.</p>
     <div class="hero-actions">
       <a href="#cenik" class="btn-primary">Prohlédnout apartmány</a>
       <a href="/investice.html" class="btn-ghost">Investiční model →</a>
@@ -862,7 +862,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-stat-lbl">Dokončení</div>
       </div>
       <div>
-        <div class="hero-stat-val"><span>6,7%</span></div>
+        <div class="hero-stat-val"><span id="heroYield">4,9%</span></div>
         <div class="hero-stat-lbl">Výnos p.a.</div>
       </div>
     </div>
@@ -928,8 +928,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="pool-step">
         <div class="pool-step-num">2</div>
-        <h4>Jedna provize za celý provoz</h4>
-        <p>Z poolu se odečte správcovská provize pokrývající marketing, rezervace, provize portálů, úklid, prádlo i údržbu. Zbytek je čistý výnos k rozdělení.</p>
+        <h4>Odměna správce za provoz</h4>
+        <p>Z poolu se odečte odměna správce — <span id="poolStepFeeGross">18 %</span> z hrubých tržeb poolu a <span id="poolStepFeeNet">5 %</span> z čistého provozního výnosu (marketing, rezervace, provize portálů, úklid, prádlo i údržba). Zbytek je čistý výnos k rozdělení.</p>
       </div>
       <div class="pool-step">
         <div class="pool-step-num">3</div>
@@ -941,51 +941,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <strong>Koeficienty:</strong>&ensp;0,85 malý pokoj &middot; 1,00 vzorová 1+kk &middot; 1,20 s terasou &middot; 1,40 2+kk &middot; 1,60 mezonet/loft
     </div>
 
-    <p class="inv-scen-label">Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00). Výnos není garantován.</p>
+    <p class="inv-scen-label" id="invScenLabel">Ilustrativní propočet pro vzorovou jednotku č. 9 (1+kk, 15,93 m², koeficient poolu 0,85). Výnos není garantován.</p>
 
     <div class="inv-cards reveal">
       <div class="inv-card">
         <p class="inv-label">Konzervativní scénář</p>
-        <div class="inv-occupancy">40 <span>% obsazenost</span></div>
+        <div class="inv-occupancy"><span id="invKonzObs">45</span> <span>% obsazenost</span></div>
         <div class="inv-yield">
-          <div class="inv-yield-num">4,9 %</div>
+          <div class="inv-yield-num" id="invKonzYield">3,7 %</div>
           <div class="inv-yield-lbl">výnos z celk. investice</div>
         </div>
-        <p class="inv-net"><strong>169 220 Kč</strong> čistý výnos / rok</p>
-        <p class="inv-nights">146 nocí za rok</p>
+        <p class="inv-net"><strong id="invKonzNet">107 025 Kč</strong> čistý výnos / rok</p>
+        <p class="inv-nights"><span id="invKonzNights">164</span> nocí za rok</p>
       </div>
       <div class="inv-card featured">
         <p class="inv-label">Realistický scénář</p>
-        <div class="inv-occupancy">50 <span>% obsazenost</span></div>
+        <div class="inv-occupancy"><span id="invRealObs">55</span> <span>% obsazenost</span></div>
         <div class="inv-yield">
-          <div class="inv-yield-num">6,7 %</div>
+          <div class="inv-yield-num" id="invRealYield">4,9 %</div>
           <div class="inv-yield-lbl">výnos z celk. investice</div>
         </div>
-        <p class="inv-net"><strong>229 460 Kč</strong> čistý výnos / rok</p>
-        <p class="inv-nights">183 nocí za rok</p>
+        <p class="inv-net"><strong id="invRealNet">143 533 Kč</strong> čistý výnos / rok</p>
+        <p class="inv-nights"><span id="invRealNights">201</span> nocí za rok</p>
       </div>
       <div class="inv-card">
         <p class="inv-label">Optimistický scénář</p>
-        <div class="inv-occupancy">60 <span>% obsazenost</span></div>
+        <div class="inv-occupancy"><span id="invOptObs">65</span> <span>% obsazenost</span></div>
         <div class="inv-yield">
-          <div class="inv-yield-num">8,4 %</div>
+          <div class="inv-yield-num" id="invOptYield">6,1 %</div>
           <div class="inv-yield-lbl">výnos z celk. investice</div>
         </div>
-        <p class="inv-net"><strong>287 980 Kč</strong> čistý výnos / rok</p>
-        <p class="inv-nights">219 nocí za rok</p>
+        <p class="inv-net"><strong id="invOptNet">179 054 Kč</strong> čistý výnos / rok</p>
+        <p class="inv-nights"><span id="invOptNights">237</span> nocí za rok</p>
       </div>
     </div>
 
     <div class="inv-total reveal">
       <div class="inv-total-info">
-        <p>Celková investice (1+kk ~20 m²)</p>
-        <strong>3 440 000 Kč</strong>
+        <p id="invTotalLabel">Celková investice (1+kk, 15,93 m²)</p>
+        <strong id="invTotalAmount">2 934 000 Kč</strong>
       </div>
-      <div class="inv-total-note">kupní cena + dokončení interiéru + nábytek a vybavení</div>
+      <div class="inv-total-note" id="invTotalNote">Kupní cena 2 590 000 Kč + vybavení nábytkem 344 000 Kč</div>
       <a href="/investice.html" class="btn-primary">Zobrazit detailní analýzu →</a>
     </div>
 
-    <p class="inv-footnote reveal">Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00), cena za noc 2 500 Kč. Výnos pochází z výnosového poolu po odečtení jedné správcovské provize pokrývající celý provoz včetně provizí portálů. Výnos není garantovaný a závisí na obsazenosti celého poolu. První 1–2 sezóny mohou mít nižší obsazenost. Majitel může jednotku sám užívat až 14 nocí ročně za nákladovou cenu. Nájemní smlouva na dobu určitou 5 let.</p>
+    <p class="inv-footnote reveal" id="invFootnote">Propočet pro jednotku č. 9 (1+kk, 15,93 m², koeficient poolu 0,85) při ceně 2 500 Kč za noc. Výnos není garantovaný a závisí na obsazenosti celého poolu.
+
+Uvedené částky jsou čisté — po všech provozních nákladech poolu, po odměně správce (18 % z hrubých tržeb a 5 % z čistého provozního výnosu) a po příspěvku do SVJ. Je to, co zůstane majiteli.
+
+První sezónu počítejte s nižší obsazeností. Majitel může jednotku sám užívat 14 nocí ročně za nákladovou cenu. Nájemní smlouva na 5 let.</p>
   </div>
 </section>
 
@@ -1606,6 +1610,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const tbody = document.getElementById('aptTable');
       tbody.innerHTML = '<tr><td colspan="9" style="color:var(--muted);text-align:center;padding:2rem">Tabulka se načítá…</td></tr>';
     });
+
+  /* ── Investiční model — data ze sdíleného souboru ── */
+  fetch('/data/investice.json')
+    .then(r => r.json())
+    .then(inv => {
+      const vz = inv.vzorovaJednotka, s = inv.scenare, p = inv.predpoklady;
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+
+      set('heroYield', s.realisticky.vynosPctFmt.replace(' ', ''));
+      set('heroMaxYield', s.optimisticky.vynosPct.toString().replace('.', ','));
+      set('poolStepFeeGross', p.odmenaSpravceZTrzebPct+' %');
+      set('poolStepFeeNet',   p.odmenaSpravceZCistehoVynosuPct+' %');
+      set('invScenLabel', 'Ilustrativní propočet pro vzorovou jednotku č. '+vz.cislo+' ('+vz.dispozice+', '+vz.plocha.toString().replace('.', ',')+' m², koeficient poolu '+vz.koeficient.toString().replace('.', ',')+'). Výnos není garantován.');
+
+      set('invKonzObs', s.konzervativni.obsazenostPct);
+      set('invKonzYield', s.konzervativni.vynosPctFmt);
+      set('invKonzNet', s.konzervativni.cistyVynosRokFmt);
+      set('invKonzNights', s.konzervativni.noci);
+
+      set('invRealObs', s.realisticky.obsazenostPct);
+      set('invRealYield', s.realisticky.vynosPctFmt);
+      set('invRealNet', s.realisticky.cistyVynosRokFmt);
+      set('invRealNights', s.realisticky.noci);
+
+      set('invOptObs', s.optimisticky.obsazenostPct);
+      set('invOptYield', s.optimisticky.vynosPctFmt);
+      set('invOptNet', s.optimisticky.cistyVynosRokFmt);
+      set('invOptNights', s.optimisticky.noci);
+
+      set('invTotalLabel', 'Celková investice ('+vz.dispozice+', '+vz.plocha.toString().replace('.', ',')+' m²)');
+      set('invTotalAmount', vz.celkovaInvesticeFmt);
+      set('invTotalNote', 'Kupní cena '+vz.cenaFmt+' + vybavení nábytkem '+vz.rentReadyFmt);
+
+      set('invFootnote',
+        'Propočet pro jednotku č. '+vz.cislo+' ('+vz.dispozice+', '+vz.plocha.toString().replace('.', ',')+' m², koeficient poolu '+vz.koeficient.toString().replace('.', ',')+') při ceně '+p.cenaZaNocFmt+' za noc. Výnos není garantovaný a závisí na obsazenosti celého poolu.\n\n'+
+        'Uvedené částky jsou čisté — po všech provozních nákladech poolu, po odměně správce ('+p.odmenaSpravceZTrzebPct+' % z hrubých tržeb a '+p.odmenaSpravceZCistehoVynosuPct+' % z čistého provozního výnosu) a po příspěvku do SVJ. Je to, co zůstane majiteli.\n\n'+
+        'První sezónu počítejte s nižší obsazeností. Majitel může jednotku sám užívat 14 nocí ročně za nákladovou cenu. Nájemní smlouva na 5 let.'
+      );
+    })
+    .catch(() => {});
 
   /* ── Nav scroll ── */
   const nav = document.getElementById('nav');

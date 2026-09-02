@@ -7,7 +7,12 @@
       "Bash(Out-Null)",
       "Bash(Write-Host \"Ready\")",
       "PowerShell(Remove-Item *)",
-      "PowerShell(Add-Type -AssemblyName System.Drawing; foreach \\($f in @\\('13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg'\\)\\) { $p = \"C:\\\\Users\\\\Petr\\\\projects\\\\soutok-kouty\\\\images\\\\fotoVzorovy\\\\$f\"; $img = [System.Drawing.Image]::FromFile\\($p\\); Write-Output \"$f : $\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\) })"
+      "PowerShell(Add-Type -AssemblyName System.Drawing; foreach \\($f in @\\('13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg'\\)\\) { $p = \"C:\\\\Users\\\\Petr\\\\projects\\\\soutok-kouty\\\\images\\\\fotoVzorovy\\\\$f\"; $img = [System.Drawing.Image]::FromFile\\($p\\); Write-Output \"$f : $\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\) })",
+      "Bash(find . -iname \"*.pdf\")",
+      "Bash(find . -iname \"*.json\" -not -path \"*/node_modules/*\")",
+      "Bash(find . -iname \"*.md\" -not -path \"*/node_modules/*\")",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('data/investice.json','utf8'\\)\\); console.log\\('JSON OK'\\)\")",
+      "Bash(node -e ' *)"
     ]
   }
 }

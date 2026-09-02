@@ -13,7 +13,7 @@
   <title id="pageTitle">Apartmán — Wellness Hotel Soutok Kouty</title>
   <meta name="description" id="pageDesc" content="Detailní informace o apartmánu v Wellness Hotelu Soutok Kouty, Jeseníky." />
   <meta property="og:title"       id="ogTitle"  content="Apartmán — Soutok Kouty" />
-  <meta property="og:description" id="ogDesc"   content="Prémiový apartmán v Jeseníkách — výnos až 8,4 % p.a." />
+  <meta property="og:description" id="ogDesc"   content="Prémiový apartmán v Jeseníkách — výnos až 6,1 % p.a." />
   <meta property="og:image"       id="ogImage"  content="/images/uploads/AP_01_KOUTY.webp" />
   <meta property="og:type"        content="website" />
 
@@ -185,7 +185,7 @@
 
     .apt-scenarios { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); margin-bottom: 1rem; }
 
-    .apt-hypo-box { margin-bottom: 1.5rem; }
+    .apt-hypo-box { margin-bottom: 1.5rem; display: none }
     .apt-hypo-title { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
     .apt-hypo-rows { border: 1px solid var(--line); display: flex; flex-direction: column; }
     .apt-hypo-row { display: flex; justify-content: space-between; align-items: center; padding: .6rem 1rem; border-bottom: 1px solid var(--line); }
@@ -468,7 +468,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="apt-price-label">Kupní cena</p>
           <p class="apt-price-val" id="sidebarCena"></p>
 
-          <p class="section-tag" style="margin-bottom:.6rem">/ Výnosové scénáře p.a.</p>
+          <div style="display:none">
+            <p class="section-tag" style="margin-bottom:.6rem">/ Výnosové scénáře p.a.</p>
           <div class="apt-scenarios">
             <div class="apt-scenario">
               <span class="apt-scen-name">Konzervativní</span>
@@ -491,6 +492,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="apt-scen-kc" id="aptScenOptLbl"></span>
               </div>
             </div>
+          </div>
           </div>
 
           <!-- FINANCOVÁNÍ HYPOTÉKOU -->
@@ -562,21 +564,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="apt-scenarios-full reveal">
           <div class="apt-scen-card">
-            <span class="apt-scen-tag">Konzervativní · 40 % obsazenost</span>
-            <span class="apt-scen-pct">4,9 %</span>
-            <span class="apt-scen-desc">169 220 Kč čistý výnos / rok</span>
+            <span class="apt-scen-tag">Konzervativní · <span id="fullScenKonzObs">45</span> % obsazenost</span>
+            <span class="apt-scen-pct" id="fullScenKonzPct">3,7 %</span>
+            <span class="apt-scen-desc"><span id="fullScenKonzNet">107 025 Kč</span> čistý výnos / rok</span>
           </div>
           <div class="apt-scen-card featured">
-            <span class="apt-scen-tag">Realistický · 50 % obsazenost</span>
-            <span class="apt-scen-pct">6,7 %</span>
-            <span class="apt-scen-desc">229 460 Kč čistý výnos / rok</span>
+            <span class="apt-scen-tag">Realistický · <span id="fullScenRealObs">55</span> % obsazenost</span>
+            <span class="apt-scen-pct" id="fullScenRealPct">4,9 %</span>
+            <span class="apt-scen-desc"><span id="fullScenRealNet">143 533 Kč</span> čistý výnos / rok</span>
           </div>
           <div class="apt-scen-card">
-            <span class="apt-scen-tag">Optimistický · 60 % obsazenost</span>
-            <span class="apt-scen-pct">8,4 %</span>
-            <span class="apt-scen-desc">287 980 Kč čistý výnos / rok</span>
+            <span class="apt-scen-tag">Optimistický · <span id="fullScenOptObs">65</span> % obsazenost</span>
+            <span class="apt-scen-pct" id="fullScenOptPct">6,1 %</span>
+            <span class="apt-scen-desc"><span id="fullScenOptNet">179 054 Kč</span> čistý výnos / rok</span>
           </div>
-          <p class="apt-scen-footnote" style="grid-column:1/-1;padding:1rem 1.5rem">* Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00), cena za noc 2 500 Kč. Výnos pochází z výnosového poolu a není garantován — závisí na obsazenosti celého poolu. První 1–2 sezóny mohou mít nižší obsazenost. Majitel může jednotku užívat až 14 nocí/rok za nákladovou cenu. Nájemní smlouva 5 let.</p>
+          <p class="apt-scen-footnote" style="grid-column:1/-1;padding:1rem 1.5rem" id="fullScenFootnote">* Ilustrativní propočet pro vzorovou jednotku č. 9 (1+kk, 15,93 m², koeficient poolu 0,85), cena za noc 2 500 Kč. Uvedené částky jsou čisté — po nákladech poolu, po odměně správce (18 % z hrubých tržeb a 5 % z čistého provozního výnosu) a po příspěvku do SVJ. Výnos pochází z výnosového poolu a není garantován — závisí na obsazenosti celého poolu. První 1–2 sezóny mohou mít nižší obsazenost. Majitel může jednotku užívat až 14 nocí/rok za nákladovou cenu. Nájemní smlouva 5 let.</p>
         </div>
       </div>
     </div>
@@ -753,9 +755,11 @@ const ROKY   = 30;
 const SVJ    = 1500;
 const urlId = new URLSearchParams(window.location.search).get('id');
 
-fetch('/data/apartmany.json')
-  .then(r => r.json())
-  .then(({ apartmany }) => {
+Promise.all([
+  fetch('/data/apartmany.json').then(r => r.json()),
+  fetch('/data/investice.json').then(r => r.json())
+])
+  .then(([{ apartmany }, inv]) => {
     document.getElementById('aptLoading').style.display = 'none';
     const idx = apartmany.findIndex(a => a.id === urlId);
     if (!urlId || idx === -1) {
@@ -769,7 +773,7 @@ fetch('/data/apartmany.json')
     document.getElementById('pageTitle').textContent  = 'Apartmán '+a.cislo+' — Soutok Kouty';
     document.getElementById('pageDesc').content        = a.popis || 'Apartmán č.'+a.cislo+', '+a.dispozice+', '+a.podlazi+' — Wellness Hotel Soutok Kouty, Jeseníky.';
     document.getElementById('ogTitle').content         = 'Apartmán '+a.cislo+' — Soutok Kouty';
-    document.getElementById('ogDesc').content          = a.popis || 'Investiční apartmán v Jeseníkách s výnosem až 8,4 % p.a.';
+    document.getElementById('ogDesc').content          = a.popis || 'Investiční apartmán v Jeseníkách s výnosem až '+inv.scenare.optimisticky.vynosPctFmt+' p.a.';
     document.getElementById('ogImage').content         = heroImg;
 
     /* ── Hero ── */
@@ -875,9 +879,9 @@ fetch('/data/apartmany.json')
     const cenaNum = parseInt(String(a.cena).replace(/\D/g, ''), 10);
     if (!isNaN(cenaNum) && cenaNum > 0) {
       const fmtMes = n => Math.round(n / 12).toLocaleString('cs-CZ') + ' Kč';
-      const mesKonz = Math.round(cenaNum * 0.049 / 12);
-      const mesReal = Math.round(cenaNum * 0.067 / 12);
-      const mesOpt  = Math.round(cenaNum * 0.084 / 12);
+      const mesKonz = Math.round(cenaNum * (inv.scenare.konzervativni.vynosPct / 100) / 12);
+      const mesReal = Math.round(cenaNum * (inv.scenare.realisticky.vynosPct  / 100) / 12);
+      const mesOpt  = Math.round(cenaNum * (inv.scenare.optimisticky.vynosPct / 100) / 12);
       document.getElementById('aptScenKonz').textContent    = mesKonz.toLocaleString('cs-CZ') + ' Kč';
       document.getElementById('aptScenReal').textContent    = mesReal.toLocaleString('cs-CZ') + ' Kč';
       document.getElementById('aptScenOpt').textContent     = mesOpt.toLocaleString('cs-CZ') + ' Kč';
@@ -944,6 +948,24 @@ fetch('/data/apartmany.json')
     }
     pnItem(prev, '← Předchozí', false);
     pnItem(next, 'Další →',     true);
+
+    /* ── Ilustrativní scénáře (vzorová jednotka) — ze sdíleného souboru ── */
+    (function() {
+      const vz = inv.vzorovaJednotka, s = inv.scenare, p = inv.predpoklady;
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      set('fullScenKonzObs', s.konzervativni.obsazenostPct);
+      set('fullScenKonzPct', s.konzervativni.vynosPctFmt);
+      set('fullScenKonzNet', s.konzervativni.cistyVynosRokFmt);
+      set('fullScenRealObs', s.realisticky.obsazenostPct);
+      set('fullScenRealPct', s.realisticky.vynosPctFmt);
+      set('fullScenRealNet', s.realisticky.cistyVynosRokFmt);
+      set('fullScenOptObs',  s.optimisticky.obsazenostPct);
+      set('fullScenOptPct',  s.optimisticky.vynosPctFmt);
+      set('fullScenOptNet',  s.optimisticky.cistyVynosRokFmt);
+      set('fullScenFootnote',
+        '* Ilustrativní propočet pro vzorovou jednotku č. '+vz.cislo+' ('+vz.dispozice+', '+vz.plocha.toString().replace('.', ',')+' m², koeficient poolu '+vz.koeficient.toString().replace('.', ',')+'), cena za noc '+p.cenaZaNocFmt+'. Uvedené částky jsou čisté — po nákladech poolu, po odměně správce ('+p.odmenaSpravceZTrzebPct+' % z hrubých tržeb a '+p.odmenaSpravceZCistehoVynosuPct+' % z čistého provozního výnosu) a po příspěvku do SVJ. Výnos pochází z výnosového poolu a není garantován — závisí na obsazenosti celého poolu. První 1–2 sezóny mohou mít nižší obsazenost. Majitel může jednotku užívat až 14 nocí/rok za nákladovou cenu. Nájemní smlouva 5 let.'
+      );
+    })();
 
     /* ── Show + reveal ── */
     document.getElementById('aptMain').style.display = '';

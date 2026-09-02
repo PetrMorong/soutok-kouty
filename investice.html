@@ -290,9 +290,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <line x1="4" y1="27" x2="28" y2="27" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <div class="benefit-val">6,7 %</div>
+        <div class="benefit-val" id="benYield">4,9 %</div>
         <div class="benefit-label">Výnos p.a.</div>
-        <div class="benefit-desc">Realistický scénář výnosového poolu při 50% obsazenosti. Prémiová lokalita a vlastní wellness podporují celoroční obsazenost celého hotelu.</div>
+        <div class="benefit-desc">Realistický scénář výnosového poolu při <span id="benOcc">55</span>% obsazenosti. Prémiová lokalita a vlastní wellness podporují celoroční obsazenost celého hotelu.</div>
       </div>
 
       <div class="benefit-card">
@@ -336,34 +336,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     </div>
 
-    <p class="scen-ilust-label reveal">Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00). Výnos není garantován.</p>
+    <p class="scen-ilust-label reveal" id="scenIlustLabel">Ilustrativní propočet pro vzorovou jednotku č. 9 (1+kk, 15,93 m², koeficient poolu 0,85). Výnos není garantován.</p>
 
     <div class="scen-grid reveal">
       <div class="scen-card">
         <div class="scen-label">Konzervativní scénář</div>
-        <div class="scen-obs">40 % obsazenost</div>
-        <div class="scen-yield">4,9 %</div>
+        <div class="scen-obs"><span id="scenKonzObs">45</span> % obsazenost</div>
+        <div class="scen-yield" id="scenKonzYield">3,7 %</div>
         <div class="scen-pa">p.a.</div>
-        <div class="scen-nights">146 nocí za rok</div>
+        <div class="scen-nights"><span id="scenKonzNights">164</span> nocí za rok</div>
       </div>
       <div class="scen-card featured">
         <div class="scen-label">Výchozí kalkulace</div>
-        <div class="scen-obs">50 % obsazenost</div>
-        <div class="scen-yield">6,7 %</div>
+        <div class="scen-obs"><span id="scenRealObs">55</span> % obsazenost</div>
+        <div class="scen-yield" id="scenRealYield">4,9 %</div>
         <div class="scen-pa">p.a.</div>
-        <div class="scen-nights">183 nocí za rok</div>
+        <div class="scen-nights"><span id="scenRealNights">201</span> nocí za rok</div>
       </div>
       <div class="scen-card">
         <div class="scen-label">Optimistický scénář</div>
-        <div class="scen-obs">60 % obsazenost</div>
-        <div class="scen-yield">8,4 %</div>
+        <div class="scen-obs"><span id="scenOptObs">65</span> % obsazenost</div>
+        <div class="scen-yield" id="scenOptYield">6,1 %</div>
         <div class="scen-pa">p.a.</div>
-        <div class="scen-nights">219 nocí za rok</div>
+        <div class="scen-nights"><span id="scenOptNights">237</span> nocí za rok</div>
       </div>
     </div>
 
     <div class="inv-warning reveal">
-      ⚠ <strong>Rozjezdové období:</strong> První 1–2 sezóny může být obsazenost poolu nižší, než uvádí realistický scénář. Hotel buduje základnu hostů, recenze a opakované rezervace. Doporučujeme v prvních letech počítat konzervativněji s 30–40 % obsazeností.
+      ⚠ <strong>Rozjezdové období:</strong> První 1–2 sezóny může být obsazenost poolu nižší, než uvádí realistický scénář. Hotel buduje základnu hostů, recenze a opakované rezervace. Doporučujeme v prvních letech počítat konzervativněji — rozjezdový scénář počítá s <span id="scenRozjezdObs">30</span> % obsazeností (<span id="scenRozjezdNights">110</span> nocí za rok, čistý výnos <span id="scenRozjezdYield">1,8 %</span> p.a.).
     </div>
 
   </div>
@@ -374,7 +374,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container">
     <p class="section-tag reveal">/ Výnosový pool</p>
     <h2 class="section-h2 reveal reveal-delay-1">Jak funguje<br><em>sdílený výnos</em></h2>
-    <p class="pool-lead reveal reveal-delay-2">Váš apartmán není izolovaná investice — je součástí výnosového poolu celého hotelu. Tržby z ubytování všech zapojených jednotek se sčítají, odečte se jedna správcovská provize a zbytek se rozdělí mezi vlastníky podle koeficientu jejich jednotky.</p>
+    <p class="pool-lead reveal reveal-delay-2">Váš apartmán není izolovaná investice — je součástí výnosového poolu celého hotelu. Tržby z ubytování všech zapojených jednotek se sčítají, odečte se odměna správce a zbytek se rozdělí mezi vlastníky podle koeficientu jejich jednotky.</p>
 
     <div class="pool-steps-inv reveal">
       <div class="pool-step-inv">
@@ -384,8 +384,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="pool-step-inv">
         <div class="pool-step-inv-num">2</div>
-        <h4>Jedna provize za celý provoz</h4>
-        <p>Z poolu se odečte jediná správcovská provize pokrývající marketing, rezervační systém, provize portálů (Booking, Airbnb), úklid, prádlo a běžnou údržbu. Žádné skryté náklady.</p>
+        <h4>Odměna správce za provoz</h4>
+        <p>Z poolu se odečte odměna správce: <span id="poolFeeGross">18 %</span> z hrubých tržeb poolu a <span id="poolFeeNet">5 %</span> z čistého provozního výnosu (marketing, rezervační systém, provize portálů, úklid, prádlo, běžná údržba). Mzdy recepce hradí správce ze své odměny, pool je nenese. Wellness a bistro jsou samostatné provozy mimo pool.</p>
       </div>
       <div class="pool-step-inv">
         <div class="pool-step-inv-num">3</div>
@@ -610,8 +610,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="mgmt-box-val">Jedna — pokrývá celý provoz</span>
           </div>
           <div class="mgmt-box-row">
+            <span class="mgmt-box-key">Co hradí správce</span>
+            <span class="mgmt-box-val">Recepce, provozní manažer, vedení, kancelář a IT</span>
+          </div>
+            <div class="mgmt-box-row">
             <span class="mgmt-box-key">Co zahrnuje provize</span>
-            <span class="mgmt-box-val">Marketing, rezervace, portály, úklid, prádlo, údržba</span>
+            <span class="mgmt-box-val">Portály, úklid, prádlo, energie, údržba, marketing, obnova vybavení</span>
           </div>
           <div class="mgmt-box-row">
             <span class="mgmt-box-key">Vyúčtování</span>
@@ -696,7 +700,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="faq-q-text">Co je výnosový pool a jak funguje?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Tržby z ubytování všech zapojených jednotek se sčítají do společného poolu. Z poolu se odečte jedna správcovská provize pokrývající celý provoz (marketing, rezervační systém, provize portálů, úklid, prádlo, údržba). Zbytek — čistý výnos — se rozdělí mezi vlastníky podle váhového koeficientu jejich jednotky a počtu dní v poolu. Vzorec: podíl = (koeficient × dny v poolu) ÷ (součet za všechny) × čistý výnos poolu.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Tržby z ubytování všech zapojených jednotek se sčítají do společného poolu. Z poolu se odečtou provozní náklady a odměna správce (<span id="faqPoolFeeGross">18 %</span> z hrubých tržeb poolu a <span id="faqPoolFeeNet">5 %</span> z čistého provozního výnosu). Zbytek — čistý výnos — se rozdělí mezi vlastníky podle váhového koeficientu jejich jednotky a počtu dní v poolu. Vzorec: podíl = (koeficient × dny v poolu) ÷ (součet za všechny) × čistý výnos poolu.</div></div>
       </div>
 
       <div class="faq-item">
@@ -712,7 +716,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="faq-q-text">Jak vysoká je správcovská provize?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Existuje jedna správcovská provize pokrývající celý provoz: marketing, rezervační systém, provize portálů (Booking, Airbnb), úklid, prádlo i drobnou údržbu. Výše provize bude upřesněna v nájemní smlouvě — neplatíte zvlášť za každou položku.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Odměna správce má dvě složky: <span id="faqFeeGross2">18 %</span> z hrubých tržeb poolu a <span id="faqFeeNet2">5 %</span> z čistého provozního výnosu. Odměna pokrývá marketing, rezervační systém, provize portálů (Booking, Airbnb), úklid, prádlo i drobnou údržbu — mzdy recepce nese správce ze své odměny, pool je nenese. Wellness a bistro jsou samostatné provozy mimo pool. Přesné znění bude součástí nájemní smlouvy.</div></div>
       </div>
 
       <div class="faq-item">
@@ -744,7 +748,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="faq-q-text">Je výnos garantován?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Výnos není garantován — závisí na obsazenosti celého výnosového poolu. Prezentované scénáře (4,9 / 6,7 / 8,4 % p.a.) jsou ilustrativní propočty pro vzorovou jednotku 1+kk s koeficientem 1,00. Vlastní wellness a aktivní revenue management podporují celoroční poptávku, avšak tržní výsledky se mohou lišit. První 1–2 sezóny bývají rozjezdové.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Výnos není garantován — závisí na obsazenosti celého výnosového poolu. Prezentované scénáře (<span id="faqYields">3,7 / 4,9 / 6,1 % p.a.</span>) jsou ilustrativní propočty pro vzorovou jednotku č. 9 (1+kk, koeficient poolu 0,85). Vlastní wellness a aktivní revenue management podporují celoroční poptávku, avšak tržní výsledky se mohou lišit. První 1–2 sezóny bývají rozjezdové.</div></div>
       </div>
 
       <div class="faq-item">
@@ -760,7 +764,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="faq-q-text">Jak vysoký bude výnos poolu v prvním roce?</span>
           <span class="faq-arrow">›</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Realisticky počítejte s tím, že první 1–2 sezóny bude obsazenost celého poolu nižší — hotel buduje základnu hostů, recenze a opakované rezervace. Scénář 50% obsazenosti odpovídá stabilizovanému provozu. V prvních letech doporučujeme počítat konzervativněji s 30–40 % obsazeností poolu.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Realisticky počítejte s tím, že první 1–2 sezóny bude obsazenost celého poolu nižší — hotel buduje základnu hostů, recenze a opakované rezervace. Scénář <span id="faqRealObs">55</span>% obsazenosti odpovídá stabilizovanému provozu. V prvních letech doporučujeme počítat konzervativněji — s rozjezdovým scénářem kolem <span id="faqRozjezdObs">30</span> % obsazenosti poolu.</div></div>
       </div>
 
       <div class="faq-item">
@@ -785,11 +789,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="index.html#wellness">Wellness</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
-    <span class="footer-copy">© 2025 Rejhotice 131, s.r.o.</span>
+    <span class="footer-copy">© 2026 Rejhotice 131, s.r.o.</span>
   </div>
 </footer>
 
 <script>
+  /* Investiční model — data ze sdíleného souboru */
+  fetch('/data/investice.json')
+    .then(r => r.json())
+    .then(inv => {
+      const vz = inv.vzorovaJednotka, s = inv.scenare, p = inv.predpoklady;
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      const plocha = vz.plocha.toString().replace('.', ',');
+      const koef   = vz.koeficient.toString().replace('.', ',');
+
+      set('benYield', s.realisticky.vynosPctFmt);
+      set('benOcc',   s.realisticky.obsazenostPct);
+
+      set('scenIlustLabel', 'Ilustrativní propočet pro vzorovou jednotku č. '+vz.cislo+' ('+vz.dispozice+', '+plocha+' m², koeficient poolu '+koef+'). Výnos není garantován.');
+
+      set('scenKonzObs', s.konzervativni.obsazenostPct);
+      set('scenKonzYield', s.konzervativni.vynosPctFmt);
+      set('scenKonzNights', s.konzervativni.noci);
+
+      set('scenRealObs', s.realisticky.obsazenostPct);
+      set('scenRealYield', s.realisticky.vynosPctFmt);
+      set('scenRealNights', s.realisticky.noci);
+
+      set('scenOptObs', s.optimisticky.obsazenostPct);
+      set('scenOptYield', s.optimisticky.vynosPctFmt);
+      set('scenOptNights', s.optimisticky.noci);
+
+      set('scenRozjezdObs', s.rozjezd.obsazenostPct);
+      set('scenRozjezdNights', s.rozjezd.noci);
+      set('scenRozjezdYield', s.rozjezd.vynosPctFmt);
+
+      set('poolFeeGross', p.odmenaSpravceZTrzebPct+' %');
+      set('poolFeeNet',   p.odmenaSpravceZCistehoVynosuPct+' %');
+      set('faqPoolFeeGross', p.odmenaSpravceZTrzebPct+' %');
+      set('faqPoolFeeNet',   p.odmenaSpravceZCistehoVynosuPct+' %');
+      set('faqFeeGross2', p.odmenaSpravceZTrzebPct+' %');
+      set('faqFeeNet2',   p.odmenaSpravceZCistehoVynosuPct+' %');
+
+      set('faqYields', s.konzervativni.vynosPctFmt+' / '+s.realisticky.vynosPctFmt+' / '+s.optimisticky.vynosPctFmt+' p.a.');
+      set('faqRealObs', s.realisticky.obsazenostPct);
+      set('faqRozjezdObs', s.rozjezd.obsazenostPct);
+    })
+    .catch(() => {});
+
   /* Nav scroll */
   const nav     = document.getElementById('nav');
   const navLogo = document.getElementById('navLogo');
