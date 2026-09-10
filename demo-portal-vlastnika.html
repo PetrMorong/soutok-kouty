@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portál vlastníků · Soutok Kouty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/svg+xml" href="/images/logo/Soutok_Kouty_Symbol_Light.svg">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: dark;
+    --page:        #14100d;
+    --surface:     #1e1814;
+    --surface-2:   #251e19;
+    --border:      rgba(255,255,255,0.09);
+    --text-primary:   #f3ede4;
+    --text-secondary: #b8ada0;
+    --muted:       #8a7f74;
+    --accent:      #c9a15a;
+    --accent-soft: rgba(201,161,90,0.14);
+    --chart-gold:  #b8873a;
+    --chart-blue:  #4f9bd6;
+    --good:        #2fbf4a;
+    --good-bg:     rgba(47,191,74,0.12);
+    --critical:    #e2554f;
+    --critical-bg: rgba(226,85,79,0.14);
+    --radius: 14px;
+  }
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    min-height: 100vh;
+  }
+  .display{ font-family:"Fraunces", Georgia, serif; font-style: italic; font-weight: 500; }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 28px 24px 80px; }
+  .tabular{ font-variant-numeric: tabular-nums; }
+
+  /* Top bar */
+  .topbar{ display:flex; align-items:center; justify-content:space-between; margin-bottom: 28px; flex-wrap:wrap; gap:12px; }
+  .brand{ display:flex; align-items:baseline; gap:10px; }
+  .brand .mark{ font-size:20px; letter-spacing:.02em; }
+  .badge{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:#0f0d0b; background:var(--accent); padding:3px 9px; border-radius:20px; font-weight:600; }
+  .badge.outline{ background:transparent; color:var(--muted); border:1px solid var(--border); }
+  .link-btn{ color:var(--text-secondary); font-size:13px; background:none; border:none; cursor:pointer; text-decoration:underline; text-underline-offset:3px; padding:0; font-family:inherit; }
+  .link-btn:hover{ color: var(--text-primary); }
+
+  /* Login screen */
+  .login-shell{ min-height: 78vh; display:flex; align-items:center; justify-content:center; }
+  .login-card{ width: 100%; max-width: 420px; background:var(--surface); border:1px solid var(--border); border-radius: var(--radius); padding: 36px 32px; }
+  .login-card h1{ font-size: 30px; margin: 4px 0 8px; line-height:1.15; }
+  .login-card p.lede{ color:var(--text-secondary); font-size:14px; line-height:1.5; margin:0 0 26px; }
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-size:12px; color:var(--muted); margin-bottom:6px; letter-spacing:.02em; }
+  .field select, .field input{
+    width:100%; background:var(--surface-2); border:1px solid var(--border); color:var(--text-primary);
+    border-radius:9px; padding:11px 12px; font-size:14px; font-family:inherit;
+  }
+  .field select:focus, .field input:focus{ outline:1px solid var(--accent); }
+  .btn-primary{
+    width:100%; background:var(--accent); color:#171310; border:none; border-radius:9px;
+    padding:12px 14px; font-size:14px; font-weight:600; cursor:pointer; margin-top:6px;
+    font-family:inherit;
+  }
+  .btn-primary:hover{ filter:brightness(1.06); }
+  .login-note{ font-size:12px; color:var(--muted); margin-top:18px; line-height:1.5; }
+
+  /* Dashboard header */
+  .unit-header{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; margin-bottom:22px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .unit-header h1{ font-size:28px; margin:0 0 6px; }
+  .unit-meta{ color:var(--text-secondary); font-size:13.5px; }
+  .unit-meta b{ color:var(--text-primary); font-weight:600; }
+  .month-select select{
+    background:var(--surface); border:1px solid var(--border); color:var(--text-primary);
+    border-radius:9px; padding:9px 12px; font-size:13.5px; font-family:inherit;
+  }
+
+  /* Stat tiles */
+  .tiles{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:28px; }
+  @media (max-width:820px){ .tiles{ grid-template-columns:repeat(2,1fr);} }
+  .tile{ background:var(--surface); border:1px solid var(--border); border-radius: var(--radius); padding:18px 18px 16px; }
+  .tile .k{ font-size:11.5px; color:var(--muted); letter-spacing:.03em; text-transform:uppercase; margin-bottom:10px; }
+  .tile .v{ font-size:24px; font-weight:600; letter-spacing:-.01em; }
+  .tile .v small{ font-size:13px; color:var(--text-secondary); font-weight:500; }
+  .status-pill{ display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; padding:5px 10px; border-radius:20px; margin-top:2px; }
+  .status-pill.ok{ background:var(--good-bg); color:var(--good); }
+  .status-pill.bad{ background:var(--critical-bg); color:var(--critical); }
+  .status-pill .dot{ width:6px; height:6px; border-radius:50%; background:currentColor; }
+
+  /* Sections */
+  .section{ background:var(--surface); border:1px solid var(--border); border-radius: var(--radius); padding:24px 26px; margin-bottom:20px; }
+  .section h2{ font-size:16px; margin:0 0 4px; }
+  .section .sub{ color:var(--text-secondary); font-size:13px; margin:0 0 18px; }
+
+  /* Breakdown table */
+  table.breakdown{ width:100%; border-collapse:collapse; font-size:14px; }
+  table.breakdown tr td{ padding:10px 0; border-bottom:1px solid var(--border); }
+  table.breakdown tr:last-child td{ border-bottom:none; }
+  table.breakdown td.label{ color:var(--text-secondary); }
+  table.breakdown td.amt{ text-align:right; white-space:nowrap; }
+  table.breakdown tr.neg td.amt{ color:var(--critical); }
+  table.breakdown tr.sub td.label, table.breakdown tr.sub td.amt{ padding-left:18px; font-size:13px; color:var(--muted); border-bottom:none; padding-top:2px; padding-bottom:2px; }
+  table.breakdown tr.total td{ border-top:1px solid var(--border); border-bottom:none; padding-top:14px; font-weight:600; font-size:15px; }
+  table.breakdown tr.grand td{ font-weight:700; font-size:17px; color:var(--accent); }
+  .costs-toggle{ background:none; border:none; color:var(--muted); font-size:12px; cursor:pointer; text-decoration:underline; text-underline-offset:2px; padding:2px 0; font-family:inherit; }
+  .cost-rows{ display:none; }
+  .cost-rows.open{ display:table-row-group; }
+
+  /* Reconciliation */
+  .recon{ display:flex; gap:28px; flex-wrap:wrap; align-items:center; margin-top:6px; }
+  .recon .col .k{ font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; margin-bottom:6px; }
+  .recon .col .v{ font-size:19px; font-weight:600; }
+  .recon .arrow{ color:var(--muted); font-size:18px; }
+
+  /* Bar charts */
+  .chart-legend{ display:flex; gap:18px; font-size:12.5px; color:var(--text-secondary); margin-bottom:14px; }
+  .chart-legend .item{ display:flex; align-items:center; gap:6px; }
+  .chart-legend .sw{ width:10px; height:10px; border-radius:3px; }
+  .bars{ display:flex; align-items:flex-end; gap:22px; height:150px; padding-top:10px; }
+  .bar-group{ flex:1; display:flex; flex-direction:column; align-items:center; height:100%; }
+  .bar-pair{ display:flex; align-items:flex-end; gap:4px; height:100%; flex:1; position:relative; }
+  .bar{ width:16px; border-radius:4px 4px 2px 2px; position:relative; cursor:pointer; transition:filter .12s; }
+  .bar:hover{ filter:brightness(1.18); }
+  .bar.gold{ background:var(--chart-gold); }
+  .bar.blue{ background:var(--chart-blue); }
+  .bar-label{ font-size:12px; color:var(--muted); margin-top:8px; }
+  .tooltip{
+    position:fixed; background:#0f0c0a; border:1px solid var(--border); color:var(--text-primary);
+    font-size:12.5px; padding:8px 10px; border-radius:8px; pointer-events:none; z-index:50; display:none;
+    box-shadow:0 6px 20px rgba(0,0,0,.4); white-space:nowrap;
+  }
+  .tooltip b{ color:var(--accent); }
+
+  /* Cost invoice sub-rows */
+  table.breakdown tr.sub2 td.label, table.breakdown tr.sub2 td.amt{ padding-left:34px; font-size:12px; color:var(--muted); border-bottom:none; padding-top:2px; padding-bottom:2px; }
+  table.breakdown tr.sub2.dpp td.label{ font-style:italic; }
+
+  /* Reservations table */
+  .res-controls{ display:flex; gap:10px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
+  .res-controls select{
+    background:var(--surface-2); border:1px solid var(--border); color:var(--text-primary);
+    border-radius:8px; padding:8px 10px; font-size:13px; font-family:inherit;
+  }
+  .res-count{ color:var(--muted); font-size:12.5px; margin-left:auto; }
+  .res-scroll{ max-height:420px; overflow-y:auto; border:1px solid var(--border); border-radius:10px; }
+  table.reservations{ width:100%; border-collapse:collapse; font-size:13px; }
+  table.reservations thead th{
+    position:sticky; top:0; background:var(--surface-2); text-align:left; font-weight:600;
+    font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--muted);
+    padding:10px 14px; border-bottom:1px solid var(--border);
+  }
+  table.reservations thead th.num, table.reservations td.num{ text-align:right; }
+  table.reservations tbody td{ padding:9px 14px; border-bottom:1px solid var(--border); color:var(--text-secondary); }
+  table.reservations tbody tr:last-child td{ border-bottom:none; }
+  table.reservations tbody tr.own td{ color:var(--text-primary); }
+  table.reservations tbody tr.own td.unit{ color:var(--accent); font-weight:600; }
+  table.reservations tfoot td{ padding:10px 14px; font-weight:600; color:var(--text-primary); border-top:1px solid var(--border); }
+  .res-note{ font-size:12px; color:var(--muted); margin-top:10px; line-height:1.5; }
+
+  .disclaimer{ margin-top:30px; padding:14px 16px; border:1px dashed var(--border); border-radius:10px; color:var(--muted); font-size:12.5px; line-height:1.5; }
+
+  .coef-legend{ font-size:12.5px; color:var(--text-secondary); margin-top:8px; }
+  .coef-legend b{ color:var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <span class="mark display">Soutok Kouty</span>
+      <span class="badge">Portál vlastníků</span>
+    </div>
+    <span class="badge outline">Prototyp · fiktivní data</span>
+  </div>
+
+  <!-- LOGIN VIEW -->
+  <div id="view-login" class="login-shell">
+    <div class="login-card">
+      <h1 class="display">Přehled vaší jednotky</h1>
+      <p class="lede">Vyberte jednotku, kterou chcete zobrazit. V ostrém provozu nahradí přihlašovací e‑mail a heslo.</p>
+      <div class="field">
+        <label for="unit-select">Jednotka</label>
+        <select id="unit-select"></select>
+      </div>
+      <div class="field">
+        <label for="pw">Heslo (v prototypu neověřuje se)</label>
+        <input id="pw" type="password" placeholder="••••••••" value="ukazka">
+      </div>
+      <button class="btn-primary" onclick="enterDashboard()">Zobrazit přehled</button>
+      <p class="login-note">Toto je klikací prototyp s vymyšlenými čísly, aby šlo posoudit srozumitelnost výpisu před napojením na skutečná data z Previo.</p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD VIEW -->
+  <div id="view-dashboard" style="display:none;">
+
+    <div class="unit-header">
+      <div>
+        <h1 class="display" id="unit-title">Jednotka</h1>
+        <div class="unit-meta" id="unit-meta"></div>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div class="month-select">
+          <select id="month-select" onchange="render()"></select>
+        </div>
+        <button class="link-btn" onclick="logout()">Odhlásit</button>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div class="tile">
+        <div class="k">Vaše výplata za měsíc</div>
+        <div class="v tabular" id="tile-payout">–</div>
+      </div>
+      <div class="tile">
+        <div class="k">Stav vyplacení</div>
+        <div id="tile-status"></div>
+      </div>
+      <div class="tile">
+        <div class="k">Obsazenost jednotky</div>
+        <div class="v tabular" id="tile-occ">–</div>
+      </div>
+      <div class="tile">
+        <div class="k">Průměr poolu</div>
+        <div class="v tabular" id="tile-occ-avg">–</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Jak se počítala vaše výplata</h2>
+      <p class="sub">Rozklíčováno po řádcích přesně podle dohodnutého vzorce — od tržeb celého poolu až po vaši konečnou částku.</p>
+      <table class="breakdown" id="breakdown-table"></table>
+      <p class="res-note">Faktury od firem uvádíme celé, včetně dodavatele a čísla dokladu. Odměny vyplacené fyzickým osobám na dohodu o provedení práce (kurzívou) se evidují jen pod interním číslem bez jména — jde o osobní údaj spolupracovníka, ale u správce je dohledatelné, komu a za co bylo vyplaceno. Sazba DPH na ubytování je zde 12 % (platná snížená sazba pro ubytovací služby) — je to zástupná hodnota k potvrzení účetní; dohodnutý vzorec 18 %/5 % počítá vždy z částky bez DPH. Stejné pravidlo platí i pro náklady: ať fakturuje firma, OSVČ, nebo jde o DPP, do rozpadu vždy vstupuje základ daně (bez DPH), ne částka k úhradě — u faktur je proto vidět celá částka s DPH i základ zvlášť, aby šlo ověřit, že se do nákladů poolu nedostalo víc, než kolik si dodavatel skutečně účtoval. Bez toho by správce mohl pool nenápadně připravit o částku odpovídající DPH (nebo její část) tím, že by poolu naúčtoval cenu s DPH, ale sám si nárok na odpočet nechal jen pro sebe — proto se to takhle rozepisuje, ne že by se to "samo" vyřešilo v přiznání k DPH, které vlastník nikdy neuvidí. U DPP se DPH neřeší vůbec, protože taková odměna dani nepodléhá. U zahraničních dodavatelů (Booking.com, Meta) jde typicky o přenesenou daňovou povinnost — na jejich faktuře DPH není a částka je už základem.</p>
+    </div>
+
+    <div class="section">
+      <h2>Rezervace v poolu</h2>
+      <p class="sub" id="res-sub">Všechny ukončené pobyty ve všech jednotkách za vybraný měsíc — součet sedí přesně na řádek „Hrubé tržby poolu" výše.</p>
+      <div class="res-controls">
+        <select id="res-unit-filter" onchange="renderReservations()"></select>
+        <select id="res-sort" onchange="renderReservations()">
+          <option value="date">Řadit dle termínu</option>
+          <option value="unit">Řadit dle jednotky</option>
+          <option value="price">Řadit dle ceny</option>
+        </select>
+        <span class="res-count" id="res-count"></span>
+      </div>
+      <div class="res-scroll">
+        <table class="reservations">
+          <thead>
+            <tr>
+              <th>Jednotka</th><th>Termín</th><th class="num">Nocí</th><th>Zdroj</th><th class="num">Cena</th><th>Stav</th>
+            </tr>
+          </thead>
+          <tbody id="res-body"></tbody>
+          <tfoot><tr><td colspan="4">Celkem</td><td class="num tabular" id="res-total"></td><td></td></tr></tfoot>
+        </table>
+      </div>
+      <p class="res-note">Jména hostů se v portálu nezobrazují — pro ověření součtu tržeb nejsou potřeba a jde o osobní údaje třetích osob.</p>
+    </div>
+
+    <div class="section">
+      <h2>Vypočteno vs. vyplaceno</h2>
+      <p class="sub">Srovnání toho, co podle uzávěrky náleží vaší jednotce, s tím, co skutečně přišlo na účet.</p>
+      <div class="recon" id="recon-block"></div>
+    </div>
+
+    <div class="section">
+      <h2>Historie výplat</h2>
+      <p class="sub">Poslední tři uzávěrky vaší jednotky.</p>
+      <div class="chart-legend">
+        <div class="item"><span class="sw" style="background:var(--chart-gold)"></span>Vaše výplata</div>
+      </div>
+      <div class="bars" id="payout-history"></div>
+    </div>
+
+    <div class="section">
+      <h2>Obsazenost — vaše jednotka vs. průměr poolu</h2>
+      <div class="chart-legend">
+        <div class="item"><span class="sw" style="background:var(--chart-gold)"></span>Vaše jednotka</div>
+        <div class="item"><span class="sw" style="background:var(--chart-blue)"></span>Průměr poolu</div>
+      </div>
+      <div class="bars" id="occupancy-chart"></div>
+    </div>
+
+    <div class="coef-legend">
+      <b>Koeficienty:</b> 0,85 malý pokoj · 1,00 vzorová 1+kk · 1,20 s terasou · 1,40 2+kk · 1,60 mezonet/loft
+    </div>
+
+    <div class="disclaimer">
+      Zobrazená čísla jsou fiktivní a slouží pouze k ověření podoby a srozumitelnosti výpisu. Neodpovídají skutečným tržbám, nákladům ani výplatám hotelu Soutok Kouty.
+    </div>
+  </div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+/* ---------- Mock data model ---------- */
+
+const COEFFS = { mensi: 0.85, vzorova: 1.00, terasa: 1.20, dvoukk: 1.40, mezonet: 1.60 };
+const TYPE_LABEL = { mensi:'malý pokoj', vzorova:'vzorová 1+kk', terasa:'1+kk s terasou', dvoukk:'2+kk', mezonet:'mezonet/loft' };
+
+// 23 units — illustrative type assignment (real assignment needs to come from the sales/ownership register)
+const TYPE_SEQUENCE = ['vzorova','vzorova','mensi','terasa','vzorova','dvoukk','vzorova','terasa','mensi','vzorova',
+                        'terasa','vzorova','dvoukk','mensi','vzorova','terasa','vzorova','mezonet','vzorova','terasa',
+                        'dvoukk','vzorova','mezonet'];
+const UNITS = TYPE_SEQUENCE.map((t,i)=>({
+  id: i+1,
+  cislo: 'Byt č. ' + (i+1),
+  typ: t,
+  koeficient: COEFFS[t]
+}));
+
+function seeded(seed){ let s = seed; return ()=>{ s = (s*9301+49297) % 233280; return s/233280; }; }
+
+const MONTH_INFO = [
+  { label:'Červen 2026',   num:6, days:30, seasonal:0.92 },
+  { label:'Červenec 2026', num:7, days:31, seasonal:1.05 },
+  { label:'Srpen 2026',    num:8, days:31, seasonal:1.18 },
+];
+const MONTHS = MONTH_INFO.map(m=>m.label);
+
+const ADR_BASE = { mensi:2100, vzorova:2500, terasa:2850, dvoukk:3300, mezonet:3900 };
+const SOURCES = ['Booking.com XML','RESERVATION+','Přímo'];
+const SOURCE_WEIGHTS = [0.45, 0.40, 0.15];
+function pickWeighted(rnd, items, weights){
+  const r = rnd(); let acc = 0;
+  for (let i=0;i<items.length;i++){ acc += weights[i]; if (r<=acc) return items[i]; }
+  return items[items.length-1];
+}
+function pad2(n){ return String(n).padStart(2,'0'); }
+
+const COST_CATEGORIES = ['Úklid a prádlo','Energie','Údržba','Provize portálů','Marketing a rezervační systém','Rezerva FF&E'];
+const STANDARD_VAT = 0.21; // most goods/services — NOT the 12% accommodation rate used on revenue
+// Company-invoiced categories vs. categories that mix in personal DPP agreements.
+// DPP entries never carry a worker's name in owner-facing output — only an internal
+// reference the admin/accountant can trace back to the real dohoda, plus role and amount.
+// vat:0 + rc:true marks a foreign supplier billed under reverse charge (no DPH line on
+// their own invoice — the amount is already the net figure, správce self-assesses the DPH).
+const COST_VENDORS = {
+  'Úklid a prádlo': { vendors:[{name:'Prádelna Kouty s.r.o.', vat:STANDARD_VAT}], dppRole:'úklid jednotek' },
+  'Energie': { vendors:[{name:'ČEZ Prodej, a.s.', vat:STANDARD_VAT}, {name:'Pražská plynárenská, a.s.', vat:STANDARD_VAT}] },
+  'Údržba': { vendors:[{name:'Instalatérství Novák', vat:STANDARD_VAT}, {name:'Elektro servis Rejhotice s.r.o.', vat:STANDARD_VAT}], dppRole:'drobná údržba' },
+  'Provize portálů': { vendors:[{name:'Booking.com B.V.', vat:0, rc:true}, {name:'Previo s.r.o.', vat:STANDARD_VAT}] },
+  'Marketing a rezervační systém': { vendors:[{name:'Previo s.r.o.', vat:STANDARD_VAT}, {name:'Meta Platforms Ireland Ltd.', vat:0, rc:true}] },
+  'Rezerva FF&E': { vendors:[{name:'Sconto nábytek s.r.o.', vat:STANDARD_VAT}, {name:'Mikea s.r.o.', vat:STANDARD_VAT}] },
+};
+
+function genInvoice(rnd, mInfo, type, vendor, seq){
+  const day = 1 + Math.floor(rnd()*(mInfo.days-1));
+  const date = `${pad2(day)}.${pad2(mInfo.num)}.2026`;
+  if (type === 'faktura'){
+    const gross = Math.round(4000 + rnd()*9000);
+    const vatRate = vendor.vat || 0;
+    const net = vatRate > 0 ? Math.round(gross/(1+vatRate)) : gross;
+    const vatAmount = gross - net;
+    return {
+      type, date, amount: net, grossAmount: gross, vatAmount, vatRate, reverseCharge: !!vendor.rc,
+      docRef: `FP2026${pad2(mInfo.num)}-${100+seq} · ${vendor.name}`
+    };
+  }
+  // DPP / dohoda s fyzickou osobou — interní evidenční číslo, žádné jméno, DPH se netýká
+  return {
+    type, date, amount: Math.round(4000 + rnd()*9000), grossAmount:null, vatAmount:0, vatRate:0, reverseCharge:false,
+    docRef: `DPP – interní evidence č. D-2026${pad2(mInfo.num)}-${10+seq} (${vendor})`
+  };
+}
+
+const monthly = MONTH_INFO.map((mInfo, mi)=>{
+  const rnd = seeded(100 + mi*7);
+  const revenueByUnit = {};
+  const nightsByUnit = {};
+  const reservations = [];
+
+  UNITS.forEach(u=>{
+    const numBookings = 2 + Math.floor(rnd()*3);
+    let unitRevenue = 0, unitNights = 0;
+    for (let b=0; b<numBookings; b++){
+      const nights = 2 + Math.floor(rnd()*5);
+      const maxStart = Math.max(1, mInfo.days - nights - 1);
+      const checkin = 1 + Math.floor(rnd()*maxStart);
+      const checkout = checkin + nights;
+      const adr = ADR_BASE[u.typ] * mInfo.seasonal * (0.85 + rnd()*0.3);
+      const price = Math.round(adr * nights);
+      const source = pickWeighted(rnd, SOURCES, SOURCE_WEIGHTS);
+      reservations.push({
+        unitId: u.id, unit: u.cislo,
+        checkinStr: `${pad2(checkin)}.${pad2(mInfo.num)}.`,
+        checkoutStr: `${pad2(checkout)}.${pad2(mInfo.num)}.`,
+        sortDay: checkin,
+        nights, source, price, status: 'Ukončeno'
+      });
+      unitRevenue += price;
+      unitNights += nights;
+    }
+    revenueByUnit[u.id] = unitRevenue;
+    nightsByUnit[u.id] = unitNights;
+  });
+
+  const occByUnit = {};
+  UNITS.forEach(u=>{ occByUnit[u.id] = Math.round((nightsByUnit[u.id]/mInfo.days)*100); });
+
+  const costs = COST_CATEGORIES.map(cat=>{
+    const cfg = COST_VENDORS[cat];
+    const invoices = [];
+    const numFaktury = 1 + Math.floor(rnd()*2);
+    for (let i=0;i<numFaktury;i++){
+      invoices.push(genInvoice(rnd, mInfo, 'faktura', cfg.vendors[i % cfg.vendors.length], Math.floor(rnd()*800)));
+    }
+    // some categories are partly paid to individuals on DPP rather than invoiced by a firm
+    if (cfg.dppRole && rnd() > 0.2){
+      invoices.push(genInvoice(rnd, mInfo, 'dpp', cfg.dppRole, Math.floor(rnd()*80)));
+    }
+    return { category: cat, invoices, amount: invoices.reduce((a,i)=>a+i.amount,0) };
+  });
+
+  // own-stay deduction (shared-use program, variant B — single lump sum, no per-night breakdown)
+  const ownStay = {};
+  if (mi===1){ ownStay[3] = 2400; }
+  if (mi===2){ ownStay[9] = 1400; ownStay[17] = 2800; }
+
+  // actual paid — matches calculated except one deliberate mismatch to demonstrate the check
+  const actualPaidOverride = {};
+  if (mi===1){ actualPaidOverride[9] = 'SHORT_120'; } // paid 120 Kč less than calculated
+
+  return { name: mInfo.label, revenueByUnit, occByUnit, reservations, costs, ownStay, actualPaidOverride };
+});
+
+/* ---------- Calculation engine (mirrors kap. 3 of konceptu) ---------- */
+
+// Reduced VAT rate for accommodation services (CZ) — 12 % since the 1.1.2024 sazby reform.
+// Placeholder for the model; potvrdit se správcem/účetní, že se v Pohodě fakturuje ve stejné sazbě.
+const VAT_RATE = 0.12;
+
+function computeMonth(mi){
+  const m = monthly[mi];
+  const grossInclVat = Object.values(m.revenueByUnit).reduce((a,b)=>a+b,0);
+  const vatAmount = grossInclVat - grossInclVat/(1+VAT_RATE);
+  const grossRevenue = grossInclVat - vatAmount; // bez DPH — základ pro dohodnutý vzorec (18 %/5 %)
+  const fee18 = grossRevenue * 0.18;
+  const totalCosts = m.costs.reduce((a,c)=>a+c.amount,0);
+  const operatingIncome = grossRevenue - fee18 - totalCosts;
+  const fee5 = operatingIncome * 0.05;
+  const netPool = operatingIncome - fee5;
+  const inputVat = m.costs.reduce((a,c)=>a + c.invoices.reduce((s,i)=>s+(i.vatAmount||0),0), 0);
+  const netVatPayable = vatAmount - inputVat;
+  const sumCoef = UNITS.reduce((a,u)=>a+u.koeficient,0);
+  return { grossInclVat, vatAmount, grossRevenue, fee18, totalCosts, operatingIncome, fee5, netPool, sumCoef, inputVat, netVatPayable, costs: m.costs };
+}
+
+function computeUnitPayout(mi, unitId){
+  const calc = computeMonth(mi);
+  const unit = UNITS.find(u=>u.id===unitId);
+  const share = unit.koeficient / calc.sumCoef;
+  const theoretical = calc.netPool * share;
+  const ownStay = monthly[mi].ownStay[unitId] || 0;
+  const calculatedPayout = theoretical - ownStay;
+  let actualPaid = calculatedPayout;
+  const override = monthly[mi].actualPaidOverride[unitId];
+  if (override === 'SHORT_120') actualPaid = calculatedPayout - 120;
+  return { calc, unit, share, theoretical, ownStay, calculatedPayout, actualPaid };
+}
+
+/* ---------- Formatting ---------- */
+
+const fmt = n => Math.round(n).toLocaleString('cs-CZ') + ' Kč';
+const fmtSigned = n => (n<0?'−':'') + Math.round(Math.abs(n)).toLocaleString('cs-CZ') + ' Kč';
+const fmtPct = n => (n*100).toLocaleString('cs-CZ',{maximumFractionDigits:1}) + ' %';
+
+/* ---------- App state & rendering ---------- */
+
+let currentUnitId = null;
+
+function populateSelectors(){
+  const us = document.getElementById('unit-select');
+  us.innerHTML = UNITS.map(u=>`<option value="${u.id}">${u.cislo} — ${TYPE_LABEL[u.typ]} (koef. ${u.koeficient.toFixed(2)})</option>`).join('');
+  const ms = document.getElementById('month-select');
+  ms.innerHTML = MONTHS.map((m,i)=>`<option value="${i}">${m}</option>`).join('');
+  ms.value = MONTHS.length - 1;
+  const ruf = document.getElementById('res-unit-filter');
+  ruf.innerHTML = '<option value="all">Všechny jednotky (' + UNITS.length + ')</option>'
+    + UNITS.map(u=>`<option value="${u.id}">${u.cislo}</option>`).join('');
+}
+
+function enterDashboard(){
+  currentUnitId = parseInt(document.getElementById('unit-select').value, 10);
+  document.getElementById('view-login').style.display = 'none';
+  document.getElementById('view-dashboard').style.display = 'block';
+  render();
+}
+function logout(){
+  document.getElementById('view-dashboard').style.display = 'none';
+  document.getElementById('view-login').style.display = 'flex';
+}
+
+function render(){
+  const mi = parseInt(document.getElementById('month-select').value, 10);
+  const unit = UNITS.find(u=>u.id===currentUnitId);
+  const r = computeUnitPayout(mi, currentUnitId);
+
+  document.getElementById('unit-title').textContent = unit.cislo;
+  document.getElementById('unit-meta').innerHTML = `<b>${TYPE_LABEL[unit.typ]}</b> · koeficient <b>${unit.koeficient.toFixed(2)}</b> · ${MONTHS[mi]}`;
+
+  document.getElementById('tile-payout').textContent = fmt(r.calculatedPayout);
+
+  const matches = Math.abs(r.calculatedPayout - r.actualPaid) < 1;
+  document.getElementById('tile-status').innerHTML = matches
+    ? `<span class="status-pill ok"><span class="dot"></span>Sedí</span>`
+    : `<span class="status-pill bad"><span class="dot"></span>Nesedí — rozdíl ${fmtSigned(r.actualPaid - r.calculatedPayout)}</span>`;
+
+  const occ = monthly[mi].occByUnit[unit.id];
+  const avgOcc = Math.round(UNITS.reduce((a,u)=>a+monthly[mi].occByUnit[u.id],0)/UNITS.length);
+  document.getElementById('tile-occ').textContent = occ + ' %';
+  document.getElementById('tile-occ-avg').innerHTML = avgOcc + ' % <small>pool</small>';
+
+  renderBreakdown(r, mi);
+  renderReservations();
+  renderRecon(r);
+  renderPayoutHistory(unit.id);
+  renderOccupancy(unit.id, mi);
+}
+
+function renderBreakdown(r, mi){
+  const rows = [];
+  rows.push(`<tr><td class="label">Fakturováno hostům celkem, s DPH (${UNITS.length} jednotek)</td><td class="amt tabular">${fmt(r.calc.grossInclVat)}</td></tr>`);
+  rows.push(`<tr class="neg"><td class="label">DPH z ubytování — ${fmtPct(VAT_RATE)}</td><td class="amt tabular">−${fmt(r.calc.vatAmount)}</td></tr>`);
+  rows.push(`<tr class="total"><td class="label">Hrubé tržby poolu, bez DPH</td><td class="amt tabular">${fmt(r.calc.grossRevenue)}</td></tr>`);
+  rows.push(`<tr class="neg"><td class="label">Poplatek správce — 18 % z hrubých tržeb</td><td class="amt tabular">−${fmt(r.calc.fee18)}</td></tr>`);
+  rows.push(`<tr class="neg"><td class="label">Provozní náklady poolu, bez DPH <button class="costs-toggle" onclick="toggleCosts()">(rozpad podle faktur)</button></td><td class="amt tabular">−${fmt(r.calc.totalCosts)}</td></tr>`);
+  const costRows = r.calc.costs.map(c=>{
+    const invRows = c.invoices.map(inv=>{
+      let label = `${inv.docRef} · ${inv.date}`;
+      if (inv.type === 'faktura' && inv.vatRate > 0){
+        label += ` — ${fmt(inv.grossAmount)} s DPH, základ ${fmt(inv.amount)}, DPH ${fmtPct(inv.vatRate)} = ${fmt(inv.vatAmount)}`;
+      } else if (inv.reverseCharge){
+        label += ` — přenesená daňová povinnost, bez DPH na faktuře`;
+      }
+      return `<tr class="sub2${inv.type==='dpp' ? ' dpp' : ''}"><td class="label">${label}</td><td class="amt tabular">−${fmt(inv.amount)}</td></tr>`;
+    }).join('');
+    return `<tr class="sub"><td class="label">${c.category}</td><td class="amt tabular">−${fmt(c.amount)}</td></tr>${invRows}`;
+  }).join('');
+  rows.push(`<tbody class="cost-rows" id="cost-rows">${costRows}</tbody>`);
+  rows.push(`<tr class="total"><td class="label">Provozní výnos poolu</td><td class="amt tabular">${fmt(r.calc.operatingIncome)}</td></tr>`);
+  rows.push(`<tr class="neg"><td class="label">Poplatek správce — 5 % z provozního výnosu</td><td class="amt tabular">−${fmt(r.calc.fee5)}</td></tr>`);
+  rows.push(`<tr class="total"><td class="label">Čistý pool k rozdělení</td><td class="amt tabular">${fmt(r.calc.netPool)}</td></tr>`);
+  rows.push(`<tr><td class="label">Váš podíl (${r.unit.koeficient.toFixed(2)} / ${r.calc.sumCoef.toFixed(2)} = ${fmtPct(r.share)})</td><td class="amt tabular">${fmt(r.theoretical)}</td></tr>`);
+  if (r.ownStay > 0){
+    rows.push(`<tr class="neg"><td class="label">Čerpání vlastního pobytu (program sdíleného využití)</td><td class="amt tabular">−${fmt(r.ownStay)}</td></tr>`);
+  }
+  rows.push(`<tr class="grand"><td class="label">Vaše výplata</td><td class="amt tabular">${fmt(r.calculatedPayout)}</td></tr>`);
+  document.getElementById('breakdown-table').innerHTML = rows.join('');
+}
+function toggleCosts(){ document.getElementById('cost-rows').classList.toggle('open'); }
+
+function renderReservations(){
+  const mi = parseInt(document.getElementById('month-select').value, 10);
+  document.getElementById('res-sub').textContent =
+    `Všechny ukončené pobyty ve všech ${UNITS.length} jednotkách za ${MONTHS[mi]} — součet sedí přesně na řádek „Hrubé tržby poolu" výše.`;
+  const filter = document.getElementById('res-unit-filter').value;
+  const sortBy = document.getElementById('res-sort').value;
+  let list = monthly[mi].reservations.slice();
+  if (filter !== 'all') list = list.filter(r=>String(r.unitId)===filter);
+  if (sortBy==='date') list.sort((a,b)=>a.sortDay-b.sortDay || a.unitId-b.unitId);
+  else if (sortBy==='unit') list.sort((a,b)=>a.unitId-b.unitId || a.sortDay-b.sortDay);
+  else if (sortBy==='price') list.sort((a,b)=>b.price-a.price);
+
+  const rows = list.map(r=>`<tr class="${r.unitId===currentUnitId?'own':''}">
+    <td class="unit">${r.unit}</td>
+    <td>${r.checkinStr} – ${r.checkoutStr}</td>
+    <td class="num tabular">${r.nights}</td>
+    <td>${r.source}</td>
+    <td class="num tabular">${fmt(r.price)}</td>
+    <td>${r.status}</td>
+  </tr>`).join('');
+  document.getElementById('res-body').innerHTML = rows || `<tr><td colspan="6" style="color:var(--muted); padding:16px 14px;">Žádné rezervace v tomto výběru</td></tr>`;
+  const total = list.reduce((a,r)=>a+r.price,0);
+  document.getElementById('res-total').textContent = fmt(total);
+  document.getElementById('res-count').textContent = list.length + ' rezervací';
+}
+
+function renderRecon(r){
+  const matches = Math.abs(r.calculatedPayout - r.actualPaid) < 1;
+  document.getElementById('recon-block').innerHTML = `
+    <div class="col"><div class="k">Vypočteno dle uzávěrky</div><div class="v tabular">${fmt(r.calculatedPayout)}</div></div>
+    <div class="arrow">→</div>
+    <div class="col"><div class="k">Skutečně přijato na účet</div><div class="v tabular">${fmt(r.actualPaid)}</div></div>
+    <div style="margin-left:auto;">
+      ${matches
+        ? `<span class="status-pill ok"><span class="dot"></span>Odpovídá</span>`
+        : `<span class="status-pill bad"><span class="dot"></span>Rozdíl ${fmtSigned(r.actualPaid - r.calculatedPayout)} — kontaktujte správce</span>`}
+    </div>
+  `;
+}
+
+function showTip(evt, html){
+  const tip = document.getElementById('tooltip');
+  tip.innerHTML = html;
+  tip.style.display = 'block';
+  tip.style.left = (evt.clientX + 14) + 'px';
+  tip.style.top = (evt.clientY - 10) + 'px';
+}
+function hideTip(){ document.getElementById('tooltip').style.display = 'none'; }
+
+function renderPayoutHistory(unitId){
+  const values = monthly.map((m,mi)=>computeUnitPayout(mi, unitId).calculatedPayout);
+  const max = Math.max(...values) * 1.15;
+  const html = values.map((v,mi)=>{
+    const h = Math.max(6, Math.round((v/max)*100));
+    return `<div class="bar-group">
+      <div class="bar-pair" style="width:100%; justify-content:center;">
+        <div class="bar gold" style="height:${h}%"
+          onmousemove="showTip(event,'<b>${fmt(v)}</b><br>${MONTHS[mi]}')" onmouseleave="hideTip()"></div>
+      </div>
+      <div class="bar-label">${MONTHS[mi].split(' ')[0]}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('payout-history').innerHTML = html;
+}
+
+function renderOccupancy(unitId, currentMi){
+  const html = monthly.map((m,mi)=>{
+    const occ = m.occByUnit[unitId];
+    const avg = Math.round(UNITS.reduce((a,u)=>a+m.occByUnit[u.id],0)/UNITS.length);
+    return `<div class="bar-group">
+      <div class="bar-pair">
+        <div class="bar gold" style="height:${occ}%" onmousemove="showTip(event,'<b>${occ} %</b><br>vaše jednotka · ${MONTHS[mi]}')" onmouseleave="hideTip()"></div>
+        <div class="bar blue" style="height:${avg}%" onmousemove="showTip(event,'<b>${avg} %</b><br>průměr poolu · ${MONTHS[mi]}')" onmouseleave="hideTip()"></div>
+      </div>
+      <div class="bar-label">${MONTHS[mi].split(' ')[0]}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('occupancy-chart').innerHTML = html;
+}
+
+populateSelectors();
+</script>
+
+</body>
+</html>
