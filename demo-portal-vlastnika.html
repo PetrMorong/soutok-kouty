@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portál vlastníků · Soutok Kouty</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="icon" type="image/svg+xml" href="/images/logo/Soutok_Kouty_Symbol_Light.svg">
-
+<link rel="icon" type="image/svg+xml" href="/images/logo/Soutok_Kouty_Symbol_Light.svg">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -176,7 +175,7 @@
       <span class="mark display">Soutok Kouty</span>
       <span class="badge">Portál vlastníků</span>
     </div>
-    <span class="badge outline">Prototyp · fiktivní data</span>
+    <span class="badge outline">Ukázka · modelová data · obsazenost 60 %</span>
   </div>
 
   <!-- LOGIN VIEW -->
@@ -193,7 +192,7 @@
         <input id="pw" type="password" placeholder="••••••••" value="ukazka">
       </div>
       <button class="btn-primary" onclick="enterDashboard()">Zobrazit přehled</button>
-      <p class="login-note">Toto je klikací prototyp s vymyšlenými čísly, aby šlo posoudit srozumitelnost výpisu před napojením na skutečná data z Previo.</p>
+      <p class="login-note">Ukázka s modelovými čísly: běžný provoz při 60% obsazenosti poolu a ceně 2 500 Kč za noc v malém pokoji, tedy se stejnými předpoklady jako investiční model na webu. Nejde o skutečné výsledky, hotel otevírá v roce 2028.</p>
     </div>
   </div>
 
@@ -241,7 +240,7 @@
 
     <div class="section">
       <h2>Rezervace v poolu</h2>
-      <p class="sub" id="res-sub">Všechny ukončené pobyty ve všech jednotkách za vybraný měsíc — součet sedí přesně na řádek „Hrubé tržby poolu" výše.</p>
+      <p class="sub" id="res-sub">Všechny ukončené pobyty ve všech jednotkách za vybraný měsíc — součet sedí přesně na řádek „Fakturováno hostům celkem, s DPH" výše.</p>
       <div class="res-controls">
         <select id="res-unit-filter" onchange="renderReservations()"></select>
         <select id="res-sort" onchange="renderReservations()">
@@ -294,7 +293,7 @@
     </div>
 
     <div class="disclaimer">
-      Zobrazená čísla jsou fiktivní a slouží pouze k ověření podoby a srozumitelnosti výpisu. Neodpovídají skutečným tržbám, nákladům ani výplatám hotelu Soutok Kouty.
+      Zobrazená čísla jsou modelová: scénář 60% obsazenosti poolu s cenami a náklady podle investičního modelu (malý pokoj 2 500 Kč za noc včetně DPH). Výplata je uvedena před příspěvkem do SVJ, ten se z ní v portálu neodečítá. Nejde o skutečné tržby, náklady ani výplaty hotelu Soutok Kouty. Výnos není garantován a v prvních sezónách počítejte s nižší obsazeností.
     </div>
   </div>
 </div>
@@ -320,14 +319,25 @@ const UNITS = TYPE_SEQUENCE.map((t,i)=>({
 
 function seeded(seed){ let s = seed; return ()=>{ s = (s*9301+49297) % 233280; return s/233280; }; }
 
+/* ---------- Scénář: stabilizovaný provoz, průměrná obsazenost poolu 60 % ----------
+   Ceny a náklady jsou nastavené podle investičního modelu na soutok-kouty.cz
+   (malý pokoj 2 500 Kč za noc; 45 % → 107 025 Kč, 55 % → 143 533 Kč, 65 % → 179 054 Kč
+   čistého ročně pro jednotku s koeficientem 0,85). Z těch tří bodů vychází, že čistý
+   výnos roste o cca 987 Kč za každou obsazenou noc a fixní část je cca 54 800 Kč ročně
+   (z toho příspěvek do SVJ cca 10 700 Kč, ten se v portálu neodečítá). */
+// Reduced VAT rate for accommodation services (CZ) — 12 % since the 1.1.2024 sazby reform.
+// Placeholder for the model; potvrdit se správcem/účetní, že se v Pohodě fakturuje ve stejné sazbě.
+const VAT_RATE = 0.12;
+
 const MONTH_INFO = [
-  { label:'Červen 2026',   num:6, days:30, seasonal:0.92 },
-  { label:'Červenec 2026', num:7, days:31, seasonal:1.05 },
-  { label:'Srpen 2026',    num:8, days:31, seasonal:1.18 },
+  { label:'Červen 2026',   num:6, days:30, occ:0.58, seasonal:0.98 },
+  { label:'Červenec 2026', num:7, days:31, occ:0.62, seasonal:1.02 },
+  { label:'Srpen 2026',    num:8, days:31, occ:0.60, seasonal:1.00 },
 ];
 const MONTHS = MONTH_INFO.map(m=>m.label);
 
-const ADR_BASE = { mensi:2100, vzorova:2500, terasa:2850, dvoukk:3300, mezonet:3900 };
+// Cena za noc včetně DPH. Odstupňováno stejně jako koeficienty poolu (2 500 Kč ÷ 0,85 × koeficient).
+const ADR_BASE = { mensi:2500, vzorova:2950, terasa:3550, dvoukk:4100, mezonet:4700 };
 const SOURCES = ['Booking.com XML','RESERVATION+','Přímo'];
 const SOURCE_WEIGHTS = [0.45, 0.40, 0.15];
 function pickWeighted(rnd, items, weights){
@@ -339,38 +349,116 @@ function pad2(n){ return String(n).padStart(2,'0'); }
 
 const COST_CATEGORIES = ['Úklid a prádlo','Energie','Údržba','Provize portálů','Marketing a rezervační systém','Rezerva FF&E'];
 const STANDARD_VAT = 0.21; // most goods/services — NOT the 12% accommodation rate used on revenue
-// Company-invoiced categories vs. categories that mix in personal DPP agreements.
+const BOOKING_COMMISSION = 0.15; // provize Booking.com z ceny pobytu
+// Náklady poolu = podíl z tržeb bez DPH (roste s obsazeností) + fixní měsíční část.
+// Dohromady 35,5 % z tržeb + 118 000 Kč měsíčně — tak, aby výsledek seděl na investiční model.
+// Provize portálů se počítají zvlášť z rezervací přes Booking.com (viz buildCosts).
+const COST_MODEL = {
+  'Úklid a prádlo':                { share:0.125, fixed: 8000 },
+  'Energie':                       { share:0.045, fixed:62000 },
+  'Údržba':                        { share:0.015, fixed:28000 },
+  'Marketing a rezervační systém': { share:0.045, fixed:12000 },
+  'Rezerva FF&E':                  { share:0.040, fixed: 8000 },
+};
 // DPP entries never carry a worker's name in owner-facing output — only an internal
 // reference the admin/accountant can trace back to the real dohoda, plus role and amount.
 // vat:0 + rc:true marks a foreign supplier billed under reverse charge (no DPH line on
 // their own invoice — the amount is already the net figure, správce self-assesses the DPH).
-const COST_VENDORS = {
-  'Úklid a prádlo': { vendors:[{name:'Prádelna Kouty s.r.o.', vat:STANDARD_VAT}], dppRole:'úklid jednotek' },
-  'Energie': { vendors:[{name:'ČEZ Prodej, a.s.', vat:STANDARD_VAT}, {name:'Pražská plynárenská, a.s.', vat:STANDARD_VAT}] },
-  'Údržba': { vendors:[{name:'Instalatérství Novák', vat:STANDARD_VAT}, {name:'Elektro servis Rejhotice s.r.o.', vat:STANDARD_VAT}], dppRole:'drobná údržba' },
-  'Provize portálů': { vendors:[{name:'Booking.com B.V.', vat:0, rc:true}, {name:'Previo s.r.o.', vat:STANDARD_VAT}] },
-  'Marketing a rezervační systém': { vendors:[{name:'Previo s.r.o.', vat:STANDARD_VAT}, {name:'Meta Platforms Ireland Ltd.', vat:0, rc:true}] },
-  'Rezerva FF&E': { vendors:[{name:'Sconto nábytek s.r.o.', vat:STANDARD_VAT}, {name:'Mikea s.r.o.', vat:STANDARD_VAT}] },
+const V = {
+  pradelna: {name:'Prádelna Kouty s.r.o.', vat:STANDARD_VAT},
+  uklid:    {name:'Úklidový servis Desná s.r.o.', vat:STANDARD_VAT},
+  cez:      {name:'ČEZ Prodej, a.s.', vat:STANDARD_VAT},
+  plyn:     {name:'Pražská plynárenská, a.s.', vat:STANDARD_VAT},
+  novak:    {name:'Instalatérství Novák', vat:STANDARD_VAT},
+  elektro:  {name:'Elektro servis Rejhotice s.r.o.', vat:STANDARD_VAT},
+  booking:  {name:'Booking.com B.V.', vat:0, rc:true},
+  previo:   {name:'Previo s.r.o.', vat:STANDARD_VAT},
+  meta:     {name:'Meta Platforms Ireland Ltd.', vat:0, rc:true},
+  sconto:   {name:'Sconto nábytek s.r.o.', vat:STANDARD_VAT},
+  mikea:    {name:'Mikea s.r.o.', vat:STANDARD_VAT},
 };
 
-function genInvoice(rnd, mInfo, type, vendor, seq){
+// net = částka bez DPH, která vstupuje do nákladů poolu
+function makeInvoice(rnd, mInfo, vendor, net){
   const day = 1 + Math.floor(rnd()*(mInfo.days-1));
-  const date = `${pad2(day)}.${pad2(mInfo.num)}.2026`;
-  if (type === 'faktura'){
-    const gross = Math.round(4000 + rnd()*9000);
-    const vatRate = vendor.vat || 0;
-    const net = vatRate > 0 ? Math.round(gross/(1+vatRate)) : gross;
-    const vatAmount = gross - net;
-    return {
-      type, date, amount: net, grossAmount: gross, vatAmount, vatRate, reverseCharge: !!vendor.rc,
-      docRef: `FP2026${pad2(mInfo.num)}-${100+seq} · ${vendor.name}`
-    };
-  }
-  // DPP / dohoda s fyzickou osobou — interní evidenční číslo, žádné jméno, DPH se netýká
+  const vatRate = vendor.vat || 0;
+  const gross = Math.round(net*(1+vatRate));
   return {
-    type, date, amount: Math.round(4000 + rnd()*9000), grossAmount:null, vatAmount:0, vatRate:0, reverseCharge:false,
-    docRef: `DPP – interní evidence č. D-2026${pad2(mInfo.num)}-${10+seq} (${vendor})`
+    type:'faktura', date:`${pad2(day)}.${pad2(mInfo.num)}.2026`,
+    amount: net, grossAmount: gross, vatAmount: gross-net, vatRate, reverseCharge: !!vendor.rc,
+    docRef: `FP2026${pad2(mInfo.num)}-${100+Math.floor(rnd()*800)} · ${vendor.name}`
   };
+}
+// DPP / dohoda s fyzickou osobou — interní evidenční číslo, žádné jméno, DPH se netýká
+function makeDpp(rnd, mInfo, role, amount){
+  const day = 1 + Math.floor(rnd()*(mInfo.days-1));
+  return {
+    type:'dpp', date:`${pad2(day)}.${pad2(mInfo.num)}.2026`,
+    amount, grossAmount:null, vatAmount:0, vatRate:0, reverseCharge:false,
+    docRef: `DPP – interní evidence č. D-2026${pad2(mInfo.num)}-${10+Math.floor(rnd()*80)} (${role})`
+  };
+}
+const round100 = n => Math.round(n/100)*100;
+
+function buildCosts(rnd, mInfo, revExVat, bookingRevInclVat){
+  const target = cat => Math.round(COST_MODEL[cat].share*revExVat + COST_MODEL[cat].fixed);
+  const out = {};
+
+  { // Úklid a prádlo — úklidová firma, prádelna a dvě dohody na výpomoc
+    const t = target('Úklid a prádlo');
+    const d1 = round100(9000 + rnd()*2500), d2 = round100(9000 + rnd()*2500);
+    const rest = t - d1 - d2;
+    const laundry = Math.round(rest*(0.34 + rnd()*0.04));
+    out['Úklid a prádlo'] = [
+      makeInvoice(rnd, mInfo, V.uklid, rest - laundry),
+      makeInvoice(rnd, mInfo, V.pradelna, laundry),
+      makeDpp(rnd, mInfo, 'úklid jednotek', d1),
+      makeDpp(rnd, mInfo, 'úklid jednotek', d2),
+    ];
+  }
+  { // Energie
+    const t = target('Energie');
+    const el = Math.round(t*(0.66 + rnd()*0.04));
+    out['Energie'] = [ makeInvoice(rnd, mInfo, V.cez, el), makeInvoice(rnd, mInfo, V.plyn, t - el) ];
+  }
+  { // Údržba
+    const t = target('Údržba');
+    const d = round100(6000 + rnd()*3000);
+    const rest = t - d;
+    const a = Math.round(rest*(0.42 + rnd()*0.08));
+    out['Údržba'] = [
+      makeInvoice(rnd, mInfo, V.novak, a),
+      makeInvoice(rnd, mInfo, V.elektro, rest - a),
+      makeDpp(rnd, mInfo, 'drobná údržba', d),
+    ];
+  }
+  { // Provize portálů — 15 % z pobytů přes Booking.com (dohledatelné v seznamu rezervací) + platební brána
+    const booking = Math.round(bookingRevInclVat * BOOKING_COMMISSION);
+    const gateway = Math.round(revExVat * 0.0094);
+    out['Provize portálů'] = [ makeInvoice(rnd, mInfo, V.booking, booking), makeInvoice(rnd, mInfo, V.previo, gateway) ];
+  }
+  { // Marketing a rezervační systém
+    const t = target('Marketing a rezervační systém');
+    const previo = Math.round(12000 + revExVat*0.01);
+    out['Marketing a rezervační systém'] = [ makeInvoice(rnd, mInfo, V.previo, previo), makeInvoice(rnd, mInfo, V.meta, t - previo) ];
+  }
+  { // Rezerva FF&E
+    const t = target('Rezerva FF&E');
+    const a = Math.round(t*(0.56 + rnd()*0.08));
+    out['Rezerva FF&E'] = [ makeInvoice(rnd, mInfo, V.sconto, a), makeInvoice(rnd, mInfo, V.mikea, t - a) ];
+  }
+  return COST_CATEGORIES.map(cat=>({ category:cat, invoices:out[cat], amount: out[cat].reduce((a,i)=>a+i.amount,0) }));
+}
+
+// Rozdělí počet obsazených nocí jednotky na pobyty po 2–6 nocích
+function splitStays(rnd, totalNights){
+  const stays = []; let left = totalNights;
+  while (left > 0){
+    let n = 2 + Math.floor(rnd()*4);
+    if (n > left || left - n < 2) n = left;
+    stays.push(n); left -= n;
+  }
+  return stays;
 }
 
 const monthly = MONTH_INFO.map((mInfo, mi)=>{
@@ -379,47 +467,49 @@ const monthly = MONTH_INFO.map((mInfo, mi)=>{
   const nightsByUnit = {};
   const reservations = [];
 
-  UNITS.forEach(u=>{
-    const numBookings = 2 + Math.floor(rnd()*3);
-    let unitRevenue = 0, unitNights = 0;
-    for (let b=0; b<numBookings; b++){
-      const nights = 2 + Math.floor(rnd()*5);
-      const maxStart = Math.max(1, mInfo.days - nights - 1);
-      const checkin = 1 + Math.floor(rnd()*maxStart);
-      const checkout = checkin + nights;
-      const adr = ADR_BASE[u.typ] * mInfo.seasonal * (0.85 + rnd()*0.3);
-      const price = Math.round(adr * nights);
+  // Obsazené noci po jednotkách: každá jednotka jinak, pool dohromady přesně na cílovou obsazenost
+  const poolTarget = Math.round(UNITS.length * mInfo.days * mInfo.occ);
+  const nights = UNITS.map(()=> Math.round(mInfo.days * mInfo.occ * (0.80 + rnd()*0.40)));
+  let diff = poolTarget - nights.reduce((a,b)=>a+b,0);
+  while (diff !== 0){
+    const i = Math.floor(rnd()*UNITS.length);
+    const step = diff > 0 ? 1 : -1;
+    if (nights[i] + step >= 8 && nights[i] + step <= mInfo.days - 3){ nights[i] += step; diff -= step; }
+  }
+
+  UNITS.forEach((u, ui)=>{
+    const stays = splitStays(rnd, nights[ui]);
+    // volné noci náhodně rozložené před, mezi a za pobyty — pobyty se v jednotce nikdy nepřekrývají
+    const gaps = new Array(stays.length + 1).fill(0);
+    for (let f = mInfo.days - nights[ui]; f > 0; f--){ gaps[Math.floor(rnd()*gaps.length)]++; }
+    let day = 1, unitRevenue = 0;
+    stays.forEach((n, si)=>{
+      const checkin = day + gaps[si];
+      const checkout = checkin + n;
+      const rate = Math.round(ADR_BASE[u.typ] * mInfo.seasonal * (0.90 + rnd()*0.20) / 10) * 10;
+      const price = rate * n;
       const source = pickWeighted(rnd, SOURCES, SOURCE_WEIGHTS);
       reservations.push({
         unitId: u.id, unit: u.cislo,
         checkinStr: `${pad2(checkin)}.${pad2(mInfo.num)}.`,
-        checkoutStr: `${pad2(checkout)}.${pad2(mInfo.num)}.`,
+        checkoutStr: checkout > mInfo.days ? `01.${pad2(mInfo.num+1)}.` : `${pad2(checkout)}.${pad2(mInfo.num)}.`,
         sortDay: checkin,
-        nights, source, price, status: 'Ukončeno'
+        nights: n, source, price, status: 'Ukončeno'
       });
       unitRevenue += price;
-      unitNights += nights;
-    }
+      day = checkout;
+    });
     revenueByUnit[u.id] = unitRevenue;
-    nightsByUnit[u.id] = unitNights;
+    nightsByUnit[u.id] = nights[ui];
   });
 
   const occByUnit = {};
   UNITS.forEach(u=>{ occByUnit[u.id] = Math.round((nightsByUnit[u.id]/mInfo.days)*100); });
+  const poolOcc = Math.round(poolTarget / (UNITS.length * mInfo.days) * 100);
 
-  const costs = COST_CATEGORIES.map(cat=>{
-    const cfg = COST_VENDORS[cat];
-    const invoices = [];
-    const numFaktury = 1 + Math.floor(rnd()*2);
-    for (let i=0;i<numFaktury;i++){
-      invoices.push(genInvoice(rnd, mInfo, 'faktura', cfg.vendors[i % cfg.vendors.length], Math.floor(rnd()*800)));
-    }
-    // some categories are partly paid to individuals on DPP rather than invoiced by a firm
-    if (cfg.dppRole && rnd() > 0.2){
-      invoices.push(genInvoice(rnd, mInfo, 'dpp', cfg.dppRole, Math.floor(rnd()*80)));
-    }
-    return { category: cat, invoices, amount: invoices.reduce((a,i)=>a+i.amount,0) };
-  });
+  const revInclVat = reservations.reduce((a,r)=>a+r.price,0);
+  const bookingRev = reservations.filter(r=>r.source==='Booking.com XML').reduce((a,r)=>a+r.price,0);
+  const costs = buildCosts(rnd, mInfo, revInclVat/(1+VAT_RATE), bookingRev);
 
   // own-stay deduction (shared-use program, variant B — single lump sum, no per-night breakdown)
   const ownStay = {};
@@ -430,14 +520,10 @@ const monthly = MONTH_INFO.map((mInfo, mi)=>{
   const actualPaidOverride = {};
   if (mi===1){ actualPaidOverride[9] = 'SHORT_120'; } // paid 120 Kč less than calculated
 
-  return { name: mInfo.label, revenueByUnit, occByUnit, reservations, costs, ownStay, actualPaidOverride };
+  return { name: mInfo.label, revenueByUnit, occByUnit, poolOcc, reservations, costs, ownStay, actualPaidOverride };
 });
 
 /* ---------- Calculation engine (mirrors kap. 3 of konceptu) ---------- */
-
-// Reduced VAT rate for accommodation services (CZ) — 12 % since the 1.1.2024 sazby reform.
-// Placeholder for the model; potvrdit se správcem/účetní, že se v Pohodě fakturuje ve stejné sazbě.
-const VAT_RATE = 0.12;
 
 function computeMonth(mi){
   const m = monthly[mi];
@@ -516,7 +602,7 @@ function render(){
     : `<span class="status-pill bad"><span class="dot"></span>Nesedí — rozdíl ${fmtSigned(r.actualPaid - r.calculatedPayout)}</span>`;
 
   const occ = monthly[mi].occByUnit[unit.id];
-  const avgOcc = Math.round(UNITS.reduce((a,u)=>a+monthly[mi].occByUnit[u.id],0)/UNITS.length);
+  const avgOcc = monthly[mi].poolOcc;
   document.getElementById('tile-occ').textContent = occ + ' %';
   document.getElementById('tile-occ-avg').innerHTML = avgOcc + ' % <small>pool</small>';
 
@@ -562,7 +648,7 @@ function toggleCosts(){ document.getElementById('cost-rows').classList.toggle('o
 function renderReservations(){
   const mi = parseInt(document.getElementById('month-select').value, 10);
   document.getElementById('res-sub').textContent =
-    `Všechny ukončené pobyty ve všech ${UNITS.length} jednotkách za ${MONTHS[mi]} — součet sedí přesně na řádek „Hrubé tržby poolu" výše.`;
+    `Všechny ukončené pobyty ve všech ${UNITS.length} jednotkách za ${MONTHS[mi]} — součet sedí přesně na řádek „Fakturováno hostům celkem, s DPH" výše.`;
   const filter = document.getElementById('res-unit-filter').value;
   const sortBy = document.getElementById('res-sort').value;
   let list = monthly[mi].reservations.slice();
@@ -627,7 +713,7 @@ function renderPayoutHistory(unitId){
 function renderOccupancy(unitId, currentMi){
   const html = monthly.map((m,mi)=>{
     const occ = m.occByUnit[unitId];
-    const avg = Math.round(UNITS.reduce((a,u)=>a+m.occByUnit[u.id],0)/UNITS.length);
+    const avg = m.poolOcc;
     return `<div class="bar-group">
       <div class="bar-pair">
         <div class="bar gold" style="height:${occ}%" onmousemove="showTip(event,'<b>${occ} %</b><br>vaše jednotka · ${MONTHS[mi]}')" onmouseleave="hideTip()"></div>

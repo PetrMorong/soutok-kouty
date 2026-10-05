@@ -87,7 +87,7 @@
     {
       "id": "ap-9",
       "cislo": "9",
-      "dispozice": "Investiční jednotka 1+kk",
+      "dispozice": "1+kk",
       "podlazi": "2.NP",
       "plocha": 15.93,
       "parking": true,
@@ -123,7 +123,7 @@
     {
       "id": "ap-10",
       "cislo": "10",
-      "dispozice": "Investiční jednotka 1+kk",
+      "dispozice": "1+kk",
       "podlazi": "2.NP",
       "plocha": 15.94,
       "parking": true,
@@ -201,7 +201,7 @@
     {
       "id": "ap-12",
       "cislo": "12",
-      "dispozice": "Investiční jednotka 1+kk",
+      "dispozice": "1+kk",
       "podlazi": "2.NP",
       "plocha": 17.83,
       "parking": true,
@@ -237,7 +237,7 @@
     {
       "id": "ap-13",
       "cislo": "13",
-      "dispozice": "Investiční jednotka 1+kk",
+      "dispozice": "1+kk",
       "podlazi": "2.NP",
       "plocha": 17.86,
       "parking": true,
