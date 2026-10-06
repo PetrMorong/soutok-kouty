@@ -12,7 +12,15 @@
       "Bash(find . -iname \"*.json\" -not -path \"*/node_modules/*\")",
       "Bash(find . -iname \"*.md\" -not -path \"*/node_modules/*\")",
       "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('data/investice.json','utf8'\\)\\); console.log\\('JSON OK'\\)\")",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(python3 -c \"import PIL; print\\(PIL.__version__\\)\")",
+      "Bash(python -c \"import PIL; print\\(PIL.__version__\\)\")",
+      "Bash(npm ls *)",
+      "Read(//c//**)",
+      "Bash(mkdir -p \"/c/Users/Petr/AppData/Local/Temp/claude/C--Users-Petr-projects-soutok-kouty/3bb249cb-dd32-4826-b999-59b75bd11187/scratchpad/imgtool\")",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node convert.js)"
     ]
   }
 }
