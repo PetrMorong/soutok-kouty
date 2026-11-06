@@ -1,0 +1,85 @@
+{
+  "vzorovaJednotka": {
+    "cislo": "9",
+    "dispozice": "1+kk",
+    "plocha": 15.93,
+    "podlazi": "2.NP",
+    "koeficient": 0.85,
+    "cena": 2590000,
+    "cenaFmt": "2 590 000 Kč",
+    "rentReady": 344000,
+    "rentReadyFmt": "344 000 Kč",
+    "celkovaInvestice": 2934000,
+    "celkovaInvesticeFmt": "2 934 000 Kč",
+    "svjMesicne": 1360,
+    "svjMesicneFmt": "1 360 Kč",
+    "svjRocne": 16320,
+    "svjRocneFmt": "16 320 Kč"
+  },
+  "predpoklady": {
+    "cenaZaNoc": 2500,
+    "cenaZaNocFmt": "2 500 Kč",
+    "cenaZaNocDoPoolu": 2400,
+    "cenaZaNocDoPooluFmt": "2 400 Kč",
+    "odmenaSpravceZTrzebPct": 18,
+    "odmenaSpravceZCistehoVynosuPct": 5,
+    "odmenaSpravceText": "Odměna správce: 18 % z hrubých tržeb poolu + 5 % z čistého provozního výnosu.",
+    "poznamkaRecepce": "Mzdy recepce nese správce ze své odměny, pool je nenese.",
+    "poznamkaWellnessBistro": "Wellness a bistro jsou samostatné provozy mimo pool."
+  },
+  "scenare": {
+    "konzervativni": {
+      "nazev": "Konzervativní",
+      "obsazenostPct": 45,
+      "noci": 164,
+      "cistyVynosRok": 107025,
+      "cistyVynosRokFmt": "107 025 Kč",
+      "vynosPct": 3.7,
+      "vynosPctFmt": "3,7 %",
+      "cistyVynosMesic": 8919,
+      "cistyVynosMesicFmt": "8 919 Kč"
+    },
+    "realisticky": {
+      "nazev": "Realistický",
+      "obsazenostPct": 55,
+      "noci": 201,
+      "cistyVynosRok": 143533,
+      "cistyVynosRokFmt": "143 533 Kč",
+      "vynosPct": 4.9,
+      "vynosPctFmt": "4,9 %",
+      "cistyVynosMesic": 11961,
+      "cistyVynosMesicFmt": "11 961 Kč"
+    },
+    "optimisticky": {
+      "nazev": "Optimistický",
+      "obsazenostPct": 65,
+      "noci": 237,
+      "cistyVynosRok": 179054,
+      "cistyVynosRokFmt": "179 054 Kč",
+      "vynosPct": 6.1,
+      "vynosPctFmt": "6,1 %",
+      "cistyVynosMesic": 14921,
+      "cistyVynosMesicFmt": "14 921 Kč"
+    },
+    "rozjezd": {
+      "nazev": "Rozjezd (1.–2. sezóna)",
+      "obsazenostPct": 30,
+      "noci": 110,
+      "cistyVynosRok": 53744,
+      "cistyVynosRokFmt": "53 744 Kč",
+      "vynosPct": 1.8,
+      "vynosPctFmt": "1,8 %"
+    }
+  },
+  "nakladyPoolu": [
+    "Provize rezervačních portálů",
+    "Úklid po pobytu a prádlo",
+    "Energie a voda",
+    "Spotřební materiál a amenities",
+    "Běžná údržba a servis jednotek",
+    "Marketing a rezervační systém",
+    "Revenue management",
+    "Účetnictví a rozúčtování poolu",
+    "Rezerva na obnovu vybavení (FF&E)"
+  ]
+}
