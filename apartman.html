@@ -463,7 +463,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <ul class="std-list">
               <li>Privátní wellness (sauna, whirlpool, zážitková sprcha) — vstup pro majitele za nákladovou cenu</li>
               <li>Recepce a bistro v přízemí</li>
-              <li>Parkovací stání ke každé jednotce v ceně</li>
+              <li>Podíl na společném parkovišti v ceně</li>
               <li>Členství v síti Nord Moravia Resorts</li>
             </ul>
           </div>
@@ -476,24 +476,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="apt-price-label">Kupní cena</p>
           <p class="apt-price-val" id="sidebarCena"></p>
 
-          <p class="section-tag" style="margin-bottom:.6rem">/ Výnosové scénáře p.a.</p>
+          <p class="section-tag" style="margin-bottom:.6rem">/ Výnos / měsíc (čistý)</p>
           <div class="apt-scenarios">
             <div class="apt-scenario">
-              <span class="apt-scen-name">Konzervativní</span>
+              <span class="apt-scen-name">55 % obsazenosti</span>
               <div class="apt-scen-right">
                 <span class="apt-scen-yield" id="aptScenKonz">—</span>
                 <span class="apt-scen-kc" id="aptScenKonzLbl"></span>
               </div>
             </div>
             <div class="apt-scenario featured">
-              <span class="apt-scen-name">Realistický</span>
+              <span class="apt-scen-name">60 % obsazenosti</span>
               <div class="apt-scen-right">
                 <span class="apt-scen-yield" id="aptScenReal">—</span>
                 <span class="apt-scen-kc" id="aptScenRealLbl"></span>
               </div>
             </div>
             <div class="apt-scenario">
-              <span class="apt-scen-name">Optimistický</span>
+              <span class="apt-scen-name">65 % obsazenosti</span>
               <div class="apt-scen-right">
                 <span class="apt-scen-yield" id="aptScenOpt">—</span>
                 <span class="apt-scen-kc" id="aptScenOptLbl"></span>
@@ -506,7 +506,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="apt-hypo-title">/ Financování hypotékou (orientačně)</p>
             <div class="apt-hypo-rows">
               <div class="apt-hypo-row">
-                <span class="apt-hypo-label">Kupní cena (shell &amp; core)</span>
+                <span class="apt-hypo-label">Kupní cena (hotový byt, bez kuchyně a nábytku)</span>
                 <span class="apt-hypo-val" id="aptHypoCena">—</span>
               </div>
               <div class="apt-hypo-row">
@@ -536,20 +536,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="apt-hypo-toggle-track"></span>
               <span class="apt-hypo-toggle-lbl">Zahrnout vybavení do hypotéky</span>
             </label>
-            <p class="apt-hypo-note">Kupní cena je ve standardu shell &amp; core. Kompletní vybavení jednotky si investor pořizuje samostatně — lze ho hradit z vlastních zdrojů, nebo zahrnout do hypotéky. Orientační propočet při sazbě 4,5 % p.a. a splatnosti 30 let.</p>
+            <p class="apt-hypo-note">Kupní cena zahrnuje dokončený byt bez kuchyňské linky a nábytku. Vybavení jednotky si investor pořizuje samostatně — 250&nbsp;000&nbsp;Kč pro 1+kk, u jednotek s předzahrádkou více (zahrnuje i venkovní vybavení). Lze hradit z vlastních zdrojů nebo zahrnout do hypotéky. Propočet při sazbě 4,5&nbsp;% p.a., splatnost 30 let.</p>
 
             <p class="apt-hypo-title" style="margin-top:1rem">/ Čistý měsíční výnos (po splátce a SVJ)</p>
             <div class="apt-hypo-rows">
               <div class="apt-hypo-row">
-                <span class="apt-hypo-label">Konzervativní</span>
+                <span class="apt-hypo-label">55 % obsazenosti</span>
                 <span class="apt-hypo-val" id="aptHypoCfKonz">—</span>
               </div>
               <div class="apt-hypo-row apt-hypo-row--accent">
-                <span class="apt-hypo-label">Realistický</span>
+                <span class="apt-hypo-label">60 % obsazenosti</span>
                 <span class="apt-hypo-val" id="aptHypoCfReal">—</span>
               </div>
               <div class="apt-hypo-row">
-                <span class="apt-hypo-label">Optimistický</span>
+                <span class="apt-hypo-label">65 % obsazenosti</span>
                 <span class="apt-hypo-val" id="aptHypoCfOpt">—</span>
               </div>
             </div>
@@ -561,7 +561,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="/investice.html" class="btn-outline">Investiční analýza →</a>
             <a id="sidebarPdf" href="#" class="apt-pdf-link" style="display:none">⬇ Stáhnout kartu apartmánu (PDF)</a>
           </div>
-          <p class="apt-sidebar-note">Výnosy jsou odhad na základě tržních dat a nepředstavují záruku. Ceny orientační — upřesníme při setkání.</p>
+          <p class="apt-sidebar-note">Výnos je orientační a není garantovaný. Jde o průměrný čistý měsíční výnos po nákladech poolu, odměně provozovatele a příspěvku do SVJ. Nezahrnuje vybavení, daň z nemovitosti ani daň z příjmu.</p>
         </div>
       </aside>
     </div>
@@ -761,8 +761,8 @@ function stavClass(stav) {
 }
 function formatCena(c) {
   if (!c) return 'Na vyžádání';
-  const n = parseInt(c.replace(/\D/g,''));
-  return isNaN(n) ? c : n.toLocaleString('cs')+' Kč';
+  const n = typeof c === 'number' ? c : parseInt(String(c).replace(/\D/g,''), 10);
+  return isNaN(n) ? String(c) : n.toLocaleString('cs-CZ') + ' Kč';
 }
 function specTile(val, lbl) {
   const d = document.createElement('div');
@@ -776,7 +776,18 @@ const LTV   = 0.70;
 const SAZBA = 0.045;
 const ROKY  = 30;
 const SVJ   = 1500;
-const urlId = new URLSearchParams(window.location.search).get('id');
+
+/* 301-equivalent redirect for old unit IDs */
+const OLD_ID_MAP = {
+  'ap-7':  'ap-131-16', 'ap-8':  'ap-131-15', 'ap-9':  'ap-131-14',
+  'ap-10': 'ap-131-13', 'ap-11': 'ap-131-12', 'ap-12': 'ap-131-11',
+  'ap-13': 'ap-131-10', 'ap-14': 'ap-131-9',  'ap-15': 'ap-131-8',
+  'ap-16': 'ap-131-7'
+};
+const rawId = new URLSearchParams(window.location.search).get('id');
+const urlId = OLD_ID_MAP[rawId]
+  ? (history.replaceState(null, '', '/apartman?id=' + OLD_ID_MAP[rawId]), OLD_ID_MAP[rawId])
+  : rawId;
 
 fetch('/data/apartmany.json')
   .then(r => r.json())
@@ -790,7 +801,8 @@ fetch('/data/apartmany.json')
     const a = apartmany[idx];
 
     /* ── Meta / OG ── */
-    const heroImg = a.galerie && a.galerie.length > 0 ? a.galerie[0] : '/images/uploads/AP_01_KOUTY.webp';
+    function galItemSrc(item) { return typeof item === 'string' ? item : (item && item.src) || ''; }
+    const heroImg = a.galerie && a.galerie.length > 0 ? galItemSrc(a.galerie[0]) : '/images/uploads/AP_01_KOUTY.webp';
     document.getElementById('pageTitle').textContent  = 'Apartmán '+a.cislo+' — Soutok Kouty';
     document.getElementById('pageDesc').content        = a.popis || 'Apartmán č.'+a.cislo+', '+a.dispozice+', '+a.podlazi+' — Wellness Hotel Soutok Kouty, Jeseníky.';
     document.getElementById('ogTitle').content         = 'Apartmán '+a.cislo+' — Soutok Kouty';
@@ -808,19 +820,28 @@ fetch('/data/apartmany.json')
 
     /* ── Spec bar ── */
     const bar = document.getElementById('aptSpecBar');
-    if (a.plocha > 0) bar.appendChild(specTile('<span>'+a.plocha+'</span> m²', 'Výměra'));
+    function fmtM2(v) {
+      if (v == null) return null;
+      if (typeof v === 'string') return v + ' m²';
+      return v.toString().replace('.', ',') + ' m²';
+    }
     bar.appendChild(specTile(a.dispozice, 'Dispozice'));
     bar.appendChild(specTile(a.podlazi,   'Podlaží'));
-    if (a.terasa && a.terasa > 0) bar.appendChild(specTile('<span>'+a.terasa+'</span> m²', 'Terasa'));
-    bar.appendChild(specTile(a.parking ? '✓' : '—', 'Parkování'));
-    if (a.vyhled)      bar.appendChild(specTile(a.vyhled,     'Výhled'));
-    if (a.orientace)   bar.appendChild(specTile(a.orientace,  'Orientace'));
+    if (a.interior > 0) bar.appendChild(specTile('<span>'+fmtM2(a.interior)+'</span>', 'Interiér'));
+    if (a.loft)         bar.appendChild(specTile('<span>'+fmtM2(a.loft)+'</span>', 'Loft'));
+    if (a.terasa_m2)    bar.appendChild(specTile('<span>'+fmtM2(a.terasa_m2)+'</span>', 'Terasa'));
+    if (a.celkem > 0)   bar.appendChild(specTile('<span>'+fmtM2(a.celkem)+'</span>', 'Celkem'));
     bar.appendChild(specTile(formatCena(a.cena), 'Cena'));
 
     /* ── Sidebar cena ── */
     const sidebarCena = document.getElementById('sidebarCena');
-    sidebarCena.textContent = formatCena(a.cena);
-    if (!a.cena) sidebarCena.classList.add('na-vyzadani');
+    if (a.stav === 'Rezervovaný') {
+      sidebarCena.textContent = 'Rezervováno';
+      sidebarCena.style.color = 'var(--gold)';
+    } else {
+      sidebarCena.textContent = formatCena(a.cena);
+      if (!a.cena) sidebarCena.classList.add('na-vyzadani');
+    }
 
     /* ── Sidebar PDF ── */
     if (a.karta_pdf) {
@@ -856,24 +877,44 @@ fetch('/data/apartmany.json')
     }
 
     /* ── Galerie v pudorys sekci (lightbox) ── */
-    if (a.galerie && a.galerie.length > 1) {
+    (function() {
+      const illId   = a.illustration;
+      const illUnit = illId ? apartmany.find(u => u.id === illId) : null;
+      let galImages = [];
+      let isIllustration = false;
+      if (a.galerie && a.galerie.length > 0) {
+        galImages = a.galerie;
+      } else if (illUnit && illUnit.galerie && illUnit.galerie.length > 0) {
+        galImages = illUnit.galerie;
+        isIllustration = true;
+      }
+      if (galImages.length === 0) return;
+      const sec = document.getElementById('aptPudorysSec');
+      if (isIllustration) {
+        const note = document.createElement('p');
+        note.style.cssText = 'font-size:.75rem;color:rgba(245,240,232,.45);margin:1.5rem 0 .5rem;letter-spacing:.05em;font-style:italic';
+        note.textContent = 'Ilustrační vizualizace podobné jednotky (' + illUnit.cislo + ').';
+        sec.appendChild(note);
+      }
       const galGrid = document.createElement('div');
-      galGrid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:4px;margin-top:2rem';
-      a.galerie.forEach((src, i) => {
+      galGrid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:4px;margin-top:1rem';
+      galImages.forEach((item, i) => {
+        const src = galItemSrc(item);
+        const alt = typeof item === 'string' ? ('Foto '+a.cislo+' '+(i+1)) : (item.alt || 'Vizualizace apartmánu '+a.cislo);
         const wrapper = document.createElement('div');
         wrapper.style.cssText = 'overflow:hidden;cursor:pointer;aspect-ratio:4/3';
         const img = document.createElement('img');
-        img.src = src; img.alt = 'Foto '+a.cislo+' '+(i+1);
+        img.src = src; img.alt = alt; img.loading = 'lazy';
         img.style.cssText = 'width:100%;height:100%;object-fit:cover;transition:transform .4s';
         img.addEventListener('mouseover', () => img.style.transform='scale(1.05)');
         img.addEventListener('mouseout',  () => img.style.transform='');
         wrapper.appendChild(img);
         galGrid.appendChild(wrapper);
       });
-      document.getElementById('aptPudorysSec').appendChild(galGrid);
+      sec.appendChild(galGrid);
       lbImgs = Array.from(galGrid.querySelectorAll('img'));
       lbImgs.forEach((img, i) => img.addEventListener('click', () => lbOpen(i)));
-    }
+    })();
 
     /* ── Výhody ── */
     if (a.vyhody && a.vyhody.length > 0) {
@@ -888,63 +929,63 @@ fetch('/data/apartmany.json')
     }
 
     /* ── Koeficient v poolu ── */
-    const koefLabels = { 0.85: 'malý pokoj', 1.00: 'vzorová 1+kk', 1.20: 's terasou', 1.40: '2+kk', 1.60: 'mezonet/loft' };
     const koefEl = document.getElementById('aptKoeficientInfo');
     if (a.koeficient != null) {
-      const popis = koefLabels[a.koeficient] || '';
-      koefEl.textContent = 'Tato jednotka má v poolu koeficient ' + a.koeficient.toFixed(2).replace('.', ',') + (popis ? ' (' + popis + ')' : '') + '. Výnos se neodvíjí od obsazenosti jen tohoto apartmánu, ale od výsledku celého poolu, rozděleného podle koeficientů.';
+      koefEl.textContent = 'Tato jednotka má v poolu koeficient ' + a.koeficient.toFixed(2).replace('.', ',') + '. Koeficient je ze 30 % stejný pro všechny jednotky a ze 70 % odpovídá kupní ceně vůči průměru. Výnos se neodvíjí od obsazenosti jen tohoto apartmánu, ale od výsledku celého poolu.';
     }
 
-    /* ── Výnosové scénáře — měsíční částka z ceny jednotky ── */
-    const cenaNum = parseInt(String(a.cena).replace(/\D/g, ''), 10);
-    if (!isNaN(cenaNum) && cenaNum > 0) {
-      const fmtMes = n => Math.round(n / 12).toLocaleString('cs-CZ') + ' Kč';
-      const mesKonz = Math.round(cenaNum * 0.049 / 12);
-      const mesReal = Math.round(cenaNum * 0.067 / 12);
-      const mesOpt  = Math.round(cenaNum * 0.084 / 12);
-      document.getElementById('aptScenKonz').textContent    = mesKonz.toLocaleString('cs-CZ') + ' Kč';
-      document.getElementById('aptScenReal').textContent    = mesReal.toLocaleString('cs-CZ') + ' Kč';
-      document.getElementById('aptScenOpt').textContent     = mesOpt.toLocaleString('cs-CZ') + ' Kč';
-      document.getElementById('aptScenKonzLbl').textContent = '/ měsíc';
-      document.getElementById('aptScenRealLbl').textContent = '/ měsíc';
-      document.getElementById('aptScenOptLbl').textContent  = '/ měsíc';
+    /* ── Výnosové scénáře — z JSON (55 / 60 / 65 % obsazenosti) ── */
+    const cenaNum = typeof a.cena === 'number' ? a.cena : parseInt(String(a.cena || '').replace(/\D/g, ''), 10);
+    const mesKonz = a.vynos55 || 0;
+    const mesReal = a.vynos60 || 0;
+    const mesOpt  = a.vynos65 || 0;
+    if (mesReal > 0) {
+      const fmtKcMes = n => n.toLocaleString('cs-CZ') + ' Kč';
+      document.getElementById('aptScenKonz').textContent    = fmtKcMes(mesKonz);
+      document.getElementById('aptScenReal').textContent    = fmtKcMes(mesReal);
+      document.getElementById('aptScenOpt').textContent     = fmtKcMes(mesOpt);
+      document.getElementById('aptScenKonzLbl').textContent = '/ měs. (55 % obs.)';
+      document.getElementById('aptScenRealLbl').textContent = '/ měs. (60 % obs.)';
+      document.getElementById('aptScenOptLbl').textContent  = '/ měs. (65 % obs.)';
 
       /* ── Financování hypotékou ── */
-      const VYBAVENI = String(a.dispozice).includes('2+kk') ? 350000 : 250000;
-      const rMes = SAZBA / 12;
-      const n    = ROKY * 12;
-      const fmtKc = v => v.toLocaleString('cs-CZ') + ' Kč';
+      if (!isNaN(cenaNum) && cenaNum > 0) {
+        const VYBAVENI = 250000;
+        const rMes = SAZBA / 12;
+        const n    = ROKY * 12;
+        const fmtKc = v => v.toLocaleString('cs-CZ') + ' Kč';
 
-      document.getElementById('aptHypoCena').textContent     = fmtKc(cenaNum);
-      document.getElementById('aptHypoVybaveni').textContent = fmtKc(VYBAVENI);
-      document.getElementById('aptHypoCelkem').textContent   = fmtKc(cenaNum + VYBAVENI);
+        document.getElementById('aptHypoCena').textContent     = fmtKc(cenaNum);
+        document.getElementById('aptHypoVybaveni').textContent = fmtKc(VYBAVENI);
+        document.getElementById('aptHypoCelkem').textContent   = fmtKc(cenaNum + VYBAVENI);
 
-      function computeHypo() {
-        const vybVH  = document.getElementById('aptHypoVybCheck').checked;
-        const zaklad = vybVH ? (cenaNum + VYBAVENI) : cenaNum;
-        const uver   = Math.round(zaklad * LTV);
-        const vlastni = vybVH
-          ? Math.round(zaklad * (1 - LTV))
-          : Math.round(cenaNum * (1 - LTV) + VYBAVENI);
-        const splatka = Math.round(uver * rMes / (1 - Math.pow(1 + rMes, -n)));
+        function computeHypo() {
+          const vybVH  = document.getElementById('aptHypoVybCheck').checked;
+          const zaklad = vybVH ? (cenaNum + VYBAVENI) : cenaNum;
+          const uver   = Math.round(zaklad * LTV);
+          const vlastni = vybVH
+            ? Math.round(zaklad * (1 - LTV))
+            : Math.round(cenaNum * (1 - LTV) + VYBAVENI);
+          const splatka = Math.round(uver * rMes / (1 - Math.pow(1 + rMes, -n)));
 
-        document.getElementById('aptHypoVlastni').textContent = fmtKc(vlastni);
-        document.getElementById('aptHypoUver').textContent    = fmtKc(uver);
-        document.getElementById('aptHypoSplatka').textContent = fmtKc(splatka);
+          document.getElementById('aptHypoVlastni').textContent = fmtKc(vlastni);
+          document.getElementById('aptHypoUver').textContent    = fmtKc(uver);
+          document.getElementById('aptHypoSplatka').textContent = fmtKc(splatka);
 
-        const setCf = (id, val) => {
-          const el = document.getElementById(id);
-          el.textContent = fmtKc(val);
-          el.classList.toggle('apt-hypo-val--neg', val < 0);
-        };
-        setCf('aptHypoCfKonz', mesKonz - splatka - SVJ);
-        setCf('aptHypoCfReal', mesReal - splatka - SVJ);
-        setCf('aptHypoCfOpt',  mesOpt  - splatka - SVJ);
+          const setCf = (id, val) => {
+            const el = document.getElementById(id);
+            el.textContent = fmtKc(val);
+            el.classList.toggle('apt-hypo-val--neg', val < 0);
+          };
+          setCf('aptHypoCfKonz', mesKonz - splatka - SVJ);
+          setCf('aptHypoCfReal', mesReal - splatka - SVJ);
+          setCf('aptHypoCfOpt',  mesOpt  - splatka - SVJ);
+        }
+
+        computeHypo();
+        document.getElementById('aptHypoVybCheck').addEventListener('change', computeHypo);
+        document.getElementById('aptHypoBox').style.display = '';
       }
-
-      computeHypo();
-      document.getElementById('aptHypoVybCheck').addEventListener('change', computeHypo);
-      document.getElementById('aptHypoBox').style.display = '';
     }
 
     /* ── Form: hidden apartman field ── */
@@ -954,7 +995,9 @@ fetch('/data/apartmany.json')
     const others = apartmany.filter(o => o.id !== a.id && o.stav !== 'Prodaný').slice(0, 4);
     const othGrid = document.getElementById('aptOthersGrid');
     others.forEach(o => {
-      const thumb = o.galerie && o.galerie.length > 0 ? o.galerie[0] : '/images/uploads/AP_01_KOUTY.webp';
+      const illThumb = o.illustration ? apartmany.find(u => u.id === o.illustration) : null;
+      const thumbArr = (o.galerie && o.galerie.length > 0) ? o.galerie : (illThumb && illThumb.galerie && illThumb.galerie.length > 0 ? illThumb.galerie : null);
+      const thumb = thumbArr ? galItemSrc(thumbArr[0]) : '/images/uploads/AP_01_KOUTY.webp';
       const card = document.createElement('a');
       card.className = 'apt-other-card';
       card.href = '/apartman?id='+o.id;
@@ -963,7 +1006,7 @@ fetch('/data/apartmany.json')
         '<div class="apt-other-body">'+
           '<div class="apt-other-num">Apartmán '+o.cislo+'</div>'+
           '<div class="apt-other-name">'+o.dispozice+'</div>'+
-          '<div class="apt-other-meta">'+o.podlazi+(o.plocha>0?' · '+o.plocha+' m²':'')+'</div>'+
+          '<div class="apt-other-meta">'+o.podlazi+(o.celkem>0?' · '+o.celkem+' m²':'')+'</div>'+
           '<div class="apt-other-link">Zobrazit detail →</div>'+
         '</div>';
       othGrid.appendChild(card);

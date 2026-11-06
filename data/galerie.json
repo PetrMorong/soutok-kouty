@@ -1,0 +1,121 @@
+{
+  "sekce": [
+    {
+      "id": "vzorovy",
+      "nadpis": "1+kk – vzorový apartmán",
+      "podnadpis_prefix": "Hotový apartmán, skutečné fotografie",
+      "stitek": "SKUTEČNÉ FOTO",
+      "stitek_typ": "real",
+      "lightbox_popis": "Skutečné foto – vzorový apartmán",
+      "jednotky_ids": ["ap-131-4", "ap-131-10", "ap-131-11", "ap-131-13", "ap-131-14"],
+      "fotky": [
+        { "src": "images/uploads/vzorovy/vzorovy-1kk-01.webp", "alt": "Vzorový apartmán – ložnice s horskou malbou", "nahled": true },
+        { "src": "images/uploads/vzorovy/vzorovy-1kk-02.webp", "alt": "Vzorový apartmán – celkový pohled na apartmán", "nahled": true },
+        { "src": "images/uploads/vzorovy/vzorovy-1kk-03.webp", "alt": "Vzorový apartmán – kuchyňský kout a TV stěna", "nahled": true },
+        { "src": "images/uploads/vzorovy/vzorovy-1kk-04.webp", "alt": "Vzorový apartmán – koupelna se sprchovým koutem", "nahled": true },
+        { "src": "images/uploads/vzorovy/vzorovy-1kk-05.webp", "alt": "Vzorový apartmán – TV stěna s dřevěným obložením", "nahled": false },
+        { "src": "images/uploads/vzorovy/vzorovy-1kk-06.webp", "alt": "Vzorový apartmán – kuchyňský kout detail", "nahled": false }
+      ]
+    },
+    {
+      "id": "prizemni",
+      "nadpis": "1+kk s předzahrádkou",
+      "stitek": "VIZUALIZACE",
+      "stitek_typ": "viz",
+      "lightbox_popis": "Vizualizace – 1+kk s předzahrádkou",
+      "jednotky_ids": ["ap-131-1", "ap-131-2", "ap-131-3"],
+      "fotky": [
+        { "src": "images/uploads/vizualizace/viz-131-02-05.webp", "alt": "Vizualizace 1+kk s předzahrádkou – terasa při zlaté hodince", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-02-04.webp", "alt": "Vizualizace 1+kk s předzahrádkou – celkový pohled na apartmán", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-02-01.webp", "alt": "Vizualizace 1+kk s předzahrádkou – zahradní terasa na podzim", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-02-06.webp", "alt": "Vizualizace 1+kk s předzahrádkou – obývací pokoj s výhledem do hor", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-02-02.webp", "alt": "Vizualizace 1+kk s předzahrádkou – interiér s dřevěnými prvky", "nahled": false },
+        { "src": "images/uploads/vizualizace/viz-131-02-03.webp", "alt": "Vizualizace 1+kk s předzahrádkou – osvětlené patio", "nahled": false }
+      ]
+    },
+    {
+      "id": "terasa",
+      "nadpis": "1+kk s terasou",
+      "stitek": "VIZUALIZACE",
+      "stitek_typ": "viz",
+      "lightbox_popis": "Vizualizace – 1+kk s terasou",
+      "jednotky_ids": ["ap-131-7", "ap-131-8", "ap-131-9", "ap-131-12", "ap-131-15", "ap-131-16"],
+      "fotky": [
+        { "src": "images/uploads/vizualizace/viz-131-07-04.webp", "alt": "Vizualizace 1+kk s terasou – terasa s výhledem do přírody", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-07-01.webp", "alt": "Vizualizace 1+kk s terasou – ložnice s výhledem na hory", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-07-02.webp", "alt": "Vizualizace 1+kk s terasou – kuchyňský kout", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-07-03.webp", "alt": "Vizualizace 1+kk s terasou – interiér obývacího pokoje", "nahled": true }
+      ]
+    },
+    {
+      "id": "loft",
+      "nadpis": "1+kk s loftem",
+      "stitek": "VIZUALIZACE",
+      "stitek_typ": "viz",
+      "lightbox_popis": "Vizualizace – 1+kk s loftem",
+      "jednotky_ids": ["ap-131-17", "ap-131-18", "ap-131-19", "ap-131-20", "ap-131-21", "ap-131-22", "ap-131-23", "ap-131-24", "ap-131-25"],
+      "fotky": [
+        { "src": "images/uploads/vizualizace/viz-131-18-04.webp", "alt": "Vizualizace 1+kk s loftem – pohled z loftu na obývací pokoj s výhledem na les", "nahled": true, "skupina_label": "131/18 · výhled do zahrady" },
+        { "src": "images/uploads/vizualizace/viz-131-18-02.webp", "alt": "Vizualizace 1+kk s loftem – ložnice pod šikmou střechou", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-18-01.webp", "alt": "Vizualizace 1+kk s loftem – kuchyňský kout (131/18)", "nahled": false },
+        { "src": "images/uploads/vizualizace/viz-131-18-03.webp", "alt": "Vizualizace 1+kk s loftem – obývací pokoj (131/18)", "nahled": false },
+        { "src": "images/uploads/vizualizace/viz-131-21-03.webp", "alt": "Vizualizace 1+kk s loftem – obývací pokoj s dřevěným stropem a panoramatickými okny", "nahled": true, "skupina_label": "131/21 · ke cestě" },
+        { "src": "images/uploads/vizualizace/viz-131-21-02.webp", "alt": "Vizualizace 1+kk s loftem – spací loft pod šikminou", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-131-21-01.webp", "alt": "Vizualizace 1+kk s loftem – kuchyňský kout", "nahled": false },
+        { "src": "images/uploads/vizualizace/viz-131-21-04.webp", "alt": "Vizualizace 1+kk s loftem – obývací pokoj s jídelním koutem", "nahled": false }
+      ]
+    },
+    {
+      "id": "wellness",
+      "nadpis": "Wellness",
+      "stitek": "VIZUALIZACE",
+      "stitek_typ": "viz",
+      "lightbox_popis": "Vizualizace – wellness",
+      "jednotky_ids": [],
+      "fotky": [
+        { "src": "images/uploads/vizualizace/viz-wellness-sauna.webp",  "alt": "Vizualizace wellness – finská sauna s prosklenou kabinou a relaxační zónou", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-wellness-bazen.webp",  "alt": "Vizualizace wellness – bazének s kamennými stěnami a zlatými madly", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-wellness-viriv.webp",  "alt": "Vizualizace wellness – vířivka s výhledem do lesa", "nahled": true }
+      ]
+    },
+    {
+      "id": "bistro",
+      "nadpis": "Bistro",
+      "stitek": "VIZUALIZACE",
+      "stitek_typ": "viz",
+      "lightbox_popis": "Vizualizace – bistro",
+      "jednotky_ids": [],
+      "fotky": [
+        { "src": "images/uploads/vizualizace/viz-bistro-01.webp", "alt": "Vizualizace bistro – celkový pohled na jídelní prostor", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-bistro-02.webp", "alt": "Vizualizace bistro – jídelní prostor s barem, přirozené světlo", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-bistro-03.webp", "alt": "Vizualizace bistro – bar s pečivem, pohled na jídelnu", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-bistro-04.webp", "alt": "Vizualizace bistro – vstup s barovým pultem, výhled do jídelny", "nahled": true }
+      ]
+    },
+    {
+      "id": "chodba",
+      "nadpis": "Chodba",
+      "stitek": "VIZUALIZACE",
+      "stitek_typ": "viz",
+      "lightbox_popis": "Vizualizace – chodba",
+      "jednotky_ids": [],
+      "fotky": [
+        { "src": "images/uploads/vizualizace/viz-chodba-01.webp", "alt": "Vizualizace chodba – schodiště a chodba 2. NP s dveřmi apartmánů", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-chodba-02.webp", "alt": "Vizualizace chodba – schodiště s kovaným zábradlím", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-chodba-03.webp", "alt": "Vizualizace chodba – pohled do chodby s dveřmi apartmánů", "nahled": true },
+        { "src": "images/uploads/vizualizace/viz-kolarna-01.webp", "alt": "Vizualizace kolárna – úložiště kol a lyží s výhledem do dvora", "nahled": true }
+      ]
+    },
+    {
+      "id": "dum",
+      "nadpis": "Dům",
+      "jednotky_ids": [],
+      "fotky": [
+        { "src": "images/uploads/exterier_1_.webp", "alt": "Exteriér hotelu od řeky",  "nahled": true },
+        { "src": "images/uploads/exterier_2.webp",  "alt": "Exteriér hotelu",           "nahled": true },
+        { "src": "images/uploads/exterier_3.webp",  "alt": "Exteriér hotelu",           "nahled": true },
+        { "src": "images/uploads/exterier_4.webp",  "alt": "Exteriér hotelu v zimě",   "nahled": true }
+      ]
+    }
+  ]
+}

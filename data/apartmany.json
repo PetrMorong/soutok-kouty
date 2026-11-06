@@ -1,400 +1,969 @@
 {
-  "apartmany": [
-    {
-      "id": "ap-7",
-      "cislo": "7",
-      "dispozice": "1+kk s terasou",
-      "podlazi": "2.NP",
-      "plocha": 24.03,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "3 190 000 Kč",
-      "orientace": "",
-      "koeficient": 1.2,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 12.58
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 3.55
-        },
-        {
-          "nazev": "Terasa",
-          "povrch": "Dlažba do terčů",
-          "plocha": 7.9
-        }
-      ],
-      "vyhody": [
-        "Soukromá terasa 7,9 m²",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": "",
-      "terasa": 7.9
-    },
-    {
-      "id": "ap-8",
-      "cislo": "8",
-      "dispozice": "1+kk s terasou",
-      "podlazi": "2.NP",
-      "plocha": 28.1,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "3 590 000 Kč",
-      "orientace": "",
-      "koeficient": 1.2,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 16.17
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 4.03
-        },
-        {
-          "nazev": "Terasa",
-          "povrch": "Dlažba do terčů",
-          "plocha": 7.9
-        }
-      ],
-      "vyhody": [
-        "Soukromá terasa 7,9 m²",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": "",
-      "terasa": 7.9
-    },
-    {
-      "id": "ap-9",
-      "cislo": "9",
-      "dispozice": "Investiční jednotka 1+kk",
-      "podlazi": "2.NP",
-      "plocha": 15.93,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "2 590 000 Kč",
-      "orientace": "",
-      "koeficient": 0.85,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 12.32
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 3.61
-        }
-      ],
-      "vyhody": [
-        "Nižší vstupní investice",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": ""
-    },
-    {
-      "id": "ap-10",
-      "cislo": "10",
-      "dispozice": "Investiční jednotka 1+kk",
-      "podlazi": "2.NP",
-      "plocha": 15.94,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "2 590 000 Kč",
-      "orientace": "",
-      "koeficient": 0.85,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 12.39
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 3.55
-        }
-      ],
-      "vyhody": [
-        "Nižší vstupní investice",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": ""
-    },
-    {
-      "id": "ap-11",
-      "cislo": "11",
-      "dispozice": "1+kk s terasou",
-      "podlazi": "2.NP",
-      "plocha": 31.76,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "3 990 000 Kč",
-      "orientace": "",
-      "koeficient": 1.2,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 17.65
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 7.06
-        },
-        {
-          "nazev": "Terasa",
-          "povrch": "Dlažba do terčů",
-          "plocha": 7.05
-        }
-      ],
-      "vyhody": [
-        "Soukromá terasa 7,05 m²",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": "",
-      "terasa": 7.05
-    },
-    {
-      "id": "ap-12",
-      "cislo": "12",
-      "dispozice": "Investiční jednotka 1+kk",
-      "podlazi": "2.NP",
-      "plocha": 17.83,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "2 790 000 Kč",
-      "orientace": "",
-      "koeficient": 0.85,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 14.27
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 3.56
-        }
-      ],
-      "vyhody": [
-        "Nižší vstupní investice",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": ""
-    },
-    {
-      "id": "ap-13",
-      "cislo": "13",
-      "dispozice": "Investiční jednotka 1+kk",
-      "podlazi": "2.NP",
-      "plocha": 17.86,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "2 790 000 Kč",
-      "orientace": "",
-      "koeficient": 0.85,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 14.22
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 3.64
-        }
-      ],
-      "vyhody": [
-        "Nižší vstupní investice",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": ""
-    },
-    {
-      "id": "ap-14",
-      "cislo": "14",
-      "dispozice": "1+kk s terasou",
-      "podlazi": "2.NP",
-      "plocha": 31.03,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "3 990 000 Kč",
-      "orientace": "",
-      "koeficient": 1.2,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 18.06
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 4.01
-        },
-        {
-          "nazev": "Terasa",
-          "povrch": "Dlažba do terčů",
-          "plocha": 8.96
-        }
-      ],
-      "vyhody": [
-        "Soukromá terasa 8,96 m²",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": "",
-      "terasa": 8.96
-    },
-    {
-      "id": "ap-15",
-      "cislo": "15",
-      "dispozice": "1+kk s terasou",
-      "podlazi": "2.NP",
-      "plocha": 27.79,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "3 590 000 Kč",
-      "orientace": "",
-      "koeficient": 1.2,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 14.44
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 3.56
-        },
-        {
-          "nazev": "Terasa",
-          "povrch": "Dlažba do terčů",
-          "plocha": 9.79
-        }
-      ],
-      "vyhody": [
-        "Soukromá terasa 9,79 m²",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": "",
-      "terasa": 9.79
-    },
-    {
-      "id": "ap-16",
-      "cislo": "16",
-      "dispozice": "2+kk s terasou",
-      "podlazi": "2.NP",
-      "plocha": 39.56,
-      "parking": true,
-      "stav": "Volný",
-      "vyhled": "Do přírody",
-      "cena": "4 990 000 Kč",
-      "orientace": "",
-      "koeficient": 1.2,
-      "popis": "",
-      "pudorys": "",
-      "galerie": [],
-      "mistnosti": [
-        {
-          "nazev": "Pokoj",
-          "povrch": "Vinyl",
-          "plocha": 23.24
-        },
-        {
-          "nazev": "Koupelna",
-          "povrch": "Keramická dlažba",
-          "plocha": 3.58
-        },
-        {
-          "nazev": "Terasa",
-          "povrch": "Dlažba do terčů",
-          "plocha": 12.74
-        }
-      ],
-      "vyhody": [
-        "Soukromá terasa 12,74 m²",
-        "Parkování v ceně",
-        "Vstup do wellness za nákladovou cenu",
-        "Členství v síti Nord Moravia Resorts",
-        "Management pronájmu zajištěn"
-      ],
-      "karta_pdf": "",
-      "terasa": 12.74
-    }
-  ]
+    "apartmany":  [
+                      {
+                          "id":  "ap-131-1",
+                          "cislo":  "131/1",
+                          "podlazi":  "Přízemí",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s předzahrádkou",
+                          "interior":  34.68,
+                          "loft":  null,
+                          "terasa_m2":  "cca 29",
+                          "celkem":  34.68,
+                          "cena":  5190000,
+                          "koeficient":  1.22,
+                          "vynos55":  21800,
+                          "vynos60":  24400,
+                          "vynos65":  27000,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-1.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá předzahrádka cca 29 m² v ceně",
+                                         "Přízemní byt, ideální pro rodiny s dětmi",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-2"
+                      },
+                      {
+                          "id":  "ap-131-2",
+                          "cislo":  "131/2",
+                          "podlazi":  "Přízemí",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s předzahrádkou",
+                          "interior":  25.81,
+                          "loft":  null,
+                          "terasa_m2":  "cca 29",
+                          "celkem":  25.81,
+                          "cena":  3990000,
+                          "koeficient":  1.01,
+                          "vynos55":  18100,
+                          "vynos60":  20200,
+                          "vynos65":  22300,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-2.webp",
+                          "galerie":  [
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-02-01.webp",
+                                              "alt":  "Vizualizace apartmánu 131/2 – zahradní terasa"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-02-02.webp",
+                                              "alt":  "Vizualizace apartmánu 131/2 – interiér s dřevěnými prvky"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-02-03.webp",
+                                              "alt":  "Vizualizace apartmánu 131/2 – osvětlené patio"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-02-04.webp",
+                                              "alt":  "Vizualizace apartmánu 131/2 – skandinávský interiér"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-02-05.webp",
+                                              "alt":  "Vizualizace apartmánu 131/2 – terasa při zlaté hodince"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-02-06.webp",
+                                              "alt":  "Vizualizace apartmánu 131/2 – otevřený obývací prostor"
+                                          }
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá předzahrádka cca 29 m² v ceně",
+                                         "Přízemní byt, ideální pro rodiny s dětmi",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  ""
+                      },
+                      {
+                          "id":  "ap-131-3",
+                          "cislo":  "131/3",
+                          "podlazi":  "Přízemí",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s předzahrádkou",
+                          "interior":  31.72,
+                          "loft":  null,
+                          "terasa_m2":  "cca 29",
+                          "celkem":  31.72,
+                          "cena":  4790000,
+                          "koeficient":  1.15,
+                          "vynos55":  20600,
+                          "vynos60":  23000,
+                          "vynos65":  25500,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-3.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá předzahrádka cca 29 m² v ceně",
+                                         "Přízemní byt, ideální pro rodiny s dětmi",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-2"
+                      },
+                      {
+                          "id":  "ap-131-4",
+                          "cislo":  "131/4",
+                          "podlazi":  "Přízemí",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk",
+                          "interior":  22.73,
+                          "loft":  null,
+                          "terasa_m2":  null,
+                          "celkem":  22.73,
+                          "cena":  3290000,
+                          "koeficient":  0.89,
+                          "vynos55":  15800,
+                          "vynos60":  17700,
+                          "vynos65":  19500,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-4.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Nižší vstupní investice",
+                                         "Přízemní poloha, snadný přístup",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  ""
+                      },
+                      {
+                          "id":  "ap-131-7",
+                          "cislo":  "131/7",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s terasou",
+                          "interior":  26.82,
+                          "loft":  null,
+                          "terasa_m2":  12.74,
+                          "celkem":  39.56,
+                          "cena":  4990000,
+                          "koeficient":  1.19,
+                          "vynos55":  21400,
+                          "vynos60":  23900,
+                          "vynos65":  26400,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-7.webp",
+                          "galerie":  [
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-07-01.webp",
+                                              "alt":  "Vizualizace apartmánu 131/7 – ložnice s výhledem na hory"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-07-02.webp",
+                                              "alt":  "Vizualizace apartmánu 131/7 – kuchyňský kout"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-07-03.webp",
+                                              "alt":  "Vizualizace apartmánu 131/7 – interiér obývacího pokoje"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-07-04.webp",
+                                              "alt":  "Vizualizace apartmánu 131/7 – terasa s výhledem do přírody"
+                                          }
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  23.24
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  3.58
+                                            },
+                                            {
+                                                "nazev":  "Terasa",
+                                                "povrch":  "Dlažba do terčů",
+                                                "plocha":  12.74
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá terasa 12,74 m²",
+                                         "Výhled do přírody",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  ""
+                      },
+                      {
+                          "id":  "ap-131-8",
+                          "cislo":  "131/8",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s terasou",
+                          "interior":  18.00,
+                          "loft":  null,
+                          "terasa_m2":  9.79,
+                          "celkem":  27.79,
+                          "cena":  3590000,
+                          "koeficient":  0.94,
+                          "vynos55":  16900,
+                          "vynos60":  18900,
+                          "vynos65":  20900,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-8.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  14.44
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  3.56
+                                            },
+                                            {
+                                                "nazev":  "Terasa",
+                                                "povrch":  "Dlažba do terčů",
+                                                "plocha":  9.79
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá terasa 9,79 m²",
+                                         "Výhled do přírody",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-9",
+                          "cislo":  "131/9",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s terasou",
+                          "interior":  22.07,
+                          "loft":  null,
+                          "terasa_m2":  8.96,
+                          "celkem":  31.03,
+                          "cena":  3990000,
+                          "koeficient":  1.01,
+                          "vynos55":  18200,
+                          "vynos60":  20300,
+                          "vynos65":  22500,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-9.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  18.06
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  4.01
+                                            },
+                                            {
+                                                "nazev":  "Terasa",
+                                                "povrch":  "Dlažba do terčů",
+                                                "plocha":  8.96
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá terasa 8,96 m²",
+                                         "Výhled do přírody",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-10",
+                          "cislo":  "131/10",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk",
+                          "interior":  17.86,
+                          "loft":  null,
+                          "terasa_m2":  null,
+                          "celkem":  17.86,
+                          "cena":  2790000,
+                          "koeficient":  0.80,
+                          "vynos55":  14200,
+                          "vynos60":  15900,
+                          "vynos65":  17600,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-10.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  14.22
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  3.64
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Nižší vstupní investice",
+                                         "Kompaktní dispozice, vysoká obsazenost",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-11",
+                          "cislo":  "131/11",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk",
+                          "interior":  17.83,
+                          "loft":  null,
+                          "terasa_m2":  null,
+                          "celkem":  17.83,
+                          "cena":  2790000,
+                          "koeficient":  0.80,
+                          "vynos55":  14200,
+                          "vynos60":  15900,
+                          "vynos65":  17600,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-11.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  14.27
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  3.56
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Nižší vstupní investice",
+                                         "Kompaktní dispozice, vysoká obsazenost",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-12",
+                          "cislo":  "131/12",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s terasou",
+                          "interior":  24.71,
+                          "loft":  null,
+                          "terasa_m2":  7.05,
+                          "celkem":  31.76,
+                          "cena":  3990000,
+                          "koeficient":  1.01,
+                          "vynos55":  18100,
+                          "vynos60":  20200,
+                          "vynos65":  22400,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  17.65
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  7.06
+                                            },
+                                            {
+                                                "nazev":  "Terasa",
+                                                "povrch":  "Dlažba do terčů",
+                                                "plocha":  7.05
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá terasa 7,05 m²",
+                                         "Výhled do přírody",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-13",
+                          "cislo":  "131/13",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk",
+                          "interior":  15.94,
+                          "loft":  null,
+                          "terasa_m2":  null,
+                          "celkem":  15.94,
+                          "cena":  2590000,
+                          "koeficient":  0.76,
+                          "vynos55":  13600,
+                          "vynos60":  15200,
+                          "vynos65":  16800,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-13.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  12.39
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  3.55
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Nejnižší vstupní investice od 2 590 000 Kč",
+                                         "Kompaktní dispozice, vysoká obsazenost",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-14",
+                          "cislo":  "131/14",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk",
+                          "interior":  15.93,
+                          "loft":  null,
+                          "terasa_m2":  null,
+                          "celkem":  15.93,
+                          "cena":  2590000,
+                          "koeficient":  0.76,
+                          "vynos55":  13600,
+                          "vynos60":  15200,
+                          "vynos65":  16800,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-14.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  12.32
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  3.61
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Nejnižší vstupní investice od 2 590 000 Kč",
+                                         "Kompaktní dispozice, vysoká obsazenost",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-15",
+                          "cislo":  "131/15",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s terasou",
+                          "interior":  20.20,
+                          "loft":  null,
+                          "terasa_m2":  7.90,
+                          "celkem":  28.10,
+                          "cena":  3590000,
+                          "koeficient":  0.94,
+                          "vynos55":  16900,
+                          "vynos60":  18900,
+                          "vynos65":  20800,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-15.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  16.17
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  4.03
+                                            },
+                                            {
+                                                "nazev":  "Terasa",
+                                                "povrch":  "Dlažba do terčů",
+                                                "plocha":  7.90
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá terasa 7,90 m²",
+                                         "Výhled do přírody",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-16",
+                          "cislo":  "131/16",
+                          "podlazi":  "1. patro",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s terasou",
+                          "interior":  16.13,
+                          "loft":  null,
+                          "terasa_m2":  7.90,
+                          "celkem":  24.03,
+                          "cena":  3190000,
+                          "koeficient":  0.87,
+                          "vynos55":  15600,
+                          "vynos60":  17500,
+                          "vynos65":  19300,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/floorplans/pudorys_131-16.webp",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+                                            {
+                                                "nazev":  "Pokoj",
+                                                "povrch":  "Vinyl",
+                                                "plocha":  12.58
+                                            },
+                                            {
+                                                "nazev":  "Koupelna",
+                                                "povrch":  "Keramická dlažba",
+                                                "plocha":  3.55
+                                            },
+                                            {
+                                                "nazev":  "Terasa",
+                                                "povrch":  "Dlažba do terčů",
+                                                "plocha":  7.90
+                                            }
+                                        ],
+                          "vyhody":  [
+                                         "Soukromá terasa 7,90 m²",
+                                         "Výhled do přírody",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-7"
+                      },
+                      {
+                          "id":  "ap-131-17",
+                          "cislo":  "131/17",
+                          "podlazi":  "Podkroví",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  27.18,
+                          "loft":  12.70,
+                          "terasa_m2":  null,
+                          "celkem":  39.88,
+                          "cena":  null,
+                          "koeficient":  1.13,
+                          "vynos55":  20200,
+                          "vynos60":  22600,
+                          "vynos65":  25000,
+                          "stav":  "Rezervovaný",
+                          "popis":  "",
+                          "pudorys":  "",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Spací loft pod šikmou střechou 12,70 m²",
+                                         "Jedinečná podkrovní atmosféra",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-21"
+                      },
+                      {
+                          "id":  "ap-131-18",
+                          "cislo":  "131/18",
+                          "podlazi":  "Podkroví",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  21.70,
+                          "loft":  9.90,
+                          "terasa_m2":  null,
+                          "celkem":  31.60,
+                          "cena":  3890000,
+                          "koeficient":  0.99,
+                          "vynos55":  17700,
+                          "vynos60":  19800,
+                          "vynos65":  21900,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/uploads/vizualizace/pudorys-131-18.png",
+                          "galerie":  [
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-18-01.webp",
+                                              "alt":  "Vizualizace apartmánu 131/18 – kuchyňský kout"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-18-02.webp",
+                                              "alt":  "Vizualizace apartmánu 131/18 – ložnice"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-18-03.webp",
+                                              "alt":  "Vizualizace apartmánu 131/18 – obývací pokoj"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-18-04.webp",
+                                              "alt":  "Vizualizace apartmánu 131/18 – pohled z loftu"
+                                          }
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Spací loft pod šikmou střechou 9,90 m²",
+                                         "Jedinečná podkrovní atmosféra",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  ""
+                      },
+                      {
+                          "id":  "ap-131-19",
+                          "cislo":  "131/19",
+                          "podlazi":  "Podkroví",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  25.73,
+                          "loft":  9.40,
+                          "terasa_m2":  null,
+                          "celkem":  35.13,
+                          "cena":  4290000,
+                          "koeficient":  1.06,
+                          "vynos55":  18900,
+                          "vynos60":  21200,
+                          "vynos65":  23400,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Spací loft pod šikmou střechou 9,40 m²",
+                                         "Jedinečná podkrovní atmosféra",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-21"
+                      },
+                      {
+                          "id":  "ap-131-20",
+                          "cislo":  "131/20",
+                          "podlazi":  "Podkroví",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  29.40,
+                          "loft":  9.40,
+                          "terasa_m2":  null,
+                          "celkem":  38.80,
+                          "cena":  4390000,
+                          "koeficient":  1.08,
+                          "vynos55":  19100,
+                          "vynos60":  21400,
+                          "vynos65":  23700,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Spací loft pod šikmou střechou 9,40 m²",
+                                         "Jedinečná podkrovní atmosféra",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-21"
+                      },
+                      {
+                          "id":  "ap-131-21",
+                          "cislo":  "131/21",
+                          "podlazi":  "Podkroví",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  38.61,
+                          "loft":  22.60,
+                          "terasa_m2":  null,
+                          "celkem":  61.21,
+                          "cena":  6190000,
+                          "koeficient":  1.40,
+                          "vynos55":  24800,
+                          "vynos60":  27700,
+                          "vynos65":  30700,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "images/uploads/vizualizace/pudorys-131-21.png",
+                          "galerie":  [
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-21-01.webp",
+                                              "alt":  "Vizualizace apartmánu 131/21 – kuchyňský kout"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-21-02.webp",
+                                              "alt":  "Vizualizace apartmánu 131/21 – loft"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-21-03.webp",
+                                              "alt":  "Vizualizace apartmánu 131/21 – obývací pokoj"
+                                          },
+                                          {
+                                              "src":  "images/uploads/vizualizace/viz-131-21-04.webp",
+                                              "alt":  "Vizualizace apartmánu 131/21 – obývací pokoj s jídelním koutem"
+                                          }
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Největší jednotka v projektu — 61,21 m² celkem",
+                                         "Loft 22,60 m² s výhledem na střechu",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  ""
+                      },
+                      {
+                          "id":  "ap-131-22",
+                          "cislo":  "131/22",
+                          "podlazi":  "Podkroví",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  22.11,
+                          "loft":  9.45,
+                          "terasa_m2":  null,
+                          "celkem":  31.56,
+                          "cena":  3690000,
+                          "koeficient":  0.96,
+                          "vynos55":  17000,
+                          "vynos60":  19000,
+                          "vynos65":  21100,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Spací loft pod šikmou střechou 9,45 m²",
+                                         "Jedinečná podkrovní atmosféra",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-18"
+                      },
+                      {
+                          "id":  "ap-131-23",
+                          "cislo":  "131/23",
+                          "podlazi":  "Podkroví",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  28.97,
+                          "loft":  13.10,
+                          "terasa_m2":  null,
+                          "celkem":  42.07,
+                          "cena":  4590000,
+                          "koeficient":  1.12,
+                          "vynos55":  19800,
+                          "vynos60":  22200,
+                          "vynos65":  24500,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Spací loft pod šikmou střechou 13,10 m²",
+                                         "Jedinečná podkrovní atmosféra",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-21"
+                      },
+                      {
+                          "id":  "ap-131-24",
+                          "cislo":  "131/24",
+                          "podlazi":  "Podkroví",
+                          "typ":  "byt",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  26.22,
+                          "loft":  9.20,
+                          "terasa_m2":  null,
+                          "celkem":  35.42,
+                          "cena":  4290000,
+                          "koeficient":  1.06,
+                          "vynos55":  18900,
+                          "vynos60":  21200,
+                          "vynos65":  23400,
+                          "stav":  "Volný",
+                          "popis":  "",
+                          "pudorys":  "",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Spací loft pod šikmou střechou 9,20 m²",
+                                         "Jedinečná podkrovní atmosféra",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-21"
+                      },
+                      {
+                          "id":  "ap-131-25",
+                          "cislo":  "131/25",
+                          "podlazi":  "Podkroví",
+                          "typ":  "ubytovací jednotka",
+                          "dispozice":  "1+kk s loftem",
+                          "interior":  16.80,
+                          "loft":  8.00,
+                          "terasa_m2":  null,
+                          "celkem":  24.80,
+                          "cena":  null,
+                          "koeficient":  0.85,
+                          "vynos55":  15200,
+                          "vynos60":  17000,
+                          "vynos65":  18800,
+                          "stav":  "Rezervovaný",
+                          "popis":  "",
+                          "pudorys":  "",
+                          "galerie":  [
+
+                                      ],
+                          "mistnosti":  [
+
+                                        ],
+                          "vyhody":  [
+                                         "Spací loft pod šikmou střechou 8,00 m²",
+                                         "Jedinečná podkrovní atmosféra",
+                                         "Vstup do wellness za nákladovou cenu",
+                                         "Členství v síti Nord Moravia Resorts",
+                                         "Management pronájmu zajištěn"
+                                     ],
+                          "karta_pdf":  "",
+                          "illustration":  "ap-131-18"
+                      }
+                  ]
 }

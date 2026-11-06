@@ -1,0 +1,39 @@
+{
+  "skupiny": [
+    {
+      "nadpis": "Říjen 2026",
+      "lightbox_popis": "Rekonstrukce – říjen 2026",
+      "fotky": [
+        { "src": "images/fotoReko/reko_10_26/reko-10-26-01.webp", "alt": "Rekonstrukce – říjen 2026 – foto 1" },
+        { "src": "images/fotoReko/reko_10_26/reko-10-26-02.webp", "alt": "Rekonstrukce – říjen 2026 – foto 2" },
+        { "src": "images/fotoReko/reko_10_26/reko-10-26-03.webp", "alt": "Rekonstrukce – říjen 2026 – foto 3" },
+        { "src": "images/fotoReko/reko_10_26/reko-10-26-04.webp", "alt": "Rekonstrukce – říjen 2026 – foto 4" },
+        { "src": "images/fotoReko/reko_10_26/reko-10-26-05.webp", "alt": "Rekonstrukce – říjen 2026 – foto 5" },
+        { "src": "images/fotoReko/reko_10_26/reko-10-26-06.webp", "alt": "Rekonstrukce – říjen 2026 – foto 6" },
+        { "src": "images/fotoReko/reko_10_26/reko-10-26-07.webp", "alt": "Rekonstrukce – říjen 2026 – foto 7" },
+        { "src": "images/fotoReko/reko_10_26/reko-10-26-08.webp", "alt": "Rekonstrukce – říjen 2026 – foto 8" }
+      ]
+    },
+    {
+      "nadpis": "Červen 2026",
+      "lightbox_popis": "Rekonstrukce – červen 2026",
+      "fotky": [
+        { "src": "images/fotoReko/vystavba-01.webp", "alt": "Rekonstrukce – červen 2026 – foto 1" },
+        { "src": "images/fotoReko/vystavba-02.webp", "alt": "Rekonstrukce – červen 2026 – foto 2" },
+        { "src": "images/fotoReko/vystavba-03.webp", "alt": "Rekonstrukce – červen 2026 – foto 3" },
+        { "src": "images/fotoReko/vystavba-04.webp", "alt": "Rekonstrukce – červen 2026 – foto 4" },
+        { "src": "images/fotoReko/vystavba-05.webp", "alt": "Rekonstrukce – červen 2026 – foto 5" },
+        { "src": "images/fotoReko/vystavba-06.webp", "alt": "Rekonstrukce – červen 2026 – foto 6" },
+        { "src": "images/fotoReko/vystavba-10.webp", "alt": "Rekonstrukce – červen 2026 – foto 7" },
+        { "src": "images/fotoReko/vystavba-11.webp", "alt": "Rekonstrukce – červen 2026 – foto 8" },
+        { "src": "images/fotoReko/vystavba-13.webp", "alt": "Rekonstrukce – červen 2026 – foto 9" },
+        { "src": "images/fotoReko/vystavba-14.webp", "alt": "Rekonstrukce – červen 2026 – foto 10" },
+        { "src": "images/fotoReko/vystavba-15.webp", "alt": "Rekonstrukce – červen 2026 – foto 11" },
+        { "src": "images/fotoReko/vystavba-16.webp", "alt": "Rekonstrukce – červen 2026 – foto 12" },
+        { "src": "images/fotoReko/vystavba-17.webp", "alt": "Rekonstrukce – červen 2026 – foto 13" },
+        { "src": "images/fotoReko/vystavba-18.webp", "alt": "Rekonstrukce – červen 2026 – foto 14" },
+        { "src": "images/fotoReko/vystavba-20.webp", "alt": "Rekonstrukce – červen 2026 – foto 15" }
+      ]
+    }
+  ]
+}
