@@ -521,6 +521,10 @@
     .vystavba-head p { font-family:'DM Sans',sans-serif; color:#6E665B; line-height:1.6; }
     .reko-sections { max-width:1200px; margin:0 auto; padding:0 1.5rem; display:flex; flex-direction:column; gap:2.5rem; }
     .reko-date-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.1rem,1.8vw,1.5rem); font-weight:400; color:#141117; margin:0 0 .75rem; }
+    .reko-popis { max-width:620px; margin:.25rem 0 1.25rem; }
+    .reko-popis-nadpis { font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:600; color:#3a3530; margin:0 0 .5rem; letter-spacing:.02em; }
+    .reko-popis-text { font-family:'DM Sans',sans-serif; font-size:.88rem; color:#6E665B; line-height:1.65; margin:0 0 .5rem; white-space:pre-line; }
+    .reko-popis-dal { font-family:'DM Sans',sans-serif; font-size:.82rem; color:#9a8f83; line-height:1.6; margin:0; font-style:italic; }
 
     /* lightbox */
     .lb-overlay { display:none; position:fixed; inset:0; background:rgba(20,17,23,.92); z-index:9999; align-items:center; justify-content:center; }
@@ -1912,6 +1916,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             titleEl.className = 'reko-date-title';
             titleEl.textContent = skupina.nadpis;
             block.appendChild(titleEl);
+            if (skupina.popis_nadpis || skupina.popis || skupina.popis_co_dal) {
+              var popisEl = document.createElement('div');
+              popisEl.className = 'reko-popis';
+              if (skupina.popis_nadpis) {
+                var pNadpis = document.createElement('p');
+                pNadpis.className = 'reko-popis-nadpis';
+                pNadpis.textContent = skupina.popis_nadpis;
+                popisEl.appendChild(pNadpis);
+              }
+              if (skupina.popis) {
+                var pText = document.createElement('p');
+                pText.className = 'reko-popis-text';
+                pText.textContent = skupina.popis;
+                popisEl.appendChild(pText);
+              }
+              if (skupina.popis_co_dal) {
+                var pDal = document.createElement('p');
+                pDal.className = 'reko-popis-dal';
+                pDal.textContent = skupina.popis_co_dal;
+                popisEl.appendChild(pDal);
+              }
+              block.appendChild(popisEl);
+            }
             var rowEl = document.createElement('div');
             rowEl.className = 'gal-row';
             preview.forEach(function(foto, i) {
