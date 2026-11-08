@@ -1,0 +1,192 @@
+{
+  "hero_nadpis": "Hotel, ne jen apartmán k pronájmu",
+  "hero_podnadpis": "Soutok Kouty povede profesionální provozovatel. O hosty, ceny, úklid i vyúčtování se postará za vás. Vy jen sledujete výsledky.",
+
+  "sluzby_nadpis": "Co hotel nabídne hostům",
+  "sluzby_popis": "Prémiový horský zážitek stojí na komplexní službě. Hosté ocení vše na jednom místě — snídaně, wellness, recepci i bistro.",
+  "sluzby": [
+    {
+      "ikona": "🏨",
+      "nazev": "Recepce a provozní manažer",
+      "popis": "Stálý provozní manažer a recepce pro příjezdy a odchody hostů. Podpora po celou dobu pobytu."
+    },
+    {
+      "ikona": "☕",
+      "nazev": "Snídaně v bistru",
+      "popis": "Snídaně v hotelovém bistru. Zvyšují hodnocení pobytu i cenu, kterou jsou hosté ochotni zaplatit."
+    },
+    {
+      "ikona": "🍽️",
+      "nazev": "Bistro a letní zahrádka",
+      "popis": "Večerní nabídka v bistru, v sezóně i polední menu. Přibližně 20–25 míst uvnitř a venkovní posezení v létě."
+    },
+    {
+      "ikona": "♨️",
+      "nazev": "Wellness",
+      "popis": "Hotelové wellness se saunou, ochlazovacím bazénkem a vířivkou. Přístupné hotelových hostům, majitelům i veřejnosti — rezervace přes Reservio."
+    },
+    {
+      "ikona": "🧹",
+      "nazev": "Úklid a prádlo",
+      "popis": "Profesionální úklid a výměna prádla po každém pobytu. Zajišťuje provozovatel v rámci správcovské provize."
+    },
+    {
+      "ikona": "🔧",
+      "nazev": "Údržba a správa domu",
+      "popis": "Správu domu (SVJ) zajišťuje profesionální správcovská firma. Provozovatel řeší drobné opravy bez zbytečných prodlev."
+    }
+  ],
+
+  "zazemi_nadpis": "Zázemí hotelu",
+  "zazemi_popis": "Dobrý provoz potřebuje dobré zázemí. Kvalitní prostředí pro tým znamená stabilní personál a spokojenější hosty.",
+  "zazemi_bistro_src": "/images/uploads/bistro-02.webp",
+  "zazemi_bistro_alt": "Bistro se snídaňovým bufetem",
+  "zazemi_bistro_popis": "Bistro se snídaňovým bufetem",
+  "zazemi_kuchyne_src": "/images/uploads/provoz%20vizky/Photorealistic%20Galley%20Kitchen%20Wash%20Line%20(1).png",
+  "zazemi_kuchyne_alt": "Zázemí kuchyně pro snídaně a bistro",
+  "zazemi_kuchyne_popis": "Zázemí kuchyně pro snídaně a bistro",
+  "zazemi_drobne": [
+    {
+      "src": "/images/uploads/provoz%20vizky/Sage%20Green%20Modern%20Staff%20Locker%20Room%20(1).png",
+      "alt": "Šatna personálu",
+      "popis": "Šatna personálu"
+    },
+    {
+      "src": "/images/uploads/provoz%20vizky/Wc%20personal%20-%20design%2C%20není%20přesné%20rozmístění%20(1).png",
+      "alt": "WC a sprcha pro personál",
+      "popis": "WC a sprcha pro personál"
+    },
+    {
+      "src": "/images/uploads/provoz%20vizky/Modern%20Utility%20Room%20with%20Copper%20Plumbing%20and%20Linen%20Storage%20(1).png",
+      "alt": "Technická místnost s tepelným čerpadlem",
+      "popis": "Technická místnost s tepelným čerpadlem"
+    }
+  ],
+
+  "tech_nadpis": "Technologie budovy",
+  "tech_popis": "Nižší provozní náklady, moderní standard a komfort, který hosté oceňují v hodnocení.",
+  "technologie": [
+    {
+      "ikona": "🌡️",
+      "nazev": "Tepelné čerpadlo",
+      "popis": "Vytápění a ohřev vody tepelným čerpadlem. Velkou část energie bere z okolního prostředí — nižší provozní náklady jdou k dobru výnosového poolu."
+    },
+    {
+      "ikona": "🏷️",
+      "nazev": "Energetická třída B",
+      "popis": "Budova má průkaz energetické náročnosti ve třídě B – velmi úsporná (107 kWh/m²·rok primární energie z neobnovitelných zdrojů). [OVĚŘIT: hodnota kWh/m²·rok před publikací]",
+      "penb_src": "/images/uploads/penb-soutok-kouty.png",
+      "penb_alt": "Průkaz energetické náročnosti budovy – třída B"
+    },
+    {
+      "ikona": "🔆",
+      "nazev": "Podlahové vytápění",
+      "popis": "Rovnoměrné teplo ve všech místnostech a komfort bez radiátorů pod okny. Hosté oceňují teplou podlahu zejména v koupelně."
+    },
+    {
+      "ikona": "🔐",
+      "nazev": "Chytré zámky Loxone",
+      "popis": "Vstup do jednotek kódem nebo kartou bez fyzických klíčů. Přístup se automaticky nastavuje podle rezervace — kód platí jen po dobu pobytu a umožňuje bezkontaktní příjezd hostů."
+    }
+  ],
+
+  "marketing_nadpis": "Jak plníme hotel",
+  "marketing_popis": "Obsazenost nestojí na náhodě ani jediném kanálu. Za rezervacemi stojí systematický marketing a zkušený tým s praxí z celé sítě resortů.",
+  "marketing_body": [
+    {
+      "ikona": "📊",
+      "nadpis": "Revenue manager",
+      "popis": "Ceny pro celou síť resortů nastavuje zkušený revenue manager. Mění je dynamicky podle sezóny, poptávky, kapacity a akcí v regionu. Cílem je maximální tržba, ne jen plný dům."
+    },
+    {
+      "ikona": "🌐",
+      "nadpis": "Rezervační portály",
+      "popis": "Hotel bude na hlavních rezervačních portálech (Booking.com a dalších). Všechny kanály řídí jeden rezervační systém (Previo), takže nehrozí dvojí rezervace."
+    },
+    {
+      "ikona": "💻",
+      "nadpis": "Vlastní web s přímými rezervacemi",
+      "popis": "U přímých rezervací se neplatí provize portálu, takže víc z tržby zůstane v poolu majitelů."
+    },
+    {
+      "ikona": "📱",
+      "nadpis": "Sociální sítě",
+      "popis": "Aktivní Facebook a Instagram, vlastní foto a video obsah a placené kampaně."
+    },
+    {
+      "ikona": "🏔️",
+      "nadpis": "Síť Nord Moravia Resorts",
+      "popis": "Soutok Kouty bude součástí sítě, kam patří i Resort Červený dvůr (Rapotín) a Vila Republika (Velké Losiny). Hotely sdílejí marketing, cenotvorbu, know-how a stálé hosty."
+    }
+  ],
+
+  "portal_nadpis": "Transparentní vyúčtování",
+  "portal_popis": "Každý majitel bude mít online přístup do portálu vlastníka. Vidí v něm rezervace celého poolu, tržby, náklady až na jednotlivé faktury a výpočet své výplaty.",
+  "portal_citace": "Nemusíte nám věřit — můžete si to zkontrolovat.",
+
+  "zodp_nadpis": "Kdo se o co stará",
+  "zodp_popis": "Provozovatel řídí hotel a vyplácí majitelům jejich podíl z výnosového poolu. Na majiteli zůstávají jen zákonné povinnosti vlastníka nemovitosti.",
+  "zodp_provozovatel_nadpis": "Provozovatel zajistí",
+  "zodp_provozovatel": [
+    "Marketing a prodej pobytů",
+    "Cenotvorba a revenue management",
+    "Recepce a péče o hosty",
+    "Úklid a výměna prádla",
+    "Drobná údržba",
+    "Vyúčtování a reporting"
+  ],
+  "zodp_majitel_nadpis": "Majitel zajistí",
+  "zodp_majitel": [
+    "Pojištění jednotky",
+    "Daň z nemovitosti",
+    "Příspěvek do fondu oprav přes SVJ",
+    "Vlastní pobyt — až 14 nocí ročně"
+  ],
+
+  "faq": [
+    {
+      "otazka": "Kdo bude hotel provozovat?",
+      "odpoved": "Hotel bude provozovat Mori Reality s.r.o. Jde o stejnou společnost, která stojí za provozem dalších resortů v síti Nord Moravia Resorts. Provozovatel se postará o marketing, rezervace, recepci, úklid i vyúčtování."
+    },
+    {
+      "otazka": "Jak se nastavují ceny pokojů?",
+      "odpoved": "Ceny nastavuje revenue manager, který řídí cenotvorbu i pro ostatní hotely v síti. Ceny se mění dynamicky podle sezóny, poptávky, kapacity a akcí v regionu. Cílem je maximalizovat tržbu celého poolu, ne jen obsazenost."
+    },
+    {
+      "otazka": "Odkud budou chodit hosté?",
+      "odpoved": "Hotel bude na hlavních rezervačních portálech (Booking.com a dalších) i na vlastním webu. Přímé rezervace nepodléhají provizi portálu. Pomůže i síť Nord Moravia Resorts a aktivní sociální sítě."
+    },
+    {
+      "otazka": "Jak poznám, že je moje vyúčtování správné?",
+      "odpoved": "Majitel bude mít online přístup do portálu vlastníka, kde uvidí rezervace celého poolu, tržby, náklady až na jednotlivé faktury a výpočet své výplaty. Ukázku portálu si můžete prohlédnout v demoverzi."
+    },
+    {
+      "otazka": "Jak často dostanu výplatu a přehled?",
+      "odpoved": "Přehled tržeb a nákladů uvidíte v portálu vlastníka průběžně, vyúčtování se uzavírá každý měsíc. Výplata vašeho podílu z poolu probíhá čtvrtletně. [OVĚŘIT: musí odpovídat smlouvě o zapojení do poolu]"
+    },
+    {
+      "otazka": "Jak si zarezervuji svých 14 nocí?",
+      "odpoved": "Jednoduše — zavoláte nebo napíšete na recepci, případně si termín zarezervujete přímo v portálu vlastníka. Doporučujeme rezervovat s předstihem, zvlášť v hlavní sezóně."
+    },
+    {
+      "otazka": "Co se děje mimo sezónu?",
+      "odpoved": "Jeseníky mají provoz po celý rok — lyžování v zimě, turistika a cykloturistika v létě. Hotel bude otevřený celoročně. Mimo hlavní sezónu se ceny přizpůsobí poptávce, aby pool generoval výnos i v nízkosezóně."
+    },
+    {
+      "otazka": "Kdo se stará o opravy a údržbu?",
+      "odpoved": "Drobnou údržbu a provozní opravy řeší provozovatel. Správu společných prostor a techniky budovy zajišťuje profesionální správcovská firma prostřednictvím SVJ."
+    },
+    {
+      "otazka": "Musím se o něco starat sám?",
+      "odpoved": "Stačí přispívat do fondu oprav přes SVJ, uhradit daň z nemovitosti a udržovat pojištění jednotky. Energie se platí z výnosového poolu. O vše ostatní se postará provozovatel a správcovská firma."
+    },
+    {
+      "otazka": "Co když budu chtít jednotku prodat?",
+      "odpoved": "Jednotku můžete kdykoli prodat. Rádi vám s prodejem pomůžeme — najdeme vhodného zájemce a postaráme se o průběh prodeje. Jednotka může zůstat zapojená do provozu hotelu i u nového majitele."
+    },
+    {
+      "otazka": "Platí bistro a wellness náklady z poolu?",
+      "odpoved": "Ne. Wellness a bistro jsou samostatné provozy mimo pool. Jejich náklady pool majitelů ubytovacích jednotek nijak nezatěžují."
+    }
+  ]
+}

@@ -252,6 +252,116 @@ collections:
                 hint: "Krátké odrážky — terasa, výhled, parkování…"
                 field: { label: "Výhoda", name: "vyhoda", widget: "string" }
 
+  # ─── PROVOZ HOTELU ───────────────────────────────────────
+  - name: "provoz"
+    label: "🏨 Provoz hotelu"
+    files:
+      - name: "provoz"
+        label: "Stránka Jak hotel funguje"
+        file: "data/provoz.json"
+        fields:
+          - { label: "Hero — nadpis", name: "hero_nadpis", widget: "string" }
+          - { label: "Hero — podnadpis", name: "hero_podnadpis", widget: "text" }
+
+          - { label: "Služby — nadpis", name: "sluzby_nadpis", widget: "string" }
+          - { label: "Služby — popis", name: "sluzby_popis", widget: "text" }
+          - label: "Služby hotelu (karty)"
+            name: "sluzby"
+            widget: "list"
+            label_singular: "Služba"
+            summary: "{{fields.nazev}}"
+            fields:
+              - { label: "Ikona (emoji)", name: "ikona", widget: "string", hint: "Např. ♨️ nebo 🍽️" }
+              - { label: "Název", name: "nazev", widget: "string" }
+              - { label: "Popis", name: "popis", widget: "text" }
+
+          - { label: "Zázemí — nadpis", name: "zazemi_nadpis", widget: "string" }
+          - { label: "Zázemí — úvodní text", name: "zazemi_popis", widget: "text" }
+          - label: "Zázemí — obrázek bistra (velký)"
+            name: "zazemi_bistro_src"
+            widget: "image"
+            required: false
+            hint: "Doporučený rozměr 1200×900 px"
+          - { label: "Zázemí — alt bistro", name: "zazemi_bistro_alt", widget: "string", default: "Bistro se snídaňovým bufetem" }
+          - { label: "Zázemí — popis bistra", name: "zazemi_bistro_popis", widget: "string", default: "Bistro se snídaňovým bufetem" }
+          - label: "Zázemí — obrázek kuchyně (velký)"
+            name: "zazemi_kuchyne_src"
+            widget: "image"
+            required: false
+            hint: "Doporučený rozměr 1200×900 px"
+          - { label: "Zázemí — alt kuchyně", name: "zazemi_kuchyne_alt", widget: "string", default: "Zázemí kuchyně pro snídaně a bistro" }
+          - { label: "Zázemí — popis kuchyně", name: "zazemi_kuchyne_popis", widget: "string", default: "Zázemí kuchyně pro snídaně a bistro" }
+          - label: "Zázemí — doplňkové obrázky (šatna, WC, technika)"
+            name: "zazemi_drobne"
+            widget: "list"
+            label_singular: "Obrázek"
+            summary: "{{fields.popis}}"
+            fields:
+              - label: "Obrázek"
+                name: "src"
+                widget: "image"
+                required: false
+              - { label: "Alt text", name: "alt", widget: "string" }
+              - { label: "Popis (zobrazí se pod obrázkem)", name: "popis", widget: "string" }
+
+          - { label: "Technologie — nadpis", name: "tech_nadpis", widget: "string" }
+          - { label: "Technologie — úvodní text", name: "tech_popis", widget: "text" }
+          - label: "Technologie budovy (karty)"
+            name: "technologie"
+            widget: "list"
+            label_singular: "Technologie"
+            summary: "{{fields.nazev}}"
+            fields:
+              - { label: "Ikona (emoji)", name: "ikona", widget: "string" }
+              - { label: "Název", name: "nazev", widget: "string" }
+              - { label: "Popis", name: "popis", widget: "text" }
+              - label: "PENB — obrázek průkazu (pouze pro kartu Energetická třída)"
+                name: "penb_src"
+                widget: "image"
+                required: false
+                hint: "Pouze pro kartu Energetická třída B"
+              - { label: "PENB — alt text", name: "penb_alt", widget: "string", required: false,
+                  default: "Průkaz energetické náročnosti budovy – třída B" }
+
+          - { label: "Marketing — nadpis", name: "marketing_nadpis", widget: "string" }
+          - { label: "Marketing — popis", name: "marketing_popis", widget: "text" }
+          - label: "Marketing — body (kanály a nástroje)"
+            name: "marketing_body"
+            widget: "list"
+            label_singular: "Položka"
+            summary: "{{fields.nadpis}}"
+            fields:
+              - { label: "Ikona (emoji)", name: "ikona", widget: "string" }
+              - { label: "Nadpis", name: "nadpis", widget: "string" }
+              - { label: "Popis", name: "popis", widget: "text" }
+
+          - { label: "Portál — nadpis", name: "portal_nadpis", widget: "string" }
+          - { label: "Portál — popis", name: "portal_popis", widget: "text" }
+          - { label: "Portál — citace (klíčová věta)", name: "portal_citace", widget: "string" }
+
+          - { label: "Zodpovědnosti — nadpis", name: "zodp_nadpis", widget: "string" }
+          - { label: "Zodpovědnosti — popis", name: "zodp_popis", widget: "text" }
+          - { label: "Nadpis sloupce Provozovatel", name: "zodp_provozovatel_nadpis", widget: "string" }
+          - label: "Co zajistí provozovatel"
+            name: "zodp_provozovatel"
+            widget: "list"
+            field: { label: "Položka", name: "polozka", widget: "string" }
+          - { label: "Nadpis sloupce Majitel", name: "zodp_majitel_nadpis", widget: "string" }
+          - label: "Co zajistí majitel"
+            name: "zodp_majitel"
+            widget: "list"
+            field: { label: "Položka", name: "polozka", widget: "string" }
+          - { label: "Poznámka pod tabulkou zodpovědností", name: "zodp_poznamka", widget: "text", required: false }
+
+          - label: "FAQ (rozbalovací otázky)"
+            name: "faq"
+            widget: "list"
+            label_singular: "Otázka"
+            summary: "{{fields.otazka}}"
+            fields:
+              - { label: "Otázka", name: "otazka", widget: "string" }
+              - { label: "Odpověď", name: "odpoved", widget: "text" }
+
   # ─── GALERIE ─────────────────────────────────────────────
   - name: "gallery"
     label: "🖼️ Galerie"

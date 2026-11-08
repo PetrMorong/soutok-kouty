@@ -932,6 +932,39 @@
     .nord-index-actions .btn-ghost { color: #141117; border-bottom-color: #141117; }
     .nord-index-actions .btn-ghost:hover { color: #5c5650; border-bottom-color: #5c5650; }
     @media (max-width: 900px) { .nord-index-resorts { grid-template-columns: 1fr; } }
+
+    /* ═══════════════════════════════════════════
+       BISTRO TEASER
+    ═══════════════════════════════════════════ */
+    .bistro-teaser { background: var(--warm); }
+    .bistro-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem); align-items: center;
+    }
+    .bistro-img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+    }
+    .bistro-cta {
+      display: inline-flex; align-items: center; gap: .5rem;
+      margin-top: 2rem; font-size: .78rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold);
+      text-decoration: none; border-bottom: 1px solid rgba(196,163,90,.35);
+      transition: border-color .2s, gap .2s;
+    }
+    .bistro-cta:hover { border-color: var(--gold); gap: .75rem; }
+    @media (max-width: 768px) {
+      .bistro-grid { grid-template-columns: 1fr; }
+      .bistro-grid .bistro-img { order: -1; }
+    }
+
+    /* PENB badge in ceník */
+    .penb-badge {
+      display: inline-block; vertical-align: middle;
+      font-size: .58rem; letter-spacing: .1em; text-transform: uppercase;
+      padding: .22rem .6rem; margin-left: .9rem;
+      background: rgba(44,100,180,.1); color: #3060a8;
+      border: 1px solid rgba(44,100,180,.25);
+    }
   </style>
 </head>
 <body>
@@ -948,6 +981,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#investice">Investice</a></li>
     <li><a href="#wellness">Wellness</a></li>
     <li><a href="#cenik">Ceník</a></li>
+    <li><a href="/provoz.html">Jak funguje hotel</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
   <a href="#kontakt" class="nav-cta">Zjistit ceny</a>
@@ -962,6 +996,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#investice" onclick="closeMobile()">Investice</a>
   <a href="#wellness" onclick="closeMobile()">Wellness</a>
   <a href="#cenik" onclick="closeMobile()">Ceník</a>
+  <a href="/provoz.html" onclick="closeMobile()">Jak funguje hotel</a>
   <a href="#kontakt" onclick="closeMobile()">Kontakt</a>
   <a href="#kontakt" class="btn-primary" onclick="closeMobile()">Zjistit ceny</a>
 </div>
@@ -1040,6 +1075,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           allowfullscreen>
         </iframe>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BISTRO TEASER ────────────────────────────────── -->
+<section class="bistro-teaser">
+  <div class="container">
+    <div class="bistro-grid">
+      <div>
+        <p class="section-tag reveal">/ Bistro a snídaně</p>
+        <h2 class="section-h2 reveal reveal-delay-1">Snídaně, večeře<br><em>a letní zahrádka</em></h2>
+        <p class="section-lead reveal reveal-delay-2">Hotel nabídne hostům snídaně v bistru a večerní nabídku — uvnitř i na letní zahrádce. Bistro není jen příjemný bonus: hosté, kteří snídají na místě, hodnotí pobyt výš a jsou ochotni zaplatit víc. Wellness a bistro přitom provozuje provozovatel samostatně — jejich náklady nijak nezatěžují pool majitelů.</p>
+        <a href="/provoz.html" class="bistro-cta reveal reveal-delay-3">Jak hotel funguje →</a>
+      </div>
+      <img
+        src="/images/uploads/bistro%20%2B%20chodba/bistro%20s%20lidmi.png"
+        alt="Bistro Soutok Kouty s hosty"
+        class="bistro-img reveal reveal-delay-1"
+        loading="lazy"
+      >
     </div>
   </div>
 </section>
@@ -1138,7 +1193,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <p class="section-tag reveal">/ Wellness</p>
         <h2 class="section-h2 reveal reveal-delay-1">Soukromý <em>ráj v přízemí</em></h2>
-        <p class="section-lead reveal reveal-delay-2">Designové wellness slouží výhradně hostům a majitelům. Rezervace online, vstup pomocí kódu — žádné fronty, žádné rušení. Majitelé vstupují za zvýhodněnou nákladovou cenu.</p>
+        <p class="section-lead reveal reveal-delay-2">Designové wellness je přístupné hotelových hostům, majitelům i veřejnosti. Rezervace přes Reservio, vstup kódem — žádné fronty, žádné rušení. Majitelé vstupují za zvýhodněnou nákladovou cenu.</p>
         <div class="wellness-features reveal reveal-delay-3">
           <div class="wellness-feat">
             <div class="wellness-feat-icon">
@@ -1254,7 +1309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="apartments" id="cenik">
   <div class="container">
     <p class="section-tag reveal">/ Ceník</p>
-    <h2 class="section-h2 reveal reveal-delay-1">Vyberte si <em>svůj apartmán</em></h2>
+    <h2 class="section-h2 reveal reveal-delay-1">Vyberte si <em>svůj apartmán</em><span class="penb-badge" title="Průkaz energetické náročnosti budovy">PENB: B</span></h2>
     <p class="section-lead reveal reveal-delay-2">23 jednotek ve třech podlažích, od 2,59 mil.&nbsp;Kč.</p>
     <p class="cenik-poznamka reveal">Kupní cena zahrnuje dokončený byt bez kuchyňské linky a nábytku. Vybavení jednotky si investor pořizuje samostatně — od 250&nbsp;000&nbsp;Kč pro 1+kk, u jednotek s předzahrádkou více. Lze hradit z vlastních zdrojů nebo zahrnout do hypotéky.</p>
 
@@ -1735,6 +1790,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="#projekt">O projektu</a></li>
       <li><a href="#investice">Investice</a></li>
       <li><a href="#cenik">Ceník</a></li>
+      <li><a href="/provoz.html">Jak funguje hotel</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
       <li><a href="/admin/">CMS Admin</a></li>
     </ul>
