@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
@@ -1395,7 +1395,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <ul class="apt-notes-list reveal">
-      <li>Výnos je orientační při 60 % obsazenosti. Čistý měsíční výnos vlastníka po nákladech poolu, odměně provozovatele a příspěvku do SVJ. Nezahrnuje vybavení, daň z nemovitosti ani daň z příjmu.</li>
+      <li>Výnos je orientační při 55 % obsazenosti (realistický scénář). Čistý měsíční výnos vlastníka po nákladech poolu, odměně provozovatele a příspěvku do SVJ. Nezahrnuje vybavení, daň z nemovitosti ani daň z příjmu.</li>
       <li>Koeficient je ze 30 % stejný pro všechny jednotky a ze 70 % odpovídá kupní ceně vůči průměru. Součet koeficientů všech 23 jednotek = 23.</li>
       <li>Loft je spací galerie pod šikmou střechou. Jeho plocha je orientační a do ceny se počítá ze 75&nbsp;%.</li>
       <li>Předzahrádky bytů 131/1–131/3 (cca 29&nbsp;m²) jsou v ceně, ale nejsou zahrnuty v Celkem&nbsp;m².</li>
@@ -1896,9 +1896,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         const typShort = a.typ === 'byt' ? 'Byt' : 'Ubyt. j.';
 
-        const vynos60txt = a.vynos60 ? fmtKc(a.vynos60) : '—';
-        const vynosTip = (a.vynos55 && a.vynos65)
-          ? `55 %: ${fmtKc(a.vynos55)} | 60 %: ${fmtKc(a.vynos60)} | 65 %: ${fmtKc(a.vynos65)}`
+        const vynos55txt = a.vynos55 ? fmtKc(a.vynos55) : '—';
+        const vynosTip = (a.vynos45 && a.vynos65)
+          ? `55 %: ${fmtKc(a.vynos45)} | 60 %: ${fmtKc(a.vynos55)} | 65 %: ${fmtKc(a.vynos65)}`
           : '';
 
         tr.innerHTML = `
@@ -1913,8 +1913,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <td class="col-mob-hide apt-muted">${a.koeficient != null ? a.koeficient.toFixed(2).replace('.', ',') : '—'}</td>
           <td class="col-mob-hide">
             ${vynosTip
-              ? `<span class="apt-vynos-wrap">${vynos60txt}<span class="apt-vynos-icon">ⓘ</span><span class="apt-vynos-tip">${vynosTip}</span></span>`
-              : vynos60txt}
+              ? `<span class="apt-vynos-wrap">${vynos55txt}<span class="apt-vynos-icon">ⓘ</span><span class="apt-vynos-tip">${vynosTip}</span></span>`
+              : vynos55txt}
           </td>
           <td><span class="${badgeCls}">${a.stav || 'Volný'}</span></td>
           <td>${detail}</td>
@@ -1941,7 +1941,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             ${a.terasa_m2 ? `<div><strong>Terasa / zahr.</strong>${fmtM2(a.terasa_m2)}</div>` : ''}
             <div><strong>Koeficient poolu</strong>${a.koeficient != null ? a.koeficient.toFixed(2).replace('.', ',') : '—'}</div>
             <div class="apt-eg-full"><strong>Výnos/měs. (čistý)</strong>
-              55 %: ${fmtKc(a.vynos55)}&ensp;·&ensp;60 %: ${fmtKc(a.vynos60)}&ensp;·&ensp;65 %: ${fmtKc(a.vynos65)}
+              55 %: ${fmtKc(a.vynos45)}&ensp;·&ensp;60 %: ${fmtKc(a.vynos55)}&ensp;·&ensp;65 %: ${fmtKc(a.vynos65)}
             </div>
           </div>
         </td>`;
