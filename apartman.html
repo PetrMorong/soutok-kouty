@@ -197,6 +197,10 @@
     .apt-hypo-val--neg { color: #AA3333 !important; }
     .apt-hypo-sep { border: none; border-top: 1px solid var(--line); width: 100%; margin: 0; }
     .apt-hypo-note { font-size: .6rem; color: var(--muted); margin-top: .45rem; line-height: 1.5; }
+    .apt-garance-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; background: rgba(196,163,90,.08); border: 1px solid rgba(196,163,90,.3); padding: .85rem 1rem; margin: 1rem 0 0; }
+    .apt-garance-label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .apt-garance-val { font-family: var(--f-display); font-size: 1.1rem; font-weight: 300; color: var(--gold); white-space: nowrap; }
+    .apt-garance-link { font-size: .65rem; color: var(--muted); display: block; margin-top: .25rem; }
     .apt-hypo-toggle { display: flex; align-items: center; gap: .6rem; margin: .8rem 0 .3rem; cursor: pointer; user-select: none; }
     .apt-hypo-toggle input { display: none; }
     .apt-hypo-toggle-track { width: 34px; height: 19px; background: rgba(122,112,104,.28); border-radius: 10px; position: relative; transition: background .2s; flex-shrink: 0; }
@@ -554,6 +558,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
             <p class="apt-hypo-note">SVJ / správa 1 500 Kč/měsíc. Záporné hodnoty = doplatek.</p>
+          </div>
+
+          <!-- GARANCE SPLÁTKY -->
+          <div class="apt-garance-row" id="aptGaranceRow" style="display:none">
+            <div>
+              <div class="apt-garance-label">Garance 1. roku</div>
+              <a href="/#garance" class="apt-garance-link">Podmínky garance →</a>
+            </div>
+            <div class="apt-garance-val">až <span id="aptGaranceVal">—</span> Kč/měs.</div>
           </div>
 
           <div class="apt-sidebar-ctas">
@@ -985,6 +998,17 @@ fetch('/data/apartmany.json')
         computeHypo();
         document.getElementById('aptHypoVybCheck').addEventListener('change', computeHypo);
         document.getElementById('aptHypoBox').style.display = '';
+      }
+
+      /* ── Garance splátky (5,5 % p.a., 80 % LTV, 30 let) ── */
+      if (!isNaN(cenaNum) && cenaNum > 0) {
+        const P = cenaNum * 0.8;
+        const iG = 0.055 / 12;
+        const nG = 360;
+        const splatkaG = P * iG / (1 - Math.pow(1 + iG, -nG));
+        const splatkaGRnd = Math.round(splatkaG / 100) * 100;
+        document.getElementById('aptGaranceVal').textContent = splatkaGRnd.toLocaleString('cs-CZ');
+        document.getElementById('aptGaranceRow').style.display = '';
       }
     }
 
