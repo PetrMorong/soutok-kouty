@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
@@ -539,6 +539,15 @@
     .akce-banner-nadpis { font-family:var(--f-display); font-size:clamp(1.2rem,2vw,1.6rem); color:var(--cream); margin:.3rem 0 .5rem; }
     .akce-banner-popis { font-size:.88rem; color:rgba(245,240,232,.65); line-height:1.55; max-width:520px; }
     .akce-banner-zbyva { display:inline-block; margin-top:.6rem; font-size:.82rem; color:var(--gold); letter-spacing:.03em; }
+    .garance-details { margin-top:.85rem; }
+    .garance-summary { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); cursor:pointer; user-select:none; list-style:none; padding:.45rem 0; border-bottom:1px solid rgba(196,163,90,.2); }
+    .garance-summary::-webkit-details-marker { display:none; }
+    .garance-summary::after { content:' +'; }
+    details[open] .garance-summary::after { content:' −'; }
+    .garance-ul { list-style:none; margin:.75rem 0 .5rem; display:flex; flex-direction:column; gap:.5rem; }
+    .garance-ul li { font-size:.82rem; color:rgba(245,240,232,.6); line-height:1.55; padding-left:1rem; position:relative; }
+    .garance-ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+    .garance-smlouva { font-size:.78rem; color:rgba(245,240,232,.4); font-style:italic; margin-top:.5rem; }
     .akce-vycerpana { color:rgba(245,240,232,.35); font-style:italic; }
 
     /* predprodej info + cenový schod */
@@ -557,7 +566,7 @@
     /* platební kalendář */
     .platebni-kal { background:var(--warm); padding:clamp(3rem,6vw,5rem) 0; }
     .platebni-kal-inner { max-width:var(--max); margin:0 auto; padding:0 var(--gap); }
-    .platebni-kroky { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin:2.5rem 0 1.5rem; }
+    .platebni-kroky { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; margin:2.5rem 0 1.5rem; }
     .plat-krok { background:#fff; padding:1.75rem 1.5rem; border-radius:4px; }
     .plat-krok-num { font-family:var(--f-display); font-size:2.5rem; font-weight:300; color:var(--gold); line-height:1; margin-bottom:.75rem; }
     .plat-krok-nadpis { font-family:var(--f-display); font-size:1.05rem; color:#1A1714; margin-bottom:.5rem; }
@@ -565,7 +574,8 @@
     .platebni-veta { font-size:.9rem; color:#6E665B; line-height:1.65; border-top:1px solid rgba(196,163,90,.2); padding-top:1.25rem; max-width:620px; }
     .platebni-veta a { color:var(--gold-dim); text-decoration:none; }
     .platebni-veta a:hover { text-decoration:underline; }
-    @media (max-width:700px) { .platebni-kroky { grid-template-columns:1fr; } }
+    @media (max-width:900px) { .platebni-kroky { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:500px) { .platebni-kroky { grid-template-columns:1fr; } }
 
     /* proč nečekat */
     .proc-neckat { margin-top:2.5rem; padding:1.75rem; background:rgba(196,163,90,.06); border-radius:4px; }
@@ -1128,7 +1138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <strong>Koeficienty:</strong>&ensp;0,85 malý pokoj &middot; 1,00 vzorová 1+kk &middot; 1,20 s terasou &middot; 1,40 2+kk &middot; 1,60 mezonet/loft
     </div>
 
-    <p class="inv-scen-label">Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00). Výnos není garantován.</p>
+    <p class="inv-scen-label">Ilustrativní propočet pro vzorovou jednotku 1+kk (koeficient 1,00). Výnos z poolu není garantován. Výjimkou je garance splátky hypotéky v prvním roce provozu, <a href="#garance" style="color:var(--gold);text-decoration:none">viz podmínky</a>.</p>
 
     <div class="inv-cards reveal">
       <div class="inv-card">
@@ -1179,7 +1189,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <ul class="proc-neckat-list">
         <li><strong>Nejlepší jednotky odcházejí první.</strong> Terasy a lofty s výhledem jsou nejžádanější.</li>
         <li><strong>Předprodejní cena.</strong> Po 31. 3. 2027 ceny vzrostou o 5 %.</li>
-        <li><strong>Peníze nevážete.</strong> Do předání zaplatíte jen 20 % ceny.</li>
+        <li><strong>Peníze nevážete.</strong> Do konce roku 2027 zaplatíte jen 10 + 10 % ceny.</li>
+        <li><strong>Garance splátky.</strong> Na hypotéku? První rok provozu vám splátku pokryjeme.</li>
       </ul>
     </div>
   </div>
@@ -1305,6 +1316,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
+<!-- ─── GARANCE SPLÁTKY ──────────────────────────────── -->
+<div class="akce-banner" id="garance">
+  <div class="akce-banner-inner">
+    <div class="akce-banner-text">
+      <div class="akce-banner-stitek">/ Garance pro kupující na hypotéku</div>
+      <div class="akce-banner-nadpis">Garance splátky na první rok</div>
+      <p class="akce-banner-popis">Kupujete apartmán na hypotéku? Prvních 12 měsíců provozu vám výplatu z poolu doplníme až do výše splátky úvěru.</p>
+      <details class="garance-details">
+        <summary class="garance-summary">Podmínky garance</summary>
+        <ul class="garance-ul">
+          <li>Garance se počítá z modelového úvěru: 80 % kupní ceny, splatnost 30 let, úrok podle vaší úvěrové smlouvy, nejvýše 5,5 % p.a.</li>
+          <li>Platí 12 měsíců od zahájení provozu hotelu (2028).</li>
+          <li>Rozdíl mezi splátkou a výplatou z poolu doplácíme měsíčně.</li>
+          <li>Jednotka musí být po celý rok zapojená do poolu. Za noci vlastního užívání se garance poměrně krátí.</li>
+          <li>Garanci poskytuje prodávající jednotky. Je osobní a zaniká prodejem jednotky.</li>
+          <li>Akce platí pro rezervace do 30. 6. 2027.</li>
+        </ul>
+        <p class="garance-smlouva">Přesné podmínky jsou součástí smlouvy o smlouvě budoucí.</p>
+      </details>
+    </div>
+    <div class="akce-banner-btn">
+      <a href="#kontakt" class="btn-primary">Mám zájem →</a>
+    </div>
+  </div>
+</div>
+
 <!-- ─── CENÍK ──────────────────────────────────────────── -->
 <section class="apartments" id="cenik">
   <div class="container">
@@ -1358,11 +1395,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <ul class="apt-notes-list reveal">
-      <li>Výnos je orientační při 60 % obsazenosti. Čistý měsíční výnos vlastníka po nákladech poolu, odměně provozovatele a příspěvku do SVJ. Nezahrnuje vybavení, daň z nemovitosti ani daň z příjmu.</li>
+      <li>Výnos je orientační při 55 % obsazenosti (realistický scénář). Čistý měsíční výnos vlastníka po nákladech poolu, odměně provozovatele a příspěvku do SVJ. Nezahrnuje vybavení, daň z nemovitosti ani daň z příjmu.</li>
       <li>Koeficient je ze 30 % stejný pro všechny jednotky a ze 70 % odpovídá kupní ceně vůči průměru. Součet koeficientů všech 23 jednotek = 23.</li>
       <li>Loft je spací galerie pod šikmou střechou. Jeho plocha je orientační a do ceny se počítá ze 75&nbsp;%.</li>
       <li>Předzahrádky bytů 131/1–131/3 (cca 29&nbsp;m²) jsou v ceně, ale nejsou zahrnuty v Celkem&nbsp;m².</li>
-      <li>Platby: rezervace 50&nbsp;000&nbsp;Kč, do 2 měsíců SOSBK a 20&nbsp;% ceny, předání v roce 2028 s kupní smlouvou a doplatkem.</li>
+      <li>Platby: rezervace 50&nbsp;000&nbsp;Kč, do 2 měsíců SOSBK a 10&nbsp;% ceny, 10&nbsp;% po dokončení fasády (odhad 10/2027), doplatek 80&nbsp;% při předání v roce 2028.</li>
     </ul>
 
     <div class="apt-cta-row reveal">
@@ -1384,16 +1421,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="plat-krok">
         <div class="plat-krok-num">2</div>
-        <div class="plat-krok-nadpis">Do 3 měsíců: smlouva o smlouvě budoucí</div>
-        <p class="plat-krok-text">20 % kupní ceny.</p>
+        <div class="plat-krok-nadpis">Do 2 měsíců: smlouva o smlouvě budoucí</div>
+        <p class="plat-krok-text">10 % kupní ceny (rezervace se započítá).</p>
       </div>
       <div class="plat-krok">
         <div class="plat-krok-num">3</div>
+        <div class="plat-krok-nadpis">Po dokončení fasády (odhad říjen 2027)</div>
+        <p class="plat-krok-text">10 % kupní ceny.</p>
+      </div>
+      <div class="plat-krok">
+        <div class="plat-krok-num">4</div>
         <div class="plat-krok-nadpis">Předání v roce 2028</div>
         <p class="plat-krok-text">Doplatek 80 %. Lze financovat hypotékou.</p>
       </div>
     </div>
-    <p class="platebni-veta reveal">Většinu kupní ceny platíte až ve chvíli, kdy apartmán začne vydělávat. Do té doby máte peníze volné. <a href="#investice">Pomůžeme vám s hypotékou →</a></p>
+    <p class="platebni-veta reveal">Do konce roku 2027 zaplatíte jen 20 % ceny, a to ve dvou splátkách. Zbytek až ve chvíli, kdy apartmán začne vydělávat. <a href="#financovani">Pomůžeme vám s hypotékou →</a></p>
   </div>
 </section>
 
@@ -1615,6 +1657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-tag reveal">/ Financování</p>
     <h2 class="section-h2 reveal reveal-delay-1">Pomůžeme vám<br><em>s hypotékou</em></h2>
     <p class="section-lead reveal reveal-delay-2">Nákup ubytovací jednotky v aparthotelu se z pohledu banky liší od klasického bytu. Díky zkušenostem Františka Petrouše s desítkami investičních úvěrů víme, jak na to.</p>
+    <p class="reveal" style="margin-top:1.25rem;font-size:.88rem;color:var(--muted);line-height:1.65">Kupujete na hypotéku? Na první rok provozu vám splátku pokryjeme. <a href="#garance" style="color:var(--gold-dim);text-decoration:none;border-bottom:1px solid rgba(196,163,90,.35)">Garance splátky →</a></p>
     <div class="fin-grid reveal">
       <div class="fin-item">
         <div class="fin-icon">
@@ -1853,9 +1896,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         const typShort = a.typ === 'byt' ? 'Byt' : 'Ubyt. j.';
 
-        const vynos60txt = a.vynos60 ? fmtKc(a.vynos60) : '—';
-        const vynosTip = (a.vynos55 && a.vynos65)
-          ? `55 %: ${fmtKc(a.vynos55)} | 60 %: ${fmtKc(a.vynos60)} | 65 %: ${fmtKc(a.vynos65)}`
+        const vynos55txt = a.vynos55 ? fmtKc(a.vynos55) : '—';
+        const vynosTip = (a.vynos45 && a.vynos65)
+          ? `55 %: ${fmtKc(a.vynos45)} | 60 %: ${fmtKc(a.vynos55)} | 65 %: ${fmtKc(a.vynos65)}`
           : '';
 
         tr.innerHTML = `
@@ -1870,8 +1913,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <td class="col-mob-hide apt-muted">${a.koeficient != null ? a.koeficient.toFixed(2).replace('.', ',') : '—'}</td>
           <td class="col-mob-hide">
             ${vynosTip
-              ? `<span class="apt-vynos-wrap">${vynos60txt}<span class="apt-vynos-icon">ⓘ</span><span class="apt-vynos-tip">${vynosTip}</span></span>`
-              : vynos60txt}
+              ? `<span class="apt-vynos-wrap">${vynos55txt}<span class="apt-vynos-icon">ⓘ</span><span class="apt-vynos-tip">${vynosTip}</span></span>`
+              : vynos55txt}
           </td>
           <td><span class="${badgeCls}">${a.stav || 'Volný'}</span></td>
           <td>${detail}</td>
@@ -1898,7 +1941,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             ${a.terasa_m2 ? `<div><strong>Terasa / zahr.</strong>${fmtM2(a.terasa_m2)}</div>` : ''}
             <div><strong>Koeficient poolu</strong>${a.koeficient != null ? a.koeficient.toFixed(2).replace('.', ',') : '—'}</div>
             <div class="apt-eg-full"><strong>Výnos/měs. (čistý)</strong>
-              55 %: ${fmtKc(a.vynos55)}&ensp;·&ensp;60 %: ${fmtKc(a.vynos60)}&ensp;·&ensp;65 %: ${fmtKc(a.vynos65)}
+              55 %: ${fmtKc(a.vynos45)}&ensp;·&ensp;60 %: ${fmtKc(a.vynos55)}&ensp;·&ensp;65 %: ${fmtKc(a.vynos65)}
             </div>
           </div>
         </td>`;

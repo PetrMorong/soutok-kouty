@@ -197,6 +197,10 @@
     .apt-hypo-val--neg { color: #AA3333 !important; }
     .apt-hypo-sep { border: none; border-top: 1px solid var(--line); width: 100%; margin: 0; }
     .apt-hypo-note { font-size: .6rem; color: var(--muted); margin-top: .45rem; line-height: 1.5; }
+    .apt-garance-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; background: rgba(196,163,90,.08); border: 1px solid rgba(196,163,90,.3); padding: .85rem 1rem; margin: 1rem 0 0; }
+    .apt-garance-label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .apt-garance-val { font-family: var(--f-display); font-size: 1.1rem; font-weight: 300; color: var(--gold); white-space: nowrap; }
+    .apt-garance-link { font-size: .65rem; color: var(--muted); display: block; margin-top: .25rem; }
     .apt-hypo-toggle { display: flex; align-items: center; gap: .6rem; margin: .8rem 0 .3rem; cursor: pointer; user-select: none; }
     .apt-hypo-toggle input { display: none; }
     .apt-hypo-toggle-track { width: 34px; height: 19px; background: rgba(122,112,104,.28); border-radius: 10px; position: relative; transition: background .2s; flex-shrink: 0; }
@@ -479,14 +483,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="section-tag" style="margin-bottom:.6rem">/ Výnos / měsíc (čistý)</p>
           <div class="apt-scenarios">
             <div class="apt-scenario">
-              <span class="apt-scen-name">55 % obsazenosti</span>
+              <span class="apt-scen-name">45 % obsazenosti</span>
               <div class="apt-scen-right">
                 <span class="apt-scen-yield" id="aptScenKonz">—</span>
                 <span class="apt-scen-kc" id="aptScenKonzLbl"></span>
               </div>
             </div>
             <div class="apt-scenario featured">
-              <span class="apt-scen-name">60 % obsazenosti</span>
+              <span class="apt-scen-name">55 % obsazenosti</span>
               <div class="apt-scen-right">
                 <span class="apt-scen-yield" id="aptScenReal">—</span>
                 <span class="apt-scen-kc" id="aptScenRealLbl"></span>
@@ -541,11 +545,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="apt-hypo-title" style="margin-top:1rem">/ Čistý měsíční výnos (po splátce a SVJ)</p>
             <div class="apt-hypo-rows">
               <div class="apt-hypo-row">
-                <span class="apt-hypo-label">55 % obsazenosti</span>
+                <span class="apt-hypo-label">45 % obsazenosti</span>
                 <span class="apt-hypo-val" id="aptHypoCfKonz">—</span>
               </div>
               <div class="apt-hypo-row apt-hypo-row--accent">
-                <span class="apt-hypo-label">60 % obsazenosti</span>
+                <span class="apt-hypo-label">55 % obsazenosti</span>
                 <span class="apt-hypo-val" id="aptHypoCfReal">—</span>
               </div>
               <div class="apt-hypo-row">
@@ -554,6 +558,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
             <p class="apt-hypo-note">SVJ / správa 1 500 Kč/měsíc. Záporné hodnoty = doplatek.</p>
+          </div>
+
+          <!-- GARANCE SPLÁTKY -->
+          <div class="apt-garance-row" id="aptGaranceRow" style="display:none">
+            <div>
+              <div class="apt-garance-label">Garance 1. roku</div>
+              <a href="/#garance" class="apt-garance-link">Podmínky garance →</a>
+            </div>
+            <div class="apt-garance-val">až <span id="aptGaranceVal">—</span> Kč/měs.</div>
           </div>
 
           <div class="apt-sidebar-ctas">
@@ -588,17 +601,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="apt-scenarios-full reveal">
           <div class="apt-scen-card">
-            <span class="apt-scen-tag">Konzervativní · 40 % obsazenost</span>
+            <span class="apt-scen-tag">Konzervativní · 45 % obsazenost</span>
             <span class="apt-scen-pct">4,9 %</span>
             <span class="apt-scen-desc">169 220 Kč čistý výnos / rok</span>
           </div>
           <div class="apt-scen-card featured">
-            <span class="apt-scen-tag">Realistický · 50 % obsazenost</span>
+            <span class="apt-scen-tag">Realistický · 55 % obsazenost</span>
             <span class="apt-scen-pct">6,7 %</span>
             <span class="apt-scen-desc">229 460 Kč čistý výnos / rok</span>
           </div>
           <div class="apt-scen-card">
-            <span class="apt-scen-tag">Optimistický · 60 % obsazenost</span>
+            <span class="apt-scen-tag">Optimistický · 65 % obsazenost</span>
             <span class="apt-scen-pct">8,4 %</span>
             <span class="apt-scen-desc">287 980 Kč čistý výnos / rok</span>
           </div>
@@ -614,8 +627,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="apt-poptavka-inner">
         <!-- Agent card -->
         <div class="apt-agent-card reveal">
-          <img class="apt-agent-photo" src="/images/uploads/foto_marketa.webp" alt="Markéta Dvořáková">
-          <div class="apt-agent-name">Bc. Markéta Dvořáková, MBA</div>
+          <img class="apt-agent-photo" src="/images/uploads/foto_marketa.webp" alt="Markéta Morong">
+          <div class="apt-agent-name">Bc. Markéta Morong, MBA</div>
           <div class="apt-agent-role">Obchodní manažerka projektu</div>
           <p class="apt-agent-quote">Ráda vám pošlu podklady, zodpovím dotazy a domluvím prohlídku přímo v resortu.</p>
           <div class="apt-agent-contacts">
@@ -934,18 +947,18 @@ fetch('/data/apartmany.json')
       koefEl.textContent = 'Tato jednotka má v poolu koeficient ' + a.koeficient.toFixed(2).replace('.', ',') + '. Koeficient je ze 30 % stejný pro všechny jednotky a ze 70 % odpovídá kupní ceně vůči průměru. Výnos se neodvíjí od obsazenosti jen tohoto apartmánu, ale od výsledku celého poolu.';
     }
 
-    /* ── Výnosové scénáře — z JSON (55 / 60 / 65 % obsazenosti) ── */
+    /* ── Výnosové scénáře — z JSON (45 / 55 / 65 % obsazenosti) ── */
     const cenaNum = typeof a.cena === 'number' ? a.cena : parseInt(String(a.cena || '').replace(/\D/g, ''), 10);
-    const mesKonz = a.vynos55 || 0;
-    const mesReal = a.vynos60 || 0;
+    const mesKonz = a.vynos45 || 0;
+    const mesReal = a.vynos55 || 0;
     const mesOpt  = a.vynos65 || 0;
     if (mesReal > 0) {
       const fmtKcMes = n => n.toLocaleString('cs-CZ') + ' Kč';
       document.getElementById('aptScenKonz').textContent    = fmtKcMes(mesKonz);
       document.getElementById('aptScenReal').textContent    = fmtKcMes(mesReal);
       document.getElementById('aptScenOpt').textContent     = fmtKcMes(mesOpt);
-      document.getElementById('aptScenKonzLbl').textContent = '/ měs. (55 % obs.)';
-      document.getElementById('aptScenRealLbl').textContent = '/ měs. (60 % obs.)';
+      document.getElementById('aptScenKonzLbl').textContent = '/ měs. (45 % obs.)';
+      document.getElementById('aptScenRealLbl').textContent = '/ měs. (55 % obs.)';
       document.getElementById('aptScenOptLbl').textContent  = '/ měs. (65 % obs.)';
 
       /* ── Financování hypotékou ── */
@@ -985,6 +998,17 @@ fetch('/data/apartmany.json')
         computeHypo();
         document.getElementById('aptHypoVybCheck').addEventListener('change', computeHypo);
         document.getElementById('aptHypoBox').style.display = '';
+      }
+
+      /* ── Garance splátky (5,5 % p.a., 80 % LTV, 30 let) ── */
+      if (!isNaN(cenaNum) && cenaNum > 0) {
+        const P = cenaNum * 0.8;
+        const iG = 0.055 / 12;
+        const nG = 360;
+        const splatkaG = P * iG / (1 - Math.pow(1 + iG, -nG));
+        const splatkaGRnd = Math.round(splatkaG / 100) * 100;
+        document.getElementById('aptGaranceVal').textContent = splatkaGRnd.toLocaleString('cs-CZ');
+        document.getElementById('aptGaranceRow').style.display = '';
       }
     }
 
