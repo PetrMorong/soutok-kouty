@@ -538,7 +538,6 @@
     .akce-banner-stitek { font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
     .akce-banner-nadpis { font-family:var(--f-display); font-size:clamp(1.2rem,2vw,1.6rem); color:var(--cream); margin:.3rem 0 .5rem; }
     .akce-banner-popis { font-size:.88rem; color:rgba(245,240,232,.65); line-height:1.55; max-width:520px; }
-    .akce-banner-zbyva { display:inline-block; margin-top:.6rem; font-size:.82rem; color:var(--gold); letter-spacing:.03em; }
     .garance-details { margin-top:.85rem; }
     .garance-summary { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); cursor:pointer; user-select:none; list-style:none; padding:.45rem 0; border-bottom:1px solid rgba(196,163,90,.2); }
     .garance-summary::-webkit-details-marker { display:none; }
@@ -548,7 +547,6 @@
     .garance-ul li { font-size:.82rem; color:rgba(245,240,232,.6); line-height:1.55; padding-left:1rem; position:relative; }
     .garance-ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
     .garance-smlouva { font-size:.78rem; color:rgba(245,240,232,.4); font-style:italic; margin-top:.5rem; }
-    .akce-vycerpana { color:rgba(245,240,232,.35); font-style:italic; }
 
     /* predprodej info + cenový schod */
     .predprodej-info { background:rgba(196,163,90,.07); border-left:3px solid var(--gold); padding:1.25rem 1.5rem; margin:1.75rem 0 0; border-radius:0 4px 4px 0; }
@@ -1300,21 +1298,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
-
-<!-- ─── AKCE: KUCHYŇSKÁ LINKA ──────────────────────────── -->
-<div class="akce-banner" id="akceBanner">
-  <div class="akce-banner-inner">
-    <div class="akce-banner-text">
-      <div class="akce-banner-stitek">/ Akce pro prvních 5 rezervací</div>
-      <div class="akce-banner-nadpis">Kuchyňská linka zdarma</div>
-      <p class="akce-banner-popis">Ke kupní ceně získáte kompletní kuchyňskou linku v hodnotě od 60&nbsp;000&nbsp;Kč. Apartmán je tak připravený k pronájmu od prvního dne.</p>
-      <div class="akce-banner-zbyva" id="akceZbyvaPopis">Zbývá <strong id="akceZbyvaNum">5</strong> z 5 míst</div>
-    </div>
-    <div class="akce-banner-btn">
-      <a href="#kontakt" class="btn-primary" id="akceBtn">Mám zájem →</a>
-    </div>
-  </div>
-</div>
 
 <!-- ─── GARANCE SPLÁTKY ──────────────────────────────── -->
 <div class="akce-banner" id="garance">
@@ -2199,14 +2182,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     navyseni_po: '5 %',
     dalsi_milnik: 'po dokončení fasády – říjen 2027'
   };
-  var AKCE_KUCHYN = {
-    aktivni: true,
-    pocet_celkem: 5,
-    pocet_zbyva: 5,
-    hodnota: 'od 60 000 Kč'
-  };
-
-  /* ── Progress bar + banner init ── */
+  /* ── Progress bar init ── */
   (function() {
     function initPredprodej(rezervovanoCount) {
       var celkem = 23;
@@ -2215,18 +2191,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var fillEl  = document.getElementById('rezFill');
       if (countEl) countEl.textContent = rezervovanoCount;
       if (fillEl)  fillEl.style.width  = pct + '%';
-
-      var banner = document.getElementById('akceBanner');
-      if (!banner) return;
-      if (!AKCE_KUCHYN.aktivni || AKCE_KUCHYN.pocet_zbyva <= 0) {
-        var popisEl = document.getElementById('akceZbyvaPopis');
-        var btnEl   = document.getElementById('akceBtn');
-        if (popisEl) popisEl.innerHTML = '<span class="akce-vycerpana">Akce vyčerpána</span>';
-        if (btnEl)   btnEl.style.display = 'none';
-      } else {
-        var numEl = document.getElementById('akceZbyvaNum');
-        if (numEl) numEl.textContent = AKCE_KUCHYN.pocet_zbyva;
-      }
     }
 
     fetch('data/apartmany.json')
@@ -2238,16 +2202,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         initPredprodej(n);
       })
       .catch(function() { initPredprodej(0); });
-
-    var akceBtn = document.getElementById('akceBtn');
-    if (akceBtn) {
-      akceBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var sel = document.getElementById('interest');
-        if (sel) sel.value = 'Akce – kuchyň zdarma';
-        document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
-      });
-    }
   })();
 
   /* ── Pre-fill form from ?unit= (proklik z apartman.html) ── */
