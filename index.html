@@ -914,7 +914,9 @@
     .about-video-ig { font-size: .8rem; color: var(--gold); text-decoration: none; letter-spacing: .06em; border-bottom: 1px solid rgba(196,163,90,.3); transition: border-color .2s; }
     .about-video-ig:hover { border-color: var(--gold); }
     .about-video-embed { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
-    @media (max-width: 768px) { .about-video { grid-template-columns: 1fr; gap: 2rem; } }
+    .about-video.reverse { grid-template-columns: 1.5fr 1fr; }
+    .about-video.reverse .about-video-media { order: -1; }
+    @media (max-width: 768px) { .about-video { grid-template-columns: 1fr; gap: 2rem; } .about-video.reverse { grid-template-columns: 1fr; } .about-video.reverse .about-video-media { order: 0; } }
 
     /* ═══════════════════════════════════════════
        NORD MORAVIA RESORTS (index)
@@ -1079,6 +1081,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           class="about-video-embed"
           src="https://www.youtube.com/embed/8PYiSpjmZ3E?rel=0&modestbranding=1"
           title="Soutok Kouty — stav před rekonstrukcí"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="about-video reverse reveal">
+      <div class="about-video-text">
+        <p class="section-tag">/ O projektu</p>
+        <h3>Vlastními slovy</h3>
+        <p class="about-video-desc">Petr Morong, zakladatel projektu, o tom proč Kouty, co projekt odlišuje a jak vznikal záměr vybudovat horský hotel nové generace.</p>
+      </div>
+      <div class="about-video-media">
+        <iframe
+          class="about-video-embed"
+          src="https://www.youtube.com/embed/SxQF-sw7JQo?rel=0&modestbranding=1"
+          title="Soutok Kouty — O projektu vlastními slovy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
