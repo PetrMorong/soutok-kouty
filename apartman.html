@@ -540,7 +540,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="apt-hypo-toggle-track"></span>
               <span class="apt-hypo-toggle-lbl">Zahrnout vybavení do hypotéky</span>
             </label>
-            <p class="apt-hypo-note">Kupní cena zahrnuje dokončený byt bez kuchyňské linky a nábytku. Vybavení jednotky si investor pořizuje samostatně — 250&nbsp;000&nbsp;Kč pro 1+kk, u jednotek s předzahrádkou více (zahrnuje i venkovní vybavení). Lze hradit z vlastních zdrojů nebo zahrnout do hypotéky. Propočet při sazbě 4,5&nbsp;% p.a., splatnost 30 let.</p>
+            <p class="apt-hypo-note">Kupní cena zahrnuje dokončený byt bez kuchyňské linky a nábytku. Vybavení jednotky si investor pořizuje samostatně — 300&nbsp;000&nbsp;Kč pro 1+kk, u jednotek s předzahrádkou více (zahrnuje i venkovní vybavení). Lze hradit z vlastních zdrojů nebo zahrnout do hypotéky. Propočet při sazbě 4,5&nbsp;% p.a., splatnost 30 let.</p>
 
             <p class="apt-hypo-title" style="margin-top:1rem">/ Čistý měsíční výnos (po splátce a SVJ)</p>
             <div class="apt-hypo-rows">
@@ -963,7 +963,7 @@ fetch('/data/apartmany.json')
 
       /* ── Financování hypotékou ── */
       if (!isNaN(cenaNum) && cenaNum > 0) {
-        const VYBAVENI = 250000;
+        const VYBAVENI = 300000;
         const rMes = SAZBA / 12;
         const n    = ROKY * 12;
         const fmtKc = v => v.toLocaleString('cs-CZ') + ' Kč';
